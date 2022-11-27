@@ -1,13 +1,9 @@
-import Navbar from "./components/Navbar";
-import Lpane from "./components/Lpane";
-import Body from "./components/Body";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Lpane />
-      <Body/>
+      <Dashboard/>
     </>   
   );
 }

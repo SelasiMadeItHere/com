@@ -9,14 +9,14 @@ import CardMembershipRounded from '@mui/icons-material/CardMembership';
 function Lpane() {
     return (
         <>
-            <div className='h-full z-10 fixed mt-[80px] grid grid-cols-2'>
-                <div className=' bg-sky-800 h-full w-full grid-flow-col'>
+            <div className='h-full z-10 fixed mt-[80px] grid grid-cols-1 space-x-6'>
+                <div className=' bg-sky-800 h-full grid-flow-col'>
                     <ul className='text-2xl text-white px-4 pt-20'>
-                        <li className=' py-3 border-gray-500 border-b-2'><DashboardIcon fontSize='large' className=' pr-2'/> DASHBOARD</li>
-                        <li className=' py-3 border-gray-500 border-b-2'><CreditCardIcon fontSize='large' className=' pr-2'/> ID CARD RENEWALS</li>
-                        <li className=' py-3 border-gray-500 border-b-2'><CardMembershipRounded fontSize='large' className=' pr-2'/> TRANSCRIPT APPLICATION</li>
-                        <li className=' py-3 border-gray-500 border-b-2'> <MilitaryTechIcon fontSize='large' className=' pr-2'/> CERTIFICATE APPLICATION</li>
-                        <li className=' py-3 border-gray-500 border-b-2'><ExitToAppIcon fontSize='large' className=' pr-2'/> DEFERMENT APPLICATION</li>
+                        <li className=' py-5 border-gray-500 border-b-2'><DashboardIcon fontSize='large' className=' pr-3'/> DASHBOARD</li>
+                        <li className=' py-5 border-gray-500 border-b-2'><CreditCardIcon fontSize='large' className=' pr-3'/> ID CARD RENEWALS</li>
+                        <li className=' py-5 border-gray-500 border-b-2'><CardMembershipRounded fontSize='large' className=' pr-2'/> TRANSCRIPT APPLICATION</li>
+                        <li className=' py-5 border-gray-500 border-b-2'> <MilitaryTechIcon fontSize='large' className=' pr-3'/> CERTIFICATE APPLICATION</li>
+                        <li className=' py-5 border-gray-500 border-b-2'><ExitToAppIcon fontSize='large' className=' pr-3'/> DEFERMENT APPLICATION</li>
                     </ul>
 
                     {/* LOGOS FOR FAQs OR POSING QUESTIONS */}
@@ -28,14 +28,9 @@ function Lpane() {
                             <li><UserIcon className='text-white w-12'/></li>
                             <li><UserGroupIcon className='text-white w-12'/></li>
                         </ul>
-                        
                     </div>
                 </div>
 
-                <div className=' text-center h-2/5 bg-zinc-200 m-5 grid w-2/4 rounded-md'>
-                    coasld
-                    dlskd
-                </div>
             </div>
         </>
     )
