@@ -1,60 +1,33 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Lpane from '../components/Lpane'
+import Dashcards from '../components/Dashcards'
 
 function Dashboard() {
     return (
+        // this set of code is for the navigation and left pane
         <div className=' fixed'>
             <div>
-            <Navbar />
-            <Lpane />
+                <Navbar />
+                <Lpane />
             </div>
-        
-            <div className='mt-[80px] grid grid-cols-6 flex-wrap space'>
-                <div className='bg-fuchsia-900 h-40 rounded-lg w-80 mt-[80px] '>
-                    <ul>
-                        <li>killshot</li>
-                        <li>sdjsdjsd</li>
-                    </ul>
+
+            {/* The code below signifies the main page */}
+            <div >
+                <div className='mt-[80px] grid flex-wrap space ml-80 '>
+                    <div className=' mt-10'>
+                        <div className='grid grid-cols-3 gap-14'>
+                            <Dashcards image={require('../assets/imgs/avatar2.png')} name="ID Renewal System" button="Details >>" className />
+                            <Dashcards image={require('../assets/imgs/exams.jpg')} name="Transcript Application System" button="Details >>" className />
+                            <Dashcards image={require('../assets/imgs/avatar2.png')} name="Deferment Application System" button="Details >>" className />
+                        </div>
+                    </div>
                 </div>
-                <div className='bg-fuchsia-900 h-40 rounded-lg w-80  mt-[80px]'>
-                    <ul>
-                        <li>killshot</li>
-                        <li>sdjsdjsd</li>
-                    </ul>
-                </div>
-                <div className='bg-fuchsia-900 h-40 rounded-lg w-80  mt-[80px] justify-around'>
-                    <ul>
-                        <li>killshot</li>
-                        <li>sdjsdjsd</li>
-                    </ul>
-                </div>
-                <div className='bg-fuchsia-900 h-40 rounded-lg w-80 mt-[80px]'>
-                    <ul>
-                        <li>killshot</li>
-                        <li>sdjsdjsd</li>
-                    </ul>
-                </div>
-                <div className='bg-fuchsia-900 h-40 rounded-lg w-80 mt-[80px] justify-between'>
-                    <ul>
-                        <li>killshot</li>
-                        <li>sdjsdjsd</li>
-                    </ul>
-                </div>
-                <div className='bg-fuchsia-900 h-40 rounded-lg w-80 mt-[80px] z-10 '>
-                    <ul>
-                        <li>killshot</li>
-                        <li>sdjsdjsdkkkkkkkkkkkkkkkkkkkkkkkkkkk</li>
-                    </ul>
-                </div>
-                <div className='bg-fuchsia-900 h-40 rounded-lg w-80 mt-[80px] z-10 '>
-                    <ul>
-                        <li>killshot</li>
-                        <li>sdjsadssssssssssssssssssssssssssdjsd</li>
-                    </ul>
+
+                <div className=' my-20 mx-96 text-3xl text-blue-700 font-600'>
+                    FREQUENTLY ASKED QUESTIONS
                 </div>
             </div>
-            
         </div>
     )
 }
