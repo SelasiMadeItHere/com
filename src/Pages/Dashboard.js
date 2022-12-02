@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Lpane from '../components/Lpane'
 import Dashcards from '../components/Dashcards'
 
+
 function Dashboard() {
     return (
         // this set of code is for the navigation and left pane
@@ -27,6 +28,7 @@ function Dashboard() {
                 <div className=' my-20 mx-96 text-3xl text-blue-700 font-600'>
                     FREQUENTLY ASKED QUESTIONS
                 </div>
+
             </div>
         </div>
     )
