@@ -1,0 +1,61 @@
+ADMIN PANEL
+The admin panel has a fixed pane which allows the admins to access the different services.
+
+The chief admin must have the following features: Personnel info and status, modify their status, address any of the issues or services,
+set frequently asked questions, assign staff to particular units
+
+//THE ID CARD UNIT 
+1. Collect information on ID card renewals
+2. Generate list of ID cards being renewed through DFA's (confirmation)
+3. Set status of an ID request (pending, not worked on)
+4. System should inform the unit of cards due for expiration
+
+
+//DEFERRMENT UNIT
+1. Receives forms from students applying for deferrment
+2. Review the reasons and conditions necessary for deferrment
+3. Set stauts of application (Accepted, waiting for approval, Denied)
+4. Sent to Registrar
+5. Generate report per semester
+
+
+//CERTIFICATE UNIT
+1. Receives forms from students apply for Certificate
+2. Checks for eligibility
+3. Sets status (being worked on)
+4. Sends to Registrar or OOTP for approval
+
+
+//DFA UNIT
+1. Enter the details of student making payment and purpose (CERT, ID, TRANS, DEFER)  
+2. Generate weekly or monthly report of requests' payment done
+3. Generate reports on purposes of payments
+4. Set status of payment (received, balance remaining (might have to review that))
+
+
+//REGISTRAR'S OFFICE
+1. Receives forms from Deferment Unit and processes it (Accepted, Denied)
+2.  a. Receives forms from Transcript Unit
+    b. Checks eligibility
+    c. Makes Decision (Approve, Denied)
+3.  a. Receives Certificate Applications
+    b. Checks eligibility and sets status (Being worked on)
+    c. Forwards to the office of the president for approval
+    d. Receives approval from the OOTP
+    e. Sets status based on approval (Accepted, Denied)
+
+
+//THE OFFICE OF THE PRESIDENT
+1.  a. Receives forms for approval on Transcripts
+    b. Checks for eligibility
+    c. Approves
+2.  a. Receives forms for approval on Certificates
+    b. Checks for eligibility
+    c. Approves
+
+
+//Users
+1. Fill forms pertaining the service they want (Cert, ID, Transcript, Deferment)
+2. Track their requests' status
+3. Keep track of their request with token number
+4. 

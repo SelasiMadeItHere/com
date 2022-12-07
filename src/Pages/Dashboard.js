@@ -4,6 +4,7 @@ import Lpane from '../components/Lpane'
 import Dashcards from '../components/Dashcards'
 
 
+
 function Dashboard() {
     return (
         // this set of code is for the navigation and left pane
@@ -20,6 +21,8 @@ function Dashboard() {
                         <div className='grid grid-cols-3 gap-14'>
                             <Dashcards image={require('../assets/imgs/avatar2.png')} name="ID Renewal System" button="Details >>" className />
                             <Dashcards image={require('../assets/imgs/exams.jpg')} name="Transcript Application System" button="Details >>" className />
+                            <Dashcards image={require('../assets/imgs/apply-device.jpg')} name="Deferment Application System" button="Details >>" className />
+                            <Dashcards image={require('../assets/imgs/avatar2.png')} name="Deferment Application System" button="Details >>" className />
                             <Dashcards image={require('../assets/imgs/avatar2.png')} name="Deferment Application System" button="Details >>" className />
                         </div>
                     </div>

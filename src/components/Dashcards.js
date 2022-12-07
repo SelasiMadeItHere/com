@@ -3,11 +3,11 @@ import React from 'react';
 import Button from "@mui/material/Button";
 // import {useNavigate} from "react-router-dom"
 
-const Dashcards = ({ image, name, description, button }) => {
+const Dashcards = ({ image, name, button }) => {
     return (
         <>
             <div className=' bg-white shadow-xl rounded-xl px-10 py-10 grid mx-5'>
-                <div className=' justify-items-center'>
+                <div className=' text-centercs'>
                     <img className=' rounded-lg w-40 h-20' src={image} alt='holder' />
                 </div>
                 
