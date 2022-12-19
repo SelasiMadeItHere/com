@@ -8,33 +8,20 @@ import Dashcards from '../components/Dashcards'
 function Dashboard() {
     return (
         // this set of code is for the navigation and left pane
-        <div className=' fixed'>
+        <div className=' bg-slate-400 grid grid-cols-5 md:h-full lg:h-screen'>
             <div>
                 <Navbar />
-                <Lpane />
+                <Lpane className="col-span-1"/>
             </div>
 
             {/* The code below signifies the main page */}
-            <div >
-                <div className='mt-[80px] grid flex-wrap space ml-80 '>
-                    <div className=' mt-10'>
-                        <div className='grid grid-cols-3 gap-14'>
-                            <Dashcards image={require('../assets/imgs/avatar2.png')} name="ID Renewal System" button="Details >>" className />
-                            <Dashcards image={require('../assets/imgs/exams.jpg')} name="Transcript Application System" button="Details >>" className />
-                            <Dashcards image={require('../assets/imgs/apply-device.jpg')} name="Deferment Application System" button="Details >>" className />
-                            <Dashcards image={require('../assets/imgs/avatar2.png')} name="Deferment Application System" button="Details >>" className />
-                            <Dashcards image={require('../assets/imgs/avatar2.png')} name="Deferment Application System" button="Details >>" className />
-                        </div>
-                    </div>
-                </div>
-
-                <div className=' my-20 mx-96 text-3xl text-blue-700 font-600'>
-                    FREQUENTLY ASKED QUESTIONS
-                </div>
-
+            <div className='grid lg:grid-cols-3 col-start-2 col-span-3 gap-3 py-3 mt-28'>
+                <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"EXPLORE"}/>
+                <Dashcards image={require("../assets/imgs/exams.jpg")} name="ID Card Renewal" button={"EXPLORE"}/>
+                <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"EXPLORE"}/>
             </div>
         </div>
     )
 }
 
-export default Dashboard
+export default Dashboard;

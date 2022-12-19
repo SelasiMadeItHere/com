@@ -12,9 +12,10 @@ set frequently asked questions, assign staff to particular units
 
 
 //DEFERRMENT UNIT
-1. Receives forms from students applying for deferrment
+1. Receives forms from students applying for deferrment: 
+    Views the request in a list and previews the reequest in the form of a modal form
 2. Review the reasons and conditions necessary for deferrment
-3. Set stauts of application (Accepted, waiting for approval, Denied)
+3. Set status of application (Accepted, waiting for approval, Denied)
 4. Sent to Registrar
 5. Generate report per semester
 

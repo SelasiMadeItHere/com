@@ -10,15 +10,15 @@ import CardMembershipRounded from '@mui/icons-material/CardMembership';
 function Lpane() {
     return (
         <>
-            <div className=' fixed z-10 mt-[80px] grid grid-cols-4 left-0 '>
-                <div className=' bg-sky-800 h-full grid-flow-col'>
-                    <ul className=' text-white px-4 pt-20'>
+            <div className=' z-10 mt-[80px] h-screen left-0 fixed'>
+                <div className=' bg-sky-800 h-screen'>
+                    <ul className=' text-white px-4  cursor-pointer '>
                         <li className=' py-5 border-gray-500 border-b-2'>
                             <DashboardIcon fontSize='large' className=' pr-3' />
                                 DASHBOARD
                         </li>
 
-                        <li className=' py-5 border-gray-500 border-b-2'>
+                        <li className=' py-5 border-gray-500 border-b-2 ' to="/cardrenewal">
                             <CreditCardIcon fontSize='large' className=' pr-3' />
                                 ID CARD RENEWALS
                         </li>
