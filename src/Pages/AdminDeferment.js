@@ -5,16 +5,16 @@ import { Card, Table, TableRow, TableCell, TableHead, TableBody, Button } from '
 
 function AdminDeferment() {
     return (
-        <div className='bg-slate-400 grid grid-cols-6 mt-5 h-screen'>
+        <div className='bg-slate-400 grid grid-cols-9'>
             <div>
-                <Navbar />
-                <Lpane className='col-span-1'/>   
+                <Navbar/>
+                <Lpane className='col-span-2'/>   
             </div>
 
-            <div className='m-20 col-span-5'>
+            <div className='mt-20 grid col-span-7 col-start-3'>
                 <Card>
-                    <h1 className=' text-2xl font-semibold text-center mt-5'>Card Renewal Requests</h1>
-                    <Table className='mt-10'>
+                    <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>
+                    <Table className='mt-5'>
                         <TableHead>
                             <TableRow>
                                 <TableCell style={{fontWeight: "bolder"}}>ID NUMBER</TableCell>
@@ -43,9 +43,11 @@ function AdminDeferment() {
                                     <Button className='mt-7' variant="contained">EDIT</Button>
                                     <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
                                 </TableCell>
-
                             </TableRow>
 
+                            <TableRow>
+                                
+                            </TableRow>
                         </TableBody>
                     </Table>
                 </Card>

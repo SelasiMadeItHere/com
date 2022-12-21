@@ -3,6 +3,7 @@ import Dashboard from "./Pages/Dashboard"
 import AdminCardrenewal from "./Pages/AdminCardrenewal"
 import Userindex from "./Pages/Userindex"
 import AdminDeferment from "./Pages/AdminDeferment";
+import UserCardrenewal from "./Pages/UserCardrenewal";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
         <Route path="/userindex" element={<Userindex />} />
         <Route path="/admindeferment" element={<AdminDeferment />} />
+        <Route path="/studentcard" element={<UserCardrenewal />} />
       </Routes>
     </BrowserRouter> 
   );

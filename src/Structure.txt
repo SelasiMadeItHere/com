@@ -5,7 +5,7 @@ The chief admin must have the following features: Personnel info and status, mod
 set frequently asked questions, assign staff to particular units
 
 //THE ID CARD UNIT 
-1. Collect information on ID card renewals
+1. Collect information on ID card renewals      
 2. Generate list of ID cards being renewed through DFA's (confirmation)
 3. Set status of an ID request (pending, not worked on)
 4. System should inform the unit of cards due for expiration
@@ -56,7 +56,7 @@ set frequently asked questions, assign staff to particular units
 
 
 //Users
-1. Fill forms pertaining the service they want (Cert, ID, Transcript, Deferment)
-2. Track their requests' status
-3. Keep track of their request with token number
-4. 
+1. Students Register after selecting their service
+2. Fill forms pertaining the service they want (Cert, ID, Transcript, Deferment)
+3. Track their requests' status
+4. Keep track of their request with token number

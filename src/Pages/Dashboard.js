@@ -18,8 +18,9 @@ function Dashboard() {
             {/* The code below signifies the main page */}
             <div className='grid lg:grid-cols-3 col-span-4 gap-3 py-3 mt-28'>
                 <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"EXPLORE"}/>
-                <Dashcards image={require("../assets/imgs/exams.jpg")} name="ID Card Renewal" button={"EXPLORE"}/>
-                <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"EXPLORE"}/>
+                <Dashcards image={require("../assets/imgs/exams.jpg")} name="Deferment Application" button={"EXPLORE"}/>
+                <Dashcards image={require("../assets/imgs/idcards.jpg")} name="Transcript Application" button={"EXPLORE"}/>
+                <Dashcards image={require("../assets/imgs/idcards.jpg")} name="Transcript Application" button={"EXPLORE"}/>
             </div>
         </div>
     )
