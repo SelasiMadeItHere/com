@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 const Dashcards = ({ image, name, button }) => {
     return (
         <>
-            <div className=' bg-white shadow-xl rounded-xl px-6 py-8 grid mx-3 h-60 place-items-center md:w-auto lg:w-auto'>
+            <div className=' bg-white shadow-xl rounded-xl px-6 py-8 grid mx-3 h-60 place-items-center md:max-w-md lg:max-w-lg'>
                 <div className=' place-items-center'>
                     <img className=' rounded-lg' src={image} style={{ width: "100%", maxHeight: 120, maxWidth: 180 }} alt='holder' />
                 </div>

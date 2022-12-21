@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Dashboard from "./Pages/Dashboard"
-import Cardrenewal from "./Pages/Cardrenewal"
+import AdminCardrenewal from "./Pages/AdminCardrenewal"
 import Userindex from "./Pages/Userindex"
 import AdminDeferment from "./Pages/AdminDeferment";
 
@@ -10,7 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/cardrenewal" element={<Cardrenewal />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
         <Route path="/userindex" element={<Userindex />} />
         <Route path="/admindeferment" element={<AdminDeferment />} />
       </Routes>

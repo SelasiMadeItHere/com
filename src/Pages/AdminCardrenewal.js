@@ -7,16 +7,16 @@ import { Card, Table, TableHead, TableRow, TableBody, TableCell } from '@mui/mat
 
 function Cardrenewal() {
   return (
-    <div className=' bg-slate-400 grid grid-cols-8 md:h-full lg:h-screen mt-5'>
+    <div className=' bg-slate-400 grid grid-cols-9 md:h-full lg:h-screen'>
       <div>
         <Navbar />
-        <Lpane />
+        <Lpane className='col-span-2'/>
       </div>
 
-      <div className='m-20 col-span-7'>
+      <div className='mt-20 grid col-span-8 col-start-3'>
         <Card>
-          <h1 className=' text-2xl font-semibold text-center mt-5'>Card Renewal Requests</h1>
-          <Table className='mt-10'>
+          <h1 className=' text-2xl font-semibold text-center bg-slate-800 text-white p-6'>Card Renewal Requests</h1>
+          <Table className='mt-5'>
             <TableHead>
               <TableRow>
                 <TableCell>ID NUMBER</TableCell>
@@ -32,7 +32,7 @@ function Cardrenewal() {
 
             <TableBody>
               <TableRow>
-                <TableCell></TableCell>
+                <TableCell>fgctff</TableCell>
               </TableRow>
             
             </TableBody>
