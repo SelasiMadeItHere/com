@@ -13,13 +13,13 @@ function Cardrenewal() {
         <Lpane className='col-span-2'/>
       </div>
 
-      <div className='mt-20 grid col-span-7 col-start-3'>
+      <div className='mt-20 grid col-span-8 col-start-3 w-[90%] '>
         <Card>
           <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Card Renewal Requests</h1>
           <Table className='mt-5'>
             <TableHead>
               <TableRow>
-                <TableCell style={{fontWeight: "bolder"}}>ID NUMBER</TableCell>
+                <TableCell style={{fontWeight: "bolder"}}>ID NO.</TableCell>
                 <TableCell style={{fontWeight: "bolder"}}>FIRST NAME</TableCell>
                 <TableCell style={{fontWeight: "bolder"}}>MIDDLE NAME</TableCell>
                 <TableCell style={{fontWeight: "bolder"}}>SURNAME NAME</TableCell>
