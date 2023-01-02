@@ -1,13 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Navbar from '../components/Navbar'
-// import Lpane from '../components/Lpane'
-// import { Card } from '@mui/material'
 import Dashcards from '../components/Dashcards'
 import { Form, Link } from 'react-router-dom'
-import { Modal, Input} from '@mui/material'
-import IDchoice from './IDchoice'
+// import { Modal, Input} from '@mui/material'
+// import IDchoice from './IDchoice'
+import ModalCont from '../components/ModalCont'
 
 function Newrequest() {
+
+  // const [show, setShow] = useState(false);
+
+  // const idmodalhide = () => setShow(false);
+  // const idmodalShow = () => setShow(true)
+
   return (
     <>
 
@@ -19,11 +24,35 @@ function Newrequest() {
       </div>
 
       <div className=' bg-slate-200 h-auto py-12 grid lg:grid-cols-6'>
+
         <div className='grid lg:grid-cols-4 lg:col-span-6 gap-3 mt-12'>
-          <Link to="/idchoice">
-            <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"Apply"} />
-            </Link>
+          {/* <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={<ModalCont/>}  /> */}
+            {/* <Modal show={idmodalShow} onHide={idmodalhide} backdrop="static" keyboard={false}>
+              <Modal.Header>
+                ID CARD RENEWAL
+              </Modal.Header>
+
+              <Modal.Body>
+                <Form>
+                  <label>RECEIPT NUMBER</label>
+                  <input type='text' name="receiptno"/>
+                  <label>RECEIPT NUMBER</label>
+                  <input type='text' name='receiptno'/>
+                  <label>RECEIPT NUMBER</label>
+                  <input type='text' name='receiptno'/>
+                  <label>RECEIPT NUMBER</label>
+                  <input type='text' name='receiptno'/>
+                  <label>RECEIPT NUMBER</label>
+                  <input type='text' name='receiptno'/>
+
+                </Form>
+              </Modal.Body>
+            </Modal> */}
           
+          <Link to="/modaltrial">
+            <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID renewal Application" button={"Apply"} />
+          </Link>
+
           <Link to="/admindeferment">
             <Dashcards image={require("../assets/imgs/exams.jpg")} name="Deferment Application" button={"Apply"} />
           </Link>

@@ -6,6 +6,7 @@ import AdminDeferment from "./Pages/AdminDeferment";
 import UserCardrenewal from "./Pages/UserCardrenewal";
 import Newrequest from "./Pages/Newrequest";
 import IDchoice from "./Pages/IDchoice";
+import ModalCont from "./components/ModalCont";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/studentcard" element={<UserCardrenewal />} />
         <Route path="/newrequest" element={<Newrequest />} />
         <Route path="/idchoice" element={<IDchoice/>}/>
+        <Route path="/modaltrial" element={<ModalCont/>}/>
       </Routes>
     </BrowserRouter> 
   );
