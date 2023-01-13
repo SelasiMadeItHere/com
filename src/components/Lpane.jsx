@@ -11,7 +11,7 @@ import { Link} from 'react-router-dom';
 function Lpane() {
     return (
         <>
-            <div className=' z-10 mt-[40px] h-screen left-0 fixed'>
+            <div className=' z-10 lg:mt-[8%] md:mt-{5%} h-screen left-0 fixed'>
                 <div className=' bg-sky-800 h-screen'>
                     <ul className=' text-white px-4  cursor-pointer '>
                         <li className=' py-5 border-gray-500 border-b-2'>
@@ -70,7 +70,7 @@ function Lpane() {
                     </ul>
 
                     {/* LOGOS FOR FAQs OR POSING QUESTIONS */}
-                    <div>
+                    <div className='sm:hidden '>
                         <ul className=' inline-flex'>
                             <li><ChatBubbleLeftIcon className='text-white w-12' /></li>
 
