@@ -5,7 +5,7 @@ import { Card, Table, TableRow, TableCell, TableHead, TableBody, Button } from '
 
 function AdminDeferment() {
     return (
-        <div className='bg-slate-400 grid grid-cols-9 h-screen'>
+        <div className='bg-slate-400 grid grid-cols-9 h-full min-h-screen'>
             <div>
                 <Navbar/>
                 <Lpane className='col-span-2'/>   
@@ -46,7 +46,48 @@ function AdminDeferment() {
                             </TableRow>
 
                             <TableRow>
-                                
+                                <TableCell>ADS19B00205Y</TableCell>
+                                <TableCell>Precious</TableCell>
+                                <TableCell>Selasi</TableCell>
+                                <TableCell>Agbesi</TableCell>
+                                <TableCell>BSc Information Technology</TableCell>
+                                <TableCell>400</TableCell>
+                                <TableCell>Seaview</TableCell>
+                                <TableCell>Unattended To</TableCell>
+                                <TableCell className=' h-1 inline'>
+                                    <Button className='mt-7' variant="contained">EDIT</Button>
+                                    <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
+                                </TableCell>
+                            </TableRow>
+
+                            <TableRow>
+                                <TableCell>ADS19B00205Y</TableCell>
+                                <TableCell>Precious</TableCell>
+                                <TableCell>Selasi</TableCell>
+                                <TableCell>Agbesi</TableCell>
+                                <TableCell>BSc Information Technology</TableCell>
+                                <TableCell>400</TableCell>
+                                <TableCell>Seaview</TableCell>
+                                <TableCell>Unattended To</TableCell>
+                                <TableCell className=' h-1 inline'>
+                                    <Button className='mt-7' variant="contained">EDIT</Button>
+                                    <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
+                                </TableCell>
+                            </TableRow>
+
+                            <TableRow>
+                                <TableCell>ADS19B00205Y</TableCell>
+                                <TableCell>Precious</TableCell>
+                                <TableCell>Selasi</TableCell>
+                                <TableCell>Agbesi</TableCell>
+                                <TableCell>BSc Information Technology</TableCell>
+                                <TableCell>400</TableCell>
+                                <TableCell>Seaview</TableCell>
+                                <TableCell>Unattended To</TableCell>
+                                <TableCell className=' h-1 inline'>
+                                    <Button className='mt-7' variant="contained">EDIT</Button>
+                                    <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
+                                </TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>

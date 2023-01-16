@@ -8,6 +8,7 @@ import Newrequest from "./Pages/Newrequest";
 import IDchoice from "./Pages/IDchoice";
 import ModalCont from "./components/ModalCont";
 import Finance from "./Pages/Finance";
+import UserDeferment from "./Pages/UserDeferment";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/idchoice" element={<IDchoice/>}/>
         <Route path="/modaltrial" element={<ModalCont/>}/>
         <Route path="/finance" element={<Finance/>}/>
+        <Route path="/defermentapplication" element={<UserDeferment/>}/>
       </Routes>
     </BrowserRouter> 
   );

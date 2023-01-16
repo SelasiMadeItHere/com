@@ -53,7 +53,7 @@ function Newrequest() {
             <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID renewal Application" button={"Apply"} />
           </Link>
 
-          <Link to="/admindeferment">
+          <Link to="/userdeferment">
             <Dashcards image={require("../assets/imgs/exams.jpg")} name="Deferment Application" button={"Apply"} />
           </Link>
           <Link to="/admincertificate">
