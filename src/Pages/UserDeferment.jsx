@@ -16,7 +16,7 @@ function UserDeferment() {
 
                 <div className=' z-0'>
                     <form className='bg-white rounded-xl drop-shadow-md p-12 mx-24'>
-                        <p className=' font-bold text-sky-800'>PERSONAL IDENTIFICATION</p>
+                        <p className=' font-bold text-sky-800 p-8'>PERSONAL IDENTIFICATION</p>
 
                         <div className='grid font-bold text-blue-600 text-lg'>
 
@@ -53,7 +53,7 @@ function UserDeferment() {
                                         <label> Other Name(optional)</label>
                                     </div>
                                     <div className='grid-rows-2'>
-                                        <Input name='' />
+                                        <Input name='blahblah bblah' type='number' />
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ function UserDeferment() {
 
 
                             {/* Reminder: Request for deferment form form DFA*/}
-                            <p className=' font-bold text-sky-800'>ACADEMIC INFORMATION</p>
+                            <p className=' font-bold text-sky-800 p-12'>ACADEMIC INFORMATION</p>
 
                             <div className='grid lg:grid-cols-3'>
 
@@ -119,32 +119,42 @@ function UserDeferment() {
 
                                 <div className=' grid-rows-2 pb-12'>
                                     <div className='grid-rows-1'>
-                                        <label >First name</label>
+                                        <label >Have You Ever Applied For Deferment?</label>
                                     </div>
 
                                     <div className='grid-rows-2'>
-                                        <Input name='' />
+                                        <div className=' px-6'>
+                                            <input type="radio" name="yes" id="applied_before" value={'YES'} />
+                                            <label htmlFor="applied_before">YES</label>
+                                        
+                                            <input type="radio" name="yes" id="applied_before" value={'NO'} />
+                                            <label htmlFor="applied_before">NO</label>
+                                        </div>
                                     </div>
-                                </div>
 
-
-                                <div className=' grid-rows-2 pb-6'>
-                                    <div className='grid-rows-1'>
-                                        <label >First name</label>
-                                    </div>
-
-                                    <div className='grid-rows-2'>
-                                        <Input name='' />
-                                    </div>
                                 </div>
                             </div>
 
+
+                            <div className=' grid-rows-2 pb-6'>
+                                <div className='grid-rows-1'>
+                                    <label >First name</label>
+                                </div>
+
+                                <div className='grid-rows-2'>
+                                    <textarea placeholder='Enter your reason for applying for deferment'>
+
+                                    </textarea>
+                                </div>
+                            </div>
                         </div>
-
-
                     </form>
                 </div>
             </div>
+
+
+
+        
         </>
 
     )
