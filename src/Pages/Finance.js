@@ -9,7 +9,7 @@ import { UserIcon } from '@heroicons/react/20/solid'
 function Finance() {
     return (
         <>
-            <div className='grid-cols-1'>
+            <div className='grid-cols-1 fixed'>
                 <Lpane />
                 <Navbar />
             </div>
