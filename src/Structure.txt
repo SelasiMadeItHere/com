@@ -55,8 +55,12 @@ set frequently asked questions, assign staff to particular units
     c. Approves
 
 
-//Users
+
+
+
+
+USER PANEL
 1. Students Register after selecting their service
 2. Fill forms pertaining the service they want (Cert, ID, Transcript, Deferment)
-3. Track their requests' status
+3. On completion or form submission, A success message is displayed and Token ID generated
 4. Keep track of their request with token number

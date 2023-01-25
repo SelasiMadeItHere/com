@@ -5,12 +5,10 @@ function IDchoice() {
   return (
       <>
         <div className='bg-slate-200 h-full'>
-          <div className='fixed'><Navbar/></div>
-
-          <div className=' fixed'>
-            sdvj  
-          </div>
+          <div><Navbar/></div>
         </div>
+
+        <img className=' mt-12 bg-yellow-800' src='../assets/imgs/no-pic.png' alt='logo' />
       </>
 
   )

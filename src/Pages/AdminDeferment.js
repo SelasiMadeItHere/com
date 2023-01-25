@@ -7,8 +7,8 @@ function AdminDeferment() {
     return (
         <div className='bg-slate-400 grid grid-cols-9 h-full min-h-screen'>
             <div>
-                <Navbar/>
-                <Lpane className='col-span-2'/>   
+                <Navbar />
+                <Lpane className='col-span-2' />
             </div>
 
             <div className='mt-20 grid col-span-8 col-start-3 w-[90%] '>
@@ -17,18 +17,18 @@ function AdminDeferment() {
                     <Table className='mt-5'>
                         <TableHead>
                             <TableRow>
-                                <TableCell style={{fontWeight: "bolder"}}>ID NO.</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>FIRST NAME</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>MIDDLE NAME</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>SURNAME NAME</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>PROGRAM</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>LEVEL</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>CAMPUS</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>ACTION</TableCell>
-                                <TableCell style={{fontWeight: "bolder"}}>STATUS</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>ID NO.</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>FIRST NAME</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>MIDDLE NAME</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>SURNAME NAME</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>PROGRAM</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>LEVEL</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>CAMPUS</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>STATUS</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>ACTION</TableCell>
                             </TableRow>
                         </TableHead>
-                        
+
                         <TableBody>
                             <TableRow>
                                 <TableCell>ADS19B00205Y</TableCell>
@@ -41,7 +41,7 @@ function AdminDeferment() {
                                 <TableCell>Unattended To</TableCell>
                                 <TableCell className=' h-1 inline'>
                                     <Button className='mt-7' variant="contained">EDIT</Button>
-                                    <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
+                                    <Button className='mt-7' style={{ color: "red" }} >DELETE</Button>
                                 </TableCell>
                             </TableRow>
 
@@ -56,7 +56,7 @@ function AdminDeferment() {
                                 <TableCell>Unattended To</TableCell>
                                 <TableCell className=' h-1 inline'>
                                     <Button className='mt-7' variant="contained">EDIT</Button>
-                                    <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
+                                    <Button className='mt-7' style={{ color: "red" }} >DELETE</Button>
                                 </TableCell>
                             </TableRow>
 
@@ -71,7 +71,7 @@ function AdminDeferment() {
                                 <TableCell>Unattended To</TableCell>
                                 <TableCell className=' h-1 inline'>
                                     <Button className='mt-7' variant="contained">EDIT</Button>
-                                    <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
+                                    <Button className='mt-7' style={{ color: "red" }} >DELETE</Button>
                                 </TableCell>
                             </TableRow>
 
@@ -86,7 +86,7 @@ function AdminDeferment() {
                                 <TableCell>Unattended To</TableCell>
                                 <TableCell className=' h-1 inline'>
                                     <Button className='mt-7' variant="contained">EDIT</Button>
-                                    <Button className='mt-7'  style={{color:"red"}} >DELETE</Button>
+                                    <Button className='mt-7' style={{ color: "red" }} >DELETE</Button>
                                 </TableCell>
                             </TableRow>
                         </TableBody>

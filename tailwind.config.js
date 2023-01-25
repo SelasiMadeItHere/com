@@ -11,6 +11,14 @@ module.exports = {
     xl: '1280px',
     '2xl': '1536px'
   },
+  fill: ({ theme }) => ({
+    gray: theme('colors.gray')
+  }),
+
+  extend:{
+    backgroundColor: 'bg-slate-400'
+  },
+
   plugins: [],
 
 }

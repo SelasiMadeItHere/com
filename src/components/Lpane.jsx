@@ -11,8 +11,9 @@ import { Link} from 'react-router-dom';
 function Lpane() {
     return (
         <>
-            <div className=' z-10 lg:mt-[8%] md:mt-{5%} h-screen left-0 fixed'>
+            <div className=' z-10 md:mt-{5%} h-screen left-0 fixed'>
                 <div className=' bg-sky-800 h-screen'>
+                
                     <ul className=' text-white px-4  cursor-pointer '>
                         <li className=' py-5 border-gray-500 border-b-2'>
                             <Link to="/dashboard"><DashboardIcon fontSize='large' className=' pr-3' />

@@ -6,9 +6,12 @@ import AdminDeferment from "./Pages/AdminDeferment";
 import UserCardrenewal from "./Pages/UserCardrenewal";
 import Newrequest from "./Pages/Newrequest";
 import IDchoice from "./Pages/IDchoice";
-import ModalCont from "./components/ModalCont";
+import ModalCard from "./components/ModalCard";
 import Finance from "./Pages/Finance";
 import UserDeferment from "./Pages/UserDeferment";
+// import ModalComplaint from "./components/ModalComplaint";
+import BasicModal from "./components/ModalComplaint";
+import UserCertificate from "./Pages/UserCertificate";
 
 
 function App() {
@@ -23,9 +26,12 @@ function App() {
         <Route path="/studentcard" element={<UserCardrenewal />} />
         <Route path="/newrequest" element={<Newrequest />} />
         <Route path="/idchoice" element={<IDchoice/>}/>
-        <Route path="/modaltrial" element={<ModalCont/>}/>
+        <Route path="/modaltrial" element={<ModalCard/>}/>
         <Route path="/finance" element={<Finance/>}/>
         <Route path="/defermentapplication" element={<UserDeferment/>}/>
+        <Route path='/modalcomplaint' element={<BasicModal/>}/>
+        <Route path="/usercertificate" element={<UserCertificate/>}/>
+        
       </Routes>
     </BrowserRouter> 
   );
