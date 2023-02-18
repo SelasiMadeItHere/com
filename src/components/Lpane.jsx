@@ -11,7 +11,7 @@ import { Link} from 'react-router-dom';
 function Lpane() {
     return (
         <>
-            <div className=' z-10 md:mt-{5%} h-screen left-0 fixed'>
+            <div className=' z-10 mt-20 h-screen left-0 fixed'>
                 <div className=' bg-sky-800 h-screen'>
                 
                     <ul className=' text-white px-4  cursor-pointer '>
@@ -50,7 +50,7 @@ function Lpane() {
                         </li>
 
                         <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/admindeferment">
+                            <Link to="/registrar">
                                 <AdminPanelSettings fontSize='large' className=' pr-3' />
                                 REGISTRAR'S PORTAL
                                 </Link>

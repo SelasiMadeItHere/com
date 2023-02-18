@@ -12,6 +12,8 @@ import UserDeferment from "./Pages/UserDeferment";
 // import ModalComplaint from "./components/ModalComplaint";
 import BasicModal from "./components/ModalComplaint";
 import UserCertificate from "./Pages/UserCertificate";
+import Registrar from "./Pages/Registrar";
+
 
 
 function App() {
@@ -31,7 +33,7 @@ function App() {
         <Route path="/defermentapplication" element={<UserDeferment/>}/>
         <Route path='/modalcomplaint' element={<BasicModal/>}/>
         <Route path="/usercertificate" element={<UserCertificate/>}/>
-        
+        <Route path="/registrar" element={<Registrar/>}/>
       </Routes>
     </BrowserRouter> 
   );

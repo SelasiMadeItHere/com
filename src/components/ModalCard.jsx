@@ -3,9 +3,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import FormGroup from '@mui/material/FormGroup';
+// import FormGroup from '@mui/material/FormGroup';
 import SendIcon from '@mui/icons-material/Send';
 import Close from '@mui/icons-material/Close'
+// import Database from '../Server/Database.php'
 
 // import ModalComplaint from '../components/ModalComplaint';
 // import Input from '@mui/material/Input';
@@ -41,14 +42,14 @@ function ChildModal() {
         <Box sx={{ ...style, width: 600 }}>
           <h2 id="child-modal-title" className=' text-center text-2xl font-bold'>ID Card Renewal</h2>
           <p id="child-modal-description">
-            <FormGroup className=' p-6 drop-shadow-12 '>
+            <form className=' p-6 drop-shadow-12' action='Database.js' method='post'>
               <div className=' grid grid-cols-2 gap-3 p-6' >
 
                 <label className=' font-bold'> ENTER YOUR ID NUMBER</label>
-                <input placeholder='Enter Your ID Number' className=' border-sky-800 border-2 rounded w-[100%] p-2' />
+                <input placeholder='Enter Your ID Number' className=' border-sky-800 border-2 rounded w-[100%] p-2' name='id' />
 
                 <label className=' font-bold p-2'>CAMPUS OF COLLECTION</label>
-                <select className=' border-sky-800 border-2 rounded'>
+                <select className=' border-sky-800 border-2 rounded' name='campus'>
                   <option>--Select--</option>
                   <option>SEAVIEW</option>
                   <option>KCC Campus</option>
@@ -70,17 +71,19 @@ function ChildModal() {
 
                 <div className=' text-center p-6 col-span-2'>
                   <label className=' font-bold'>UPLOAD PROOF OF PAYMENT</label>
-                  <input type='file' className=' 2 border-sky-700 border-2' />
+                  <input type='file' className=' 2 border-sky-700 border-2' name=' paymentproof' />
 
                 </div>
-
+                <input type='submit' name='submit' value='Submit' onclick= 'window.alert("Submitted")' className=' bg-sky-700 text-white'/>
               </div>
-            </FormGroup>
+
+              <div className=' grid grid-cols-4'>
+                <Button className=' text-left col-start-2 text-red-400 hover:text-red-500' onClick={handleClose} variant='error' endIcon={<Close />}>Cancel</Button>
+                <Button className=' text-right' onclick='' variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
+              </div>
+            </form>
           </p>
-          <div className=' grid grid-cols-4'>
-            <Button className=' text-left col-start-2 text-red-400 hover:text-red-500' onClick={handleClose} variant='error' endIcon={<Close />}>Cancel</Button>
-            <Button className=' text-right' onclick='' variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
-          </div>
+
 
         </Box>
       </Modal>
@@ -105,7 +108,7 @@ function ChildTwo() {
       <Modal hideBackdrop open={open} onClose={handleClose}>
         <Box sx={{ ...style, width: 700 }}>
           <h2 id="child-modal-title" className=' text-center text-2xl font-bold'>Complaint Section</h2>
-          <FormGroup className=''>
+          <form className=''>
             <div className=' grid grid-cols-2 font-bold gap-1 p-6 '>
               <label>Enter Your ID Number</label>
               <input type="text" name="IDComplaint" className=' p-2 border-2 border-sky-200 rounded-md font-normal' placeholder=' Index number' />
@@ -113,14 +116,14 @@ function ChildTwo() {
               <textarea type='text' name="IDComplaint" className=' p-2 border-2 border-sky-200 rounded-md font-normal h-full' placeholder=' Index number' />
               <label>Enter Your Proof of Payment</label>
               <input type="file" name="IDComplaint" className=' p-2 border-2 border-sky-200 rounded-md font-normal' placeholder=' Index number' />
-              
+
             </div>
             <Button onClick={handleClose} className=' w-4 self-center pt-5' variant='contained'>Close</Button>
-          </FormGroup>
-          
+          </form>
+
         </Box>
 
-        
+
       </Modal>
     </React.Fragment>
 
