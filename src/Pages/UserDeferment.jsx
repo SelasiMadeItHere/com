@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 function UserDeferment() {
     return (
         <>
-            <div className=' bg-slate-400'>
+            <div className=' bg-sky-800'>
                 <div>
                     <Navbar />
                 </div>
@@ -160,16 +160,19 @@ function UserDeferment() {
                         </div>
 
 
-                        <div className=' grid-rows-2 pb-12'>
+                        <div className=' grid-rows-2 pb-12 '>
                             <div className='grid-rows-1'>
-                                <label >Reason for deferment</label>
+                            <p className=' font-bold text-sky-800 p-8'>REASON FOR DEFERMENT</p>
                             </div>
 
-                            <div className='grid-rows-2'>
-                                <textarea name="" id="" cols="130" rows="10" className=' border-sky-700 border-2 rounded-md'>
-
+                            <div className='grid-rows-3 text-center  '>
+                                <textarea name="" id="" cols="140" rows="10" className=' border-sky-700 border-2 rounded-md'>
                                 </textarea> 
                             </div>
+                        </div>
+
+                        <div className=' text-center'>
+                            <button className=' bg-sky-700 p-3 text-white rounded-md'>SUBMIT</button>
                         </div>
                     </form>
                 </div>
