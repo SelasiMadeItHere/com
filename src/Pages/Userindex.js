@@ -2,10 +2,44 @@ import Input from '@mui/material/Input'
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Button from '@mui/material/Button'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 // import Dashcards from '../components/Dashcards'
 
 function Userindex() {
+
+  const navigate = useNavigate();
+
+  const [NRid, setNRid] = useState("");
+  const [fullname, setfullname] = useState("");
+  const submitNR = () => {
+    Userindex.post('http://localhost:5000/insert', { NRid: NRid, fullname: fullname }).then(() => {
+      alert("SUCCESSFUL INSERT");
+    });
+  };
+
+
+  const [id, setid] = useState("");
+  const [trackingNumber, settrackingNumber] = useState("");
+
+
+  const Submit = () => {
+    const Payload = {
+      id,
+      trackingNumber
+
+    }
+    axios.post(`localhost:5000/login`, Payload).then((result) => {
+      const data = result.data;
+      if (data) {
+        navigate("/newrequest");
+      }
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
+
   return (
     <div>
       <div className=' fixed top-0'>
@@ -21,12 +55,16 @@ function Userindex() {
             <br></br>
             <h1 className=" font-bold">MAKE A NEW REQUEST</h1>
             <br />
-            <Input placeholder='Enter Your ID Number' />
+            <Input value={id} onChange={(e) => {
+              setid(e.target.value);
+            }} placeholder='Enter Your ID Number' name='NRid' />
             <br /><br />
-            <Input placeholder='Enter Your Full Name' />
+            <Input value={trackingNumber} onChange={(e) => {
+              settrackingNumber(e.target.value);
+            }} placeholder='Enter Your Full Name' name='fullname' />
             <br /><br />
             <Link to='/newrequest'>
-              <Button>SUBMIT</Button>
+              <Button onClick={submitNR}>SUBMIT</Button>
             </Link>
           </div>
         </div>
