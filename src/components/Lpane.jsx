@@ -5,15 +5,15 @@ import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { ChatBubbleLeftIcon, HomeIcon, TicketIcon, UserIcon, UserGroupIcon, BoltIcon } from '@heroicons/react/20/solid'
 import CardMembershipRounded from '@mui/icons-material/CardMembership';
-import {Settings, AdminPanelSettings} from '@mui/icons-material';
-import { Link} from 'react-router-dom';
+import { Settings, AdminPanelSettings } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 function Lpane() {
     return (
         <>
-            <div className=' z-10 mt-20 h-screen left-0 fixed'>
-                <div className=' bg-sky-800 h-screen'>
-                
+            <div className=' z-10 mt-20 h-screen left-0 fixed '>
+                <div className='h-screen bg-gray-900 drop-shadow-md rounded'>
+
                     <ul className=' text-white px-4  cursor-pointer '>
                         <li className=' py-5 border-gray-500 border-b-2'>
                             <Link to="/dashboard"><DashboardIcon fontSize='large' className=' pr-3' />
@@ -36,7 +36,7 @@ function Lpane() {
 
 
                         <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/certificate"> 
+                            <Link to="/certificate">
                                 <MilitaryTechIcon fontSize='large' className=' pr-3' />
                                 CERTIFICATE APPLICATION
                             </Link>
@@ -53,11 +53,11 @@ function Lpane() {
                             <Link to="/registrar">
                                 <AdminPanelSettings fontSize='large' className=' pr-3' />
                                 REGISTRAR'S PORTAL
-                                </Link>
+                            </Link>
                         </li>
 
                         <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/admindeferment"> 
+                            <Link to="/admindeferment">
                                 <ExitToAppIcon fontSize='large' className=' pr-3' />
                                 DEFERMENT APPLICATION</Link>
                         </li>
@@ -71,7 +71,7 @@ function Lpane() {
                     </ul>
 
                     {/* LOGOS FOR FAQs OR POSING QUESTIONS */}
-                    <div className='sm:hidden '>
+                    <div className=' hidden'>
                         <ul className=' inline-flex'>
                             <li><ChatBubbleLeftIcon className='text-white w-12' /></li>
 

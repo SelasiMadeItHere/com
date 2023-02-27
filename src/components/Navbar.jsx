@@ -3,6 +3,7 @@ import { Bars3Icon } from '@heroicons/react/20/solid';
 
 
 
+
 function Navbar() {
   return (
     <>
@@ -11,7 +12,7 @@ function Navbar() {
           <div className='flex items-center'>
             <h1 className='text-2xl font-bold mr-4 sm:text-4xl'>AIT E-commerce</h1>
           </div>
-          
+
           <div>
             <Bars3Icon className='w-7 font-extrabold flex items-end mx-5' />
           </div>

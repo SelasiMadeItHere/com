@@ -7,7 +7,7 @@ import { Card, Table, TableHead, TableRow, TableBody, TableCell } from '@mui/mat
 
 function Cardrenewal() {
   return (
-    <div className=' bg-slate-400 grid grid-cols-9 md:h-screen lg:h-screen'>
+    <div className='grid grid-cols-9 md:h-screen lg:h-screen'>
       <div>
         <Navbar />
         <Lpane className='col-span-2' />

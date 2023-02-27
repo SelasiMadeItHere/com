@@ -10,13 +10,13 @@ function Userindex() {
 
   const navigate = useNavigate();
 
-  const [NRid, setNRid] = useState("");
-  const [fullname, setfullname] = useState("");
-  const submitNR = () => {
-    Userindex.post('http://localhost:5000/insert', { NRid: NRid, fullname: fullname }).then(() => {
-      alert("SUCCESSFUL INSERT");
-    });
-  };
+  // const [NRid, setNRid] = useState("");
+  // const [fullname, setfullname] = useState("");
+  // const submitNR = () => {
+  //   Userindex.post('http://localhost:5000/insert', { NRid: NRid, fullname: fullname }).then(() => {
+  //     alert("SUCCESSFUL INSERT");
+  //   });
+  // };
 
 
   const [id, setid] = useState("");
