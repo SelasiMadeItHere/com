@@ -3,19 +3,19 @@ import RegistrarDash from '../components/RegistrarDash'
 import { LinearProgress, Stack } from '@mui/material'
 import Navbar from '../components/Navbar'
 import Badges from '../components/Badges'
-
+import Charts from '../components/Charts'
 
 
 
 
 function Registrar() {
     return (
-        <>
+        <div className=' bg-slate-200 h-full'>
             <div>
                 <Navbar />
             </div>
 
-            <div className=' grid grid-cols-4 mt-24'>
+            <div className=' grid grid-cols-4 '>
                 <div className=' col-span-3'>
                     {/* placing Breadcrumbs Here*/}
                 </div>
@@ -42,26 +42,28 @@ function Registrar() {
                     REQUESTS PER DAY
                     <div>
                         <Stack spacing={3} flexdirection='row'>
-                            <LinearProgress variant='determinate' value={69}/>
-                            <LinearProgress variant='determinate' value={43}/>
-                            <LinearProgress variant='determinate' value={40}/>
-                            <LinearProgress variant='determinate' value={60}/>
-                            <LinearProgress variant='determinate' value={40}/>
-                            <LinearProgress variant='determinate' value={94}/>
-                            <LinearProgress variant='determinate' value={40}/>
+                            <LinearProgress variant='determinate' value={69} />
+                            <LinearProgress variant='determinate' value={43} />
+                            <LinearProgress variant='determinate' value={40} />
+                            <LinearProgress variant='determinate' value={60} />
+                            <LinearProgress variant='determinate' value={40} />
+                            <LinearProgress variant='determinate' value={94} />
+                            <LinearProgress variant='determinate' value={40} />
                             <LinearProgress variant='determinate' value={42} />
-                            <LinearProgress variant='determinate' value={84}/>
+                            <LinearProgress variant='determinate' value={84} />
                         </Stack>
                     </div>
-
-                    <div className=' shadow-xl '>
-                        
-                    </div>
-
                 </div>
-            </div>
-        </>
 
+                <div className=' shadow-xl '>
+                    <div>
+                         <Charts />
+                    </div>
+                   
+                </div>
+
+            </div>
+        </div>
     )
 }
 
