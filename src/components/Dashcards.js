@@ -7,7 +7,7 @@ const Dashcards = ({ image, name, button}) => {
     return (
         <>
             <div className=' bg-white shadow-xl rounded-xl p-6 grid mx-3 h-auto place-items-center md:max-w-md lg:max-w-lg sm:max-w-sm'>
-                <div className=' place-items-center'>
+                <div>
                     <img className=' rounded-lg' src={image} style={{ width: "100%", maxHeight: 120, maxWidth: 180 }} alt='holder' />
                 </div>
                 

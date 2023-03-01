@@ -8,7 +8,7 @@ function Badges() {
     return (
         <div className=' grid grid-cols-2'>
             <div>
-                <Stack spacing={4} direction=' row'>
+                <Stack spacing={12} direction=' row' className=' gap-3'>
                     <Badge badgeContent={12} color='secondary'>
                         <ChatIcon color='primary' />
                     </Badge>

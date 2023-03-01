@@ -1,14 +1,16 @@
 import React from 'react'
 
-const RegDash = ({image, title, badge })=>{
-    return(
+const RegDash = ({ image, title, badge }) => {
+    return (
         <>
-            <div className=' gap-3 justify-around rounded-md bg-white p-6 '>
-                <div className=' justify-center'>
-                    <img className='rounded-lg text-center' src={image} alt='logos' style={{width:"100%", maxHeight:'120px', maxWidth: '120px'}}/>
+            <div className=' bg-white shadow-xl rounded-xl p-6 grid h-auto place-items-center md:max-w-md lg:max-w-lg sm:max-w-sm'>
+                <div>
+                    <img className='rounded-lg' src={image} alt='logos' style={{ width: "100%", maxHeight: '150px', maxWidth: '250px' }} />
                 </div>
 
-                <div><h2>{title}</h2></div>
+                <div className=' text-center'>
+                    <h2>{title}</h2>
+                </div>
 
                 <div>{badge}</div>
             </div>
