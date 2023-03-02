@@ -30,13 +30,13 @@ function Newrequest() {
             <Dashcards image={require("../assets/imgs/apply-device.jpg")} name="Certificate Application" button={"Apply"} />
           </Link>
           <Link to="/admintranscript">
-            <Dashcards image={require("../assets/imgs/network.jpg")} name="Transcript Application" button={"Apply"} />
+            <Dashcards image={require("../assets/imgs/3d-employee.png")} name="Transcript Application" button={"Apply"} />
           </Link>
         </div>
       </div>
 
 {/* Would have to create a loop here to determine number of question.Same goes for announcement */}
-      <div className=' text-center text-3xl font-bold bg-slate-200'>
+      <div className=' text-center text-3xl font-bold bg-slate-200 p-4'>
         <h1>Frequently Asked Questions (FAQs)</h1>
         <ol className=' justify-around'>
           <li className='bg-white rounded-xl text-lg m-12'>Announcement 1</li>

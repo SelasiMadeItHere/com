@@ -1,17 +1,16 @@
 import React from 'react'
 import RegistrarDash from '../components/RegistrarDash'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Badges from '../components/Badges'
 import Charts from '../components/Charts'
-import { Button } from '@mui/material'
-import Badge from '@mui/material'
+// import Badge from '@mui/material'
 
 
 
 
 function Registrar() {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     return (
         <div className=' bg-slate-200 h-full'>
@@ -32,16 +31,19 @@ function Registrar() {
 
             <div className=' p-6 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2' >
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../assets/imgs/network.jpg')} title='DEFERMENT APPLICATIONS' />
+                    <RegistrarDash image={require('../assets/imgs/messages.png')} title='DEFERMENT APPLICATIONS' badge={'VIEW'}/>
                 </div>
+
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../assets/imgs/login_clouds.jpg')} title='CERTIFICATE APPLICATIONS'/>
+                    <RegistrarDash image={require('../assets/imgs/3d-documents.png')} title='CERTIFICATE APPLICATIONS' badge={'VIEW'}/>
                 </div>
+
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../assets/imgs/no-pic.png')} title='TRANSCRIPT APPLICATIONS'/>
+                    <RegistrarDash image={require('../assets/imgs/no-pic.png')} title='TRANSCRIPT APPLICATIONS' badge={'VIEW'}/>
                 </div>
+
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../assets/imgs/login_clouds.jpg')} title='ANNOUNCEMENTS'/>
+                    <RegistrarDash image={require('../assets/imgs/3d-megaphone.png')} title='ANNOUNCEMENTS' badge={'VIEW'}/>
                 </div>
             </div>
 
