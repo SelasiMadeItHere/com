@@ -2,19 +2,24 @@ import React from 'react'
 import { Stack, Badge } from '@mui/material'
 import ChatIcon from '@mui/icons-material/Chat'
 import NotificationsIcon from '@mui/icons-material/Notifications'
+import Avatar from '@mui/material/Avatar';
 
 
 function Badges() {
     return (
         <div className=' grid grid-cols-2'>
             <div>
-                <Stack spacing={12} direction=' row' className=' gap-3'>
+                <Stack spacing={12} direction=' row' className=' gap-3 mt-3'>
                     <Badge badgeContent={12} color='secondary'>
                         <ChatIcon color='primary' />
                     </Badge>
 
-                    <Badge badgeContent={12} color='secondary'>
+                    <Badge badgeContent={12} color='secondary' >
                         <NotificationsIcon color='primary' />
+                    </Badge>
+
+                    <Badge>
+                        <Avatar/>
                     </Badge>
                 </Stack>    
             </div>
