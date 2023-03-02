@@ -7,13 +7,13 @@ import { Card, Table, TableHead, TableRow, TableBody, TableCell } from '@mui/mat
 
 function Cardrenewal() {
   return (
-    <div className='grid grid-cols-9 md:h-screen lg:h-screen'>
+    <div className=' bg-slate-300 grid grid-cols-9 md:h-screen lg:h-screen'>
       <div>
         <Navbar />
         <Lpane className='col-span-2' />
       </div>
 
-      <div className='mt-20 grid col-span-8 col-start-3 w-[90%] '>
+      <div className='mt-24 grid col-span-8 col-start-3 w-[90%]'>
         <Card>
           <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Card Renewal Requests</h1>
           <Table className='mt-5'>
@@ -31,9 +31,9 @@ function Cardrenewal() {
             </TableHead>
 
             <TableBody>
-              {/* <TableRow>
+              <TableRow>
                 <TableCell>fgctff</TableCell>
-              </TableRow> */}
+              </TableRow>
 
             </TableBody>
           </Table>

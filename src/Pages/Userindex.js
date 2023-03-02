@@ -3,8 +3,9 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Button from '@mui/material/Button'
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 // import Dashcards from '../components/Dashcards'
+import axios from 'axios'
 
 function Userindex() {
 
@@ -63,9 +64,11 @@ function Userindex() {
               settrackingNumber(e.target.value);
             }} placeholder='Enter Your Full Name' name='fullname' />
             <br /><br />
+
             <Link to='/newrequest'>
-              <Button onClick={submitNR}>SUBMIT</Button>
+              <Button onClick={Submit}>SUBMIT</Button>
             </Link>
+
           </div>
         </div>
 
