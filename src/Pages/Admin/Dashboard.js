@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Lpane from '../components/Lpane'
-import Dashcards from '../components/Dashcards'
+import Navbar from '../../components/Navbar'
+import Lpane from '../../components/Lpane'
+import Dashcards from '../../components/Dashcards'
 import { Link } from 'react-router-dom';
 // import { Button } from '@mui/material';
 
@@ -21,22 +21,22 @@ function Dashboard() {
             {/* The code below signifies the main page */}
             <div className='grid lg:grid-cols-3 col-span-4 py-5 mt-28 gap-5'>
                 <Link to="/admincardrenewal">
-                    <Dashcards image={require("../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"EXPLORE"} button2={"COMPLAINTS"} />
+                    <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"VIEW"} />
                 </Link>
                 <Link to="/admincardrenewal">
-                    <Dashcards image={require("../assets/imgs/exams.jpg")} name="Deferment Application" button={"EXPLORE"} />
+                    <Dashcards image={require("../../assets/imgs/exams.jpg")} name="Deferment Application" button={"VIEW"} />
                 </Link>
                 <Link to="/admincardrenewal">
-                    <Dashcards image={require("../assets/imgs/idcards.jpg")} name="Certificate Application" button={"EXPLORE"} />
+                    <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="Certificate Application" button={"VIEW"} />
                 </Link>
                 <Link to="/admincardrenewal">
-                    <Dashcards image={require("../assets/imgs/idcards.jpg")} name="Transcript Application" button={"EXPLORE"} />
+                    <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="Transcript Application" button={"VIEW"} />
                 </Link>
             </div>
 
             <div className='rounded-md bg-white grid-cols-5 col-start-2 col-span-4 m-11 p-12 text-center'>
                 <p className=' text-4xl'>FREQUENTLY ASKED QUESTIONS</p>
-                
+
             </div>
         </div>
     )

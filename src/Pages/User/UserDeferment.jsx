@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../../components/Navbar'
 // import Input from '@mui/material/Input'
 // import { Select } from '@mui/material'
 
@@ -162,12 +162,12 @@ function UserDeferment() {
 
                         <div className=' grid-rows-2 pb-12 '>
                             <div className='grid-rows-1'>
-                            <p className=' font-bold text-sky-800 p-8'>REASON FOR DEFERMENT</p>
+                                <p className=' font-bold text-sky-800 p-8'>REASON FOR DEFERMENT</p>
                             </div>
 
                             <div className='grid-rows-3 text-center  '>
                                 <textarea name="" id="" cols="140" rows="10" className=' border-sky-700 border-2 rounded-md'>
-                                </textarea> 
+                                </textarea>
                             </div>
                         </div>
 
@@ -176,7 +176,7 @@ function UserDeferment() {
                         </div>
                     </form>
                 </div>
-            </div>     
+            </div>
         </>
     )
 }

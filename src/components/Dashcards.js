@@ -13,7 +13,7 @@ const Dashcards = ({ image, name, button}) => {
                 
                 <div className='text-center'>
                     <h2>{name}</h2>
-                    <Button className='mt-7 gap-3' variant="contained">{button}</Button>
+                    <Button className='gap-3 m-6' variant="contained">{button}</Button>
                 </div>
             </div>
         </>

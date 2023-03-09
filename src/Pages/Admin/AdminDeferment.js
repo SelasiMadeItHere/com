@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Lpane from '../components/Lpane'
+import Navbar from '../../components/Navbar'
+import Lpane from '../../components/Lpane'
 import { Card, Table, TableRow, TableCell, TableHead, TableBody, Button } from '@mui/material'
 
 function AdminDeferment() {
