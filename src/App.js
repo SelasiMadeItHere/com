@@ -15,6 +15,7 @@ import UserCertificate from "./Pages/User/UserCertificate";
 import Registrar from "./Pages/Admin/Registrar";
 import CertRegistrar from "./Pages/Admin/CertRegistrar";
 import UserTranscript from "./Pages/User/UserTranscrpt"
+import AdminTranscript from "./Pages/Admin/AdminTranscript";
 
 
 
@@ -25,20 +26,25 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
-        <Route path="/userindex" element={<Userindex />} />
-        <Route path="/admindeferment" element={<AdminDeferment />} />
-        <Route path="/studentcard" element={<UserCardrenewal />} />
         <Route path="/newrequest" element={<Newrequest />} />
         <Route path="/idchoice" element={<IDchoice />} />
         <Route path="/modaltrial" element={<ModalCard />} />
+
+        {/* ADMIN PAGES */}
+        <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
+        <Route path="/admintranscript" element={<AdminTranscript />} />
+        <Route path="/admindeferment" element={<AdminDeferment />} />
+        <Route path="/studentcard" element={<UserCardrenewal />} />
         <Route path="/finance" element={<Finance />} />
+        <Route path="/registrar" element={<Registrar />} />
+        <Route path="/certapproval" element={<CertRegistrar />} />
+        
+        {/* USER PAGES */}
         <Route path="/defermentapplication" element={<UserDeferment />} />
         <Route path='/modalcomplaint' element={<BasicModal />} />
         <Route path="/usercertificate" element={<UserCertificate />} />
-        <Route path="/registrar" element={<Registrar />} />
-        <Route path="/certapproval" element={<CertRegistrar />} />
         <Route path="/usertranscript" element={<UserTranscript />} />
+        <Route path="/userindex" element={<Userindex />} />
 
       </Routes>
     </BrowserRouter>

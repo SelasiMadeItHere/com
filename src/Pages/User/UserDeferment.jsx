@@ -6,12 +6,12 @@ import Navbar from '../../components/Navbar'
 function UserDeferment() {
     return (
         <>
-            <div className=' bg-sky-800'>
+            <div className=' bg-slate-300'>
                 <div>
                     <Navbar />
                 </div>
 
-                <div className=' m-12 text-center text-blue-600 text-3xl font-semibold py-16'>
+                <div className=' mx-24 my-12 text-center text-sky-800 text-3xl font-semibold py-12 bg-white'>
                     FILL OUT THE FORM BELOW TO APPLY FOR DEFERMENT
                 </div>
 
