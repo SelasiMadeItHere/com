@@ -19,12 +19,38 @@ function Registrar() {
             </div>
 
             <div className=' grid grid-cols-4 pt-24 ml-6'>
-                <div className=' col-span-3 sm:hidden '>
+                <div className=' col-span-3'>
                     <p>Dashboard</p>
                 </div>
                 <div className=' col-start-5'><Badges /></div>
             </div>
 
+            <div className=' col-span-4 m-6 text-2xl font-bold'>
+                <h2>Stats</h2>
+            </div>
+
+            <div className=' grid lg:grid-cols-3 p-6 gap-6 md:grid-cols-2'>
+                <div className=' shadow-xl bg-red-400 p-6 rounded-xl'>
+                    <p className=' mb-6 font-bold text-blue-700'>REQUESTS TODAY:</p>
+                    <Charts />
+                </div>
+
+                <div className=' shadow-xl bg-yellow-400 p-6 rounded-xl'>
+                    <div >
+                        <p className=' mb-6 font-bold text-blue-700'>REQUESTS ATTENDED TO:</p>
+                        <Charts className=' w-full' />
+                    </div>
+
+                </div>
+
+                <div className=' shadow-xl bg-white p-6 rounded-xl'>
+                    <div >
+                        <p className=' mb-6 font-bold text-blue-700'>TOTAL REQUESTS:</p>
+                        <Charts className=' w-full' />
+                    </div>
+
+                </div>
+            </div>
             <div className=' col-span-4 m-6 text-2xl font-bold'>
                 <h2>Dashboard</h2>
             </div>
@@ -47,32 +73,7 @@ function Registrar() {
                 </div>
             </div>
 
-            <div className=' col-span-4 m-6 text-2xl font-bold'>
-                <h2>Stats</h2>
-            </div>
 
-            <div className=' grid lg:grid-cols-3 p-6 gap-6 md:grid-cols-2'>
-                <div className=' shadow-xl bg-white p-6 rounded-xl'>
-                    <p className=' mb-6 font-bold text-blue-700'>REQUESTS TODAY:</p>
-                    <Charts />
-                </div>
-
-                <div className=' shadow-xl bg-white p-6 rounded-xl'>
-                    <div >
-                        <p className=' mb-6 font-bold text-blue-700'>REQUESTS ATTENDED TO:</p>
-                        <Charts className=' w-full' />
-                    </div>
-
-                </div>
-
-                <div className=' shadow-xl bg-white p-6 rounded-xl'>
-                    <div >
-                        <p className=' mb-6 font-bold text-blue-700'>TOTAL REQUESTS:</p>
-                        <Charts className=' w-full' />
-                    </div>
-
-                </div>
-            </div>
         </div>
     )
 }

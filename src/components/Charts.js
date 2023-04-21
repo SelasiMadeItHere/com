@@ -13,7 +13,7 @@ const Charts = () => {
 
   return (
 
-    <BarChart width={400} height={300} data={data} barSize={20}>
+    <BarChart width={400} height={200} data={data} barSize={20}>
       <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
       <YAxis />
       <Tooltip labelClassName=' border-none'/>

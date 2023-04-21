@@ -1,16 +1,11 @@
-import * as React from 'react';
+import React,{useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-// import FormGroup from '@mui/material/FormGroup';
+import Axios from 'axios'
 import SendIcon from '@mui/icons-material/Send';
 import Close from '@mui/icons-material/Close'
-// import Database from '../Server/Database.php'
-
-// import ModalComplaint from '../components/ModalComplaint';
-// import Input from '@mui/material/Input';
-// import IDRenewForm from './IDRenewForm';
 
 
 // HERE IS WHERE THE CHILD MODAL FUNCTION STARTS
@@ -23,14 +18,23 @@ function ChildModal() {
     setOpen(false);
   };
 
+  const [Id, setID] = useState("")
+  const [Campus, setCampus] = useState("")
+  const [Service, setService] = useState("")
+  const submitRequest = () => {
+    Axios.post("http://localhost:5000/api/insert",{
+      Id:Id,
+      Campus: Campus, 
+      Service: Service}).then(()=>{
+        alert("DATA ADDED SUCCESSFULLY!!!!!!!")
+      })
+  }
   return (
     <React.Fragment>
 
       <button onClick={handleOpen} className=' bg-sky-700 text-white m-3 p-3 rounded-md hover:bg-sky-300'>
         ID Card Renewal
       </button>
-
-
 
       <Modal
         hideBackdrop
@@ -41,39 +45,53 @@ function ChildModal() {
       >
         <Box sx={{ ...style, width: 600 }}>
           <h2 id="child-modal-title" className=' text-center text-2xl font-bold'>ID Card Renewal</h2>
-          <p id="child-modal-description">
+          <div id="child-modal-description">
             <form className=' p-6 drop-shadow-12' action='Database.js' method='post'>
               <div className=' grid grid-cols-2 gap-3 p-6' >
 
                 <label className=' font-bold'> ENTER YOUR ID NUMBER</label>
-                <input placeholder='Enter Your ID Number' className=' border-sky-800 border-2 rounded w-[100%] p-2' name='id' />
+                <input placeholder='Enter Your ID Number'
+                  className=' border-sky-800 border-2 rounded w-[100%] p-2'
+                  name='id'
+                  onChange={(e)=>{
+                    setID(e.target.value)
+                  }}
+                />
 
                 <label className=' font-bold p-2'>CAMPUS OF COLLECTION</label>
-                <select className=' border-sky-800 border-2 rounded' name='campus'>
+                <select className=' border-sky-800 border-2 rounded' 
+                name='campus' 
+                onChange={(e)=>{
+                  setCampus(e.target.value)
+                }}>
                   <option>--Select--</option>
                   <option>SEAVIEW</option>
                   <option>KCC Campus</option>
                 </select>
 
                 <label className=' font-bold p-2'>I am requesting for a </label>
-                <select className=' border-sky-800 border-2 rounded p-2' id='servicetype'>
+                <select className=' border-sky-800 border-2 rounded p-2' 
+                id='servicetype'
+                onChange={(e)=>{
+                  setService(e.target.value)
+                }}>
                   <option>--Select--</option>
-                  <option onSelect='document.GetElementById("showreplace").style.display= "block"'>Replacement</option>
+                  <option >Replacement</option>
                   <option>Renewal</option>
                 </select>
 
-                {/* <div className=' hidden' id='showreplace'>
-                  <label htmlFor="replacement"> Proof of existence</label>
-                  <input type="file" name="cardexist" id="cardexist" />
-                </div> */}
               </div>
 
               <div className=' grid grid-cols-4 gap-3'>
                 <Button className=' text-left col-start-2 text-red-500 ' onClick={handleClose} variant='contained' endIcon={<Close />}>Cancel</Button>
-                <Button className=' text-right ' onclick='/Database.js' variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
+                <button className=' text-right ' 
+
+                onClick= {submitRequest} 
+                variant='contained' 
+                endIcon={<SendIcon />}>SUBMIT</button>
               </div>
             </form>
-          </p>
+          </div>
 
 
         </Box>
