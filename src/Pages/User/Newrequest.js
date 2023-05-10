@@ -29,7 +29,7 @@ function Newrequest() {
           <Link to="/usercertificate">
             <Dashcards image={require("../../assets/imgs/apply-device.jpg")} name="Certificate Application" button={"Apply"} />
           </Link>
-          <Link to="/admintranscript">
+          <Link to="/usertranscript">
             <Dashcards image={require("../../assets/imgs/3d-employee.png")} name="Transcript Application" button={"Apply"} />
           </Link>
         </div>

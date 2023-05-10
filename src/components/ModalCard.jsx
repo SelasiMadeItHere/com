@@ -1,9 +1,9 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Axios from 'axios'
+import axios from 'axios'
 import SendIcon from '@mui/icons-material/Send';
 import Close from '@mui/icons-material/Close'
 
@@ -22,7 +22,7 @@ function ChildModal() {
   const [Campus, setCampus] = useState("")
   const [Service, setService] = useState("")
   const submitRequest = () => {
-    Axios.post("http://localhost:5000/api/insert",{
+    axios.post("http://localhost:5002/api/insert",{
       Id:Id,
       Campus: Campus, 
       Service: Service}).then(()=>{
@@ -46,7 +46,7 @@ function ChildModal() {
         <Box sx={{ ...style, width: 600 }}>
           <h2 id="child-modal-title" className=' text-center text-2xl font-bold'>ID Card Renewal</h2>
           <div id="child-modal-description">
-            <form className=' p-6 drop-shadow-12' action='Database.js' method='post'>
+            <form className=' p-6 drop-shadow-12' action='http://localhost:5002/api/insert' method='post'>
               <div className=' grid grid-cols-2 gap-3 p-6' >
 
                 <label className=' font-bold'> ENTER YOUR ID NUMBER</label>
@@ -84,8 +84,7 @@ function ChildModal() {
 
               <div className=' grid grid-cols-4 gap-3'>
                 <Button className=' text-left col-start-2 text-red-500 ' onClick={handleClose} variant='contained' endIcon={<Close />}>Cancel</Button>
-                <button className=' text-right ' 
-
+                <button className=' text-right '
                 onClick= {submitRequest} 
                 variant='contained' 
                 endIcon={<SendIcon />}>SUBMIT</button>
