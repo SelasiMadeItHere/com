@@ -4,7 +4,7 @@ import Dashcards from '../../components/Dashcards'
 import { Link } from 'react-router-dom'
 // import { Modal, Input} from '@mui/material'
 // import IDchoice from './IDchoice'
-import ModalCard from '../../components/ModalCard'
+import IDModalCard from '../../components/IDModalCard'
 
 function Newrequest() {
   return (
@@ -21,7 +21,7 @@ function Newrequest() {
 
         <div className='grid lg:grid-cols-4 lg:col-span-6 gap-3 mt-12'>
 
-          <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="ID Card Application" button={<ModalCard />} />
+          <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="ID Card Application" button={<IDModalCard />} />
 
           <Link to="/defermentapplication">
             <Dashcards image={require("../../assets/imgs/exams.jpg")} name="Deferment Application" button={"Apply"} />

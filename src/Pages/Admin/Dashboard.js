@@ -23,19 +23,19 @@ function Dashboard() {
                 <Link to="/admincardrenewal">
                     <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="ID Card Renewal" button={"VIEW"} />
                 </Link>
-                <Link to="/admincardrenewal">
+                <Link to="/admindeferment">
                     <Dashcards image={require("../../assets/imgs/exams.jpg")} name="Deferment Application" button={"VIEW"} />
                 </Link>
                 <Link to="/admincardrenewal">
                     <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="Certificate Application" button={"VIEW"} />
                 </Link>
-                <Link to="/admincardrenewal">
+                <Link to="/admintranscript">
                     <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="Transcript Application" button={"VIEW"} />
                 </Link>
             </div>
 
             <div className='rounded-md bg-white grid-cols-5 col-start-2 col-span-4 m-11 p-12 text-center'>
-                <p className=' text-4xl'>FREQUENTLY ASKED QUESTIONS</p>
+                <p className=' lg:text-3xl sm:text-lg'>FREQUENTLY ASKED QUESTIONS</p>
 
             </div>
         </div>

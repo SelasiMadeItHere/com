@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 function Lpane() {
     return (
         <>
-            <nav className=' z-10 mt-20 h-screen left-0 fixed '>
+            <nav className=' z-10 mt-24 h-screen left-0 fixed '>
                 <div className='h-screen bg-gray-900 drop-shadow-md rounded'>
 
                     <ul className=' text-white px-4  cursor-pointer '>
@@ -36,7 +36,7 @@ function Lpane() {
 
 
                         <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/certificate">
+                            <Link to="/admincertificate">
                                 <MilitaryTechIcon fontSize='large' className=' pr-3' />
                                 CERTIFICATE APPLICATION
                             </Link>

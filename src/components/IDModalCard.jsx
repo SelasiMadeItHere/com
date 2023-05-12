@@ -83,11 +83,11 @@ function ChildModal() {
               </div>
 
               <div className=' grid grid-cols-4 gap-3'>
-                <Button className=' text-left col-start-2 text-red-500 ' onClick={handleClose} variant='contained' endIcon={<Close />}>Cancel</Button>
-                <button className=' text-right '
+                <Button className=' text-left col-start-2 ' onClick={handleClose} variant='contained' color='error'>Cancel</Button>
+                <Button className=' text-right '
                 onClick= {submitRequest} 
                 variant='contained' 
-                endIcon={<SendIcon />}>SUBMIT</button>
+                endIcon={<SendIcon />}>SUBMIT</Button>
               </div>
             </form>
           </div>
@@ -125,9 +125,9 @@ function ChildTwo() {
 
             </div>
 
-            <div className=' grid grid-cols-2 p-12 gap-3'>
-              <Button className='  text-red-500 ' onClick={handleClose} variant='contained' endIcon={<Close />}>Cancel</Button>
-              <Button className=' ' onclick='/Database.js' variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
+            <div className=' grid grid-cols-4 p-6 gap-3'>
+              <Button className='col-start-2' color='error' onClick={handleClose} variant='contained' endIcon={<Close />}>Cancel</Button>
+              <Button onclick='/Database.js' variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
             </div>
 
           </form>

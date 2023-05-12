@@ -6,11 +6,12 @@ import AdminDeferment from "./Pages/Admin/AdminDeferment";
 import UserCardrenewal from "./Pages/User/UserCardrenewal";
 import Newrequest from "./Pages/User/Newrequest";
 import IDchoice from "./Pages/User/IDchoice";
-import ModalCard from "./components/ModalCard";
+import IDModalCard from "./components/IDModalCard";
+import DefermentModal from "./components/DefermentModal";
 import Finance from "./Pages/Admin/Finance";
 import UserDeferment from "./Pages/User/UserDeferment";
 // import ModalComplaint from "./components/ModalComplaint";
-import BasicModal from "./components/ModalComplaint";
+import BasicModal from "./components/DefermentModal";
 import UserCertificate from "./Pages/User/UserCertificate";
 import Registrar from "./Pages/Admin/Registrar";
 import CertRegistrar from "./Pages/Admin/CertRegistrar";
@@ -28,7 +29,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/newrequest" element={<Newrequest />} />
         <Route path="/idchoice" element={<IDchoice />} />
-        <Route path="/modaltrial" element={<ModalCard />} />
+        <Route path="/modaltrial" element={<IDModalCard />} />
+        <Route path='/defermodal' element={<DefermentModal/>}/>
 
         {/* ADMIN PAGES */}
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />

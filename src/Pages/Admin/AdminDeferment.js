@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Navbar from '../../components/Navbar'
 import Lpane from '../../components/Lpane'
-import { Card, Table, TableRow, TableCell, TableHead, TableBody, Button, Stack} from '@mui/material'
+import DefermentModal from '../../components/DefermentModal'
+import { Card, Table, TableRow, TableCell, TableHead, TableBody, IconButton, Stack } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+
 
 function AdminDeferment() {
     const [data, setData] = useState([]);
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/get");
+        const response = await axios.get("http://localhost:5002/api/getdeferment");
         setData(response.data);
     };
     useEffect(() => {
@@ -22,17 +26,14 @@ function AdminDeferment() {
 
             <div className='grid col-start-3 col-span-9 col-end-9 mt-28'>
                 <Card>
+                    <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>
                     <Table>
-                        <TableHead className='bg-gray-900' style={{ color: 'white' }}>
-                            <TableRow className=''>
+                        <TableHead className=' pt-12 text-white' >
+                            <TableRow>
                                 <TableCell></TableCell>
-                                <TableCell  >ID NO.</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>LEVEL</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }}>ID NO.</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} >LEVEL</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }}>CURRENT SEMESTER</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>DEFERMENT YEAR</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>RETURNING YEAR</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>PREVIOUS DEFERMENT</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>REASON</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }}>DATE</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }}>DEFERMENT ID</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }}>ACTION</TableCell>
@@ -42,20 +43,28 @@ function AdminDeferment() {
                         <TableBody className='text-sm'>
                             {data.map((item, index) => {
                                 return (
-                                    <tr key={item.id} className=' border '>
+                                    <tr key={item.id} className=' border p-12'>
                                         <th scope="row">  {index + 1}</th>
-                                        <td className=' text-center p-3'>{item.stuid}</td>
-                                        <td className=' text-center p-3'>{item.clevel}</td>
-                                        <td className=' text-center p-3'>{item.csem}</td>
-                                        <td className=' text-center p-3'>{item.defyear}</td>
-                                        <td className=' text-center p-3'>{item.retyear}</td>
-                                        <td className=' text-center p-3'>{item.prevdef}</td>
-                                        <td className=' text-center p-3'>{item.reason}</td>
-                                        <td className=' text-center p-3'>{item.date}</td>
-                                        <td className=' text-center p-3'>{item.defid}</td>
+                                        <td className=' text-center p-3 border-y'>{item.stuid}</td>
+                                        <td className=' text-center p-3 border-y'>{item.clevel}</td>
+                                        <td className=' text-center p-3 border-y'>{item.csem}</td>
+                                        <td className=' text-center p-3 border-y'>{item.date}</td>
+                                        <td className=' text-center p-3 border-y'>{item.defid}</td>
+                                        <td className=' text-center p-3 border-y'>
+                                            <Stack direction='row' className=''>
+                                                <DefermentModal item={item} />
+                                                <IconButton>
+                                                    <SendIcon variant='contained' color='primary' />
+                                                </IconButton>
+                                                <IconButton variant='contained' color='error'>
+                                                    <DeleteIcon />
+                                                </IconButton>
+                                            </Stack>
+                                        </td>
                                     </tr>
                                 )
                             })}
+
                         </TableBody>
                     </Table>
                 </Card>
@@ -65,4 +74,4 @@ function AdminDeferment() {
     )
 }
 
-export default AdminDeferment
+export default AdminDeferment;
