@@ -8,7 +8,7 @@ const Charts = () => {
     { name: "ID Cards", value: 205 },
     { name: 'Deferment ', value: 73 },
     { name: 'Certificate ', value: 124 },
-    { name: 'Transcript ', value: 622 },
+    { name: 'Transcript ', value: 222 },
   ]
 
   return (

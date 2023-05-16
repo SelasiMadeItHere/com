@@ -44,6 +44,7 @@ set frequently asked questions, assign staff to particular units
     c. Forwards to the office of the president for approval
     d. Receives approval from the OOTP
     e. Sets status based on approval (Accepted, Denied)
+4. Receive and approves Introductory Letter
 
 
 //THE OFFICE OF THE PRESIDENT

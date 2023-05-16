@@ -8,7 +8,7 @@ import MessageIcon from '@mui/icons-material/Message';
 
 
 
-function CertRegistrar() {
+function TransRegistrar() {
 
     return (
         <div className=' bg-indigo-100 h-screen'>
@@ -20,7 +20,7 @@ function CertRegistrar() {
                 <div className=' inline-flex gap-3 pt-3 text-black '>
                     <Breadcrumbs arial-label='breadcrumb' separator=">">
                         <Link href='/registrar' underline='hover'>HOME</Link>
-                        <Link href='#' underline='hover'>CERTIFICATES</Link>
+                        <Link href='#' underline='hover'>TRANSCRIPT</Link>
                     </Breadcrumbs>
                 </div>
 
@@ -66,4 +66,4 @@ function CertRegistrar() {
     )
 }
 
-export default CertRegistrar
+export default TransRegistrar;

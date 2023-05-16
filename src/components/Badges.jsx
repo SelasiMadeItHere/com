@@ -2,6 +2,7 @@ import React from 'react'
 import { Stack, Badge } from '@mui/material'
 import ChatIcon from '@mui/icons-material/Chat'
 import NotificationsIcon from '@mui/icons-material/Notifications'
+import IconButton from '@mui/material/IconButton'
 // import Avatar from '@mui/material/Avatar';
 
 
@@ -11,14 +12,18 @@ function Badges() {
             <div>
                 <Stack spacing={12} direction=' row' className=' gap-3 mt-3'>
                     <Badge badgeContent={12} color='secondary'>
-                        <ChatIcon color='primary' />
+                        <IconButton>
+                            <ChatIcon color='primary' />
+                        </IconButton>
                     </Badge>
 
                     <Badge badgeContent={12} color='secondary' >
-                        <NotificationsIcon color='primary' />
+                        <IconButton>
+                            <NotificationsIcon color='primary' />
+                        </IconButton>
                     </Badge>
 
-                </Stack>    
+                </Stack>
             </div>
 
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@mui/material'
 
-const RegDash = ({ image, title, badge }) => {
+const RegDash = ({ image, title, badge, link }) => {
     return (
         <>
             <div className=' bg-white shadow-xl rounded-xl p-6 grid h-auto place-items-center md:max-w-md lg:max-w-lg sm:max-w-sm'>
@@ -13,7 +13,7 @@ const RegDash = ({ image, title, badge }) => {
                     <h2>{title}</h2>
                 </div>
 
-                <div><Button className='mt-7 gap-3' variant="contained">{badge}</Button></div>
+                <div><Button href={link} className='mt-7 gap-3' variant="contained">{badge}</Button></div>
             </div>
         </>
     )

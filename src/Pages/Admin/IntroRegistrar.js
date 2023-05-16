@@ -8,7 +8,7 @@ import MessageIcon from '@mui/icons-material/Message';
 
 
 
-function CertRegistrar() {
+function IntroRegistrar() {
 
     return (
         <div className=' bg-indigo-100 h-screen'>
@@ -66,4 +66,4 @@ function CertRegistrar() {
     )
 }
 
-export default CertRegistrar
+export default IntroRegistrar

@@ -1,23 +1,30 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Dashboard from "./Pages/Admin/Dashboard"
 import AdminCardrenewal from "./Pages/Admin/AdminCardrenewal"
-import Userindex from "./Pages/User/Userindex"
 import AdminDeferment from "./Pages/Admin/AdminDeferment";
+import Finance from "./Pages/Admin/Finance";
+import Registrar from "./Pages/Admin/Registrar";
+import CertRegistrar from "./Pages/Admin/CertRegistrar";
+import AdminTranscript from "./Pages/Admin/AdminTranscript";
+import IntroductoryLetter from "./Pages/Admin/IntroductoryLetter";
+import AdminCertificate from './Pages/Admin/AdminCertificate'
+import TransRegistrar from './Pages/Admin/TransRegistrar'
+import IntroRegistrar from './Pages/Admin/IntroRegistrar'
+import Announcements from "./Pages/Admin/Announcements";
+
+import Userindex from "./Pages/User/Userindex"
 import UserCardrenewal from "./Pages/User/UserCardrenewal";
 import Newrequest from "./Pages/User/Newrequest";
 import IDchoice from "./Pages/User/IDchoice";
+import UserDeferment from "./Pages/User/UserDeferment";
+import UserCertificate from "./Pages/User/UserCertificate";
+import UserTranscript from "./Pages/User/UserTranscrpt";
 import IDModalCard from "./components/IDModalCard";
 import DefermentModal from "./components/DefermentModal";
-import Finance from "./Pages/Admin/Finance";
-import UserDeferment from "./Pages/User/UserDeferment";
 // import ModalComplaint from "./components/ModalComplaint";
 import BasicModal from "./components/DefermentModal";
-import UserCertificate from "./Pages/User/UserCertificate";
-import Registrar from "./Pages/Admin/Registrar";
-import CertRegistrar from "./Pages/Admin/CertRegistrar";
-import UserTranscript from "./Pages/User/UserTranscrpt"
-import AdminTranscript from "./Pages/Admin/AdminTranscript";
-import IntroductoryLetter from "./Pages/Admin/IntroductoryLetter";
+
+
 
 
 
@@ -38,11 +45,15 @@ function App() {
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
         <Route path="/admintranscript" element={<AdminTranscript />} />
         <Route path="/admindeferment" element={<AdminDeferment />} />
-        <Route path="/studentcard" element={<UserCardrenewal />} />
+        <Route path="/admincertificate" element={<AdminCertificate/>}/>
+        <Route path="/studentcard" element={<UserCardrenewal />}/>
         <Route path="/finance" element={<Finance />} />
         <Route path="/registrar" element={<Registrar />} />
         <Route path="/certapproval" element={<CertRegistrar />} />
         <Route path="/introductory-letter" element={<IntroductoryLetter />} />
+        <Route path='/transcriptapproval' element={<TransRegistrar/>}/>
+        <Route path="/introductoryapproval" element={<IntroRegistrar/>}/>
+        <Route path="/announcements" element={<Announcements/>}/>
 
         {/* USER PAGES */}
         <Route path="/defermentapplication" element={<UserDeferment />} />

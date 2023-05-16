@@ -7,6 +7,8 @@ import axios from 'axios';
 import SendIcon from '@mui/icons-material/Send';
 import Close from '@mui/icons-material/Close';
 import {toast, ToastContainer} from 'react-toastify';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 // HERE IS WHERE THE CHILD MODAL FUNCTION STARTS
@@ -24,7 +26,9 @@ function ChildModal() {
   const [Service, setService] = useState("")
 
   const submitRequest = () => {
+    const rqst_id = uuidv4();
     axios.post("http://localhost:5002/api/insert", {
+      Request:rqst_id,
       Id: Id,
       Campus: Campus,
       Service: Service
@@ -219,12 +223,15 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" className=' text-3xl font-bold'>
+          <div id="modal-modal-title" className=' text-2xl font-semibold text-center'>
             Do you want to request a card renewal or make a complaint?
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <div className=' p-3 center'>
+          </div>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} className=' p-3 center grid grid-cols-2'>
+            <div className=' col-start-1 text-center'>
               <ChildModal />
+              </div>
+
+              <div>
               <ChildTwo />
             </div>
 

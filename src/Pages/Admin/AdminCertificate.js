@@ -9,7 +9,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 
 
-function Cardrenewal() {
+function AdminCertificate() {
 
     const [data, setData] = useState([]);
 
@@ -114,4 +114,4 @@ function Cardrenewal() {
     )
 }
 
-export default Cardrenewal
+export default AdminCertificate
