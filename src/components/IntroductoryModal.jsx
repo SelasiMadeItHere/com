@@ -21,7 +21,7 @@ import avatar from '../assets/imgs/avatar2.png'
 //   p: 4,
 // };
 
-export default function DefermentModal({ item }) {
+export default function IntroductoryModal({ introl }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -51,57 +51,48 @@ export default function DefermentModal({ item }) {
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> ID Number: </label>{item.stuid}
+                <label className='  text-blue-700 font-bold'> ID Number: </label>{introl.stuid}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Level: </label>{item.clevel}
+                <label className=' text-blue-700 font-bold'>Request ID: </label>{introl.reqid}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Current Semester: </label>{item.csem}
+                <label className=' text-blue-700 font-bold'> Phone Number: </label>{introl.phone}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Deferment ID: </label>{item.defid}
+                <label className=' text-blue-700 font-bold'>Purpose: </label>{introl.for}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Deferment Semester: </label>{item.defsem}
+                <label className=' text-blue-700 font-bold'>Passport Number: </label>{introl.pnumber}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Deferment Year: </label>{item.defyear}
+                <label className=' text-blue-700 font-bold'> Residency Address: </label>{introl.raddress}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Returning Year: </label>{item.retyear}
+                <label className=' text-blue-700 font-bold'>Bank Name: </label>{introl.bname}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Previously Deferred Semster: </label>{item.prevdef}
+                <label className=' text-blue-700 font-bold'> Previously Deferred Semster: </label>{introl.eaddress}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Reason for Deferment: </label>{item.reason}
+                <label className=' text-blue-700 font-bold'>Reason for Deferment: </label>{new Date(introl.date).toISOString().slice(0, 10)}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Detailed Reason: </label>{item.reason_specify}
-              </div>
-
-
-              <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Date: </label>{new Date(item.date).toISOString().slice(0, 10)}
+                <label className=' text-blue-700 font-bold'>Detailed Reason: </label>{new Date(introl.updated_at).toISOString().slice(0, 10)}
               </div>
 
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Returning Year: </label>{item.retyear}
-              </div>
-
-              <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Returning Semester: </label>{item.retsem}
+                <label className=' text-blue-700 font-bold'> Date: </label>{new Date(introl.created_at).toISOString().slice(0, 10)}
               </div>
             </div>
 

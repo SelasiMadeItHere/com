@@ -27,10 +27,10 @@ function Dashboard() {
                     <Dashcards image={require("../../assets/imgs/exams.jpg")} name="Deferment Application" button={"VIEW"} />
                 </Link>
                 <Link to="/admincardrenewal">
-                    <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="Certificate Application" button={"VIEW"} />
+                    <Dashcards image={require("../../assets/imgs/Certificate.png")} name="Certificate Application" button={"VIEW"} />
                 </Link>
                 <Link to="/admintranscript">
-                    <Dashcards image={require("../../assets/imgs/idcards.jpg")} name="Transcript Application" button={"VIEW"} />
+                    <Dashcards image={require("../../assets/imgs/apply-paper.jpg")} name="Transcript Application" button={"VIEW"} />
                 </Link>
             </div>
 

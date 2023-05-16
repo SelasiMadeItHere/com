@@ -1,33 +1,50 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
-import { Button, Breadcrumbs, Link } from '@mui/material'
+import { Breadcrumbs, Link, IconButton, TableContainer, Table, TableHead, TableBody, TableRow } from '@mui/material'
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MessageIcon from '@mui/icons-material/Message';
+
+
 
 
 
 function CertRegistrar() {
     return (
-        <div className=' bg-slate-400 h-screen'>
+        <div className=' bg-indigo-100 h-screen'>
             <div>
                 <Navbar />
             </div>
 
-            <div className=' grid grid-cols-4 m-20'>
-                <div className=' inline-flex gap-3 pt-3 font-black'>
-                    <Breadcrumbs arial-label='breadcrumb'>
-                        <Link href='#' underline='hover'>HOME</Link>
+            <div className=' grid grid-cols-4 my-20 mx-14'>
+                <div className=' inline-flex gap-3 pt-3 text-black '>
+                    <Breadcrumbs arial-label='breadcrumb' separator=">">
+                        <Link href='/registrar' underline='hover'>HOME</Link>
                         <Link href='#' underline='hover'>CERTIFICATES</Link>
-                        {/* <Link href='#' underline='hover'>DEFERMENT</Link>
-                    <Link href='#' underline='hover'>TRANSCRIPT</Link>
-                    <Link href='#' underline='hover'></Link> */}
                     </Breadcrumbs>
                 </div>
+
                 <div className=' grid col-span-2'></div>
 
-                <div className=' inline-flex gap-3 pt-3'>
-                    <Button variant='contained' className=' w-28'>PREVIOUS</Button>
-                    <Button variant='contained' className=' w-28' color='secondary'>NEXT</Button>
+                <div className=' inline-flex gap-3 pt-3 text-right'>
+                    <IconButton>
+                        <NotificationsIcon className=' text-sky-900' />
+                    </IconButton>
+                    <IconButton>
+                        <MessageIcon className=' text-sky-900' />
+                    </IconButton>
+
                 </div>
             </div>
+
+
+            <TableContainer className=' bg-white mx-6'>
+                <Table >
+                    <TableHead>
+
+                    </TableHead>
+                    <TableBody></TableBody>
+                </Table>
+            </TableContainer>
         </div>
     )
 }

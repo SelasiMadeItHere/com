@@ -3,9 +3,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import axios from 'axios'
+import axios from 'axios';
 import SendIcon from '@mui/icons-material/Send';
-import Close from '@mui/icons-material/Close'
+import Close from '@mui/icons-material/Close';
+import {toast, ToastContainer} from 'react-toastify';
 
 
 // HERE IS WHERE THE CHILD MODAL FUNCTION STARTS
@@ -21,14 +22,23 @@ function ChildModal() {
   const [Id, setID] = useState("")
   const [Campus, setCampus] = useState("")
   const [Service, setService] = useState("")
+
   const submitRequest = () => {
-    axios.post("http://localhost:5002/api/insert",{
-      Id:Id,
-      Campus: Campus, 
-      Service: Service}).then(()=>{
-        alert("DATA ADDED SUCCESSFULLY!!!!!!!")
+    axios.post("http://localhost:5002/api/insert", {
+      Id: Id,
+      Campus: Campus,
+      Service: Service
+    })
+      .then(() => {
+        setID("");
+        setCampus("");
+        setService("");
+        toast.success("DATA ADDED SUCCESSFULLY!!!!!!!");
+        handleClose(); // Close the modal
       })
+      .catch((err) => toast.error(err.response.data));
   }
+  
   return (
     <React.Fragment>
 
@@ -36,6 +46,7 @@ function ChildModal() {
         ID Card Renewal
       </button>
 
+      <ToastContainer/>
       <Modal
         hideBackdrop
         open={open}
@@ -46,7 +57,7 @@ function ChildModal() {
         <Box sx={{ ...style, width: 600 }}>
           <h2 id="child-modal-title" className=' text-center text-2xl font-bold'>ID Card Renewal</h2>
           <div id="child-modal-description">
-            <form className=' p-6 drop-shadow-12' action='http://localhost:5002/api/insert' method='post'>
+            <form className=' p-6 drop-shadow-12'>
               <div className=' grid grid-cols-2 gap-3 p-6' >
 
                 <label className=' font-bold'> ENTER YOUR ID NUMBER</label>
@@ -91,8 +102,6 @@ function ChildModal() {
               </div>
             </form>
           </div>
-
-
         </Box>
       </Modal>
     </React.Fragment>
@@ -107,6 +116,26 @@ function ChildTwo() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const [Id, setId] = useState("")
+  const [Complaints, setComplaints] = useState("")
+
+
+  const submitComplaint= () => {
+    axios.post("http://localhost:5002/api/complain", {
+      Id: Id,
+      Complaints: Complaints,
+    })
+      .then(() => {
+        setId("");
+        setComplaints("");
+
+        toast.success("COMPLAINT SUBMITTED");
+        handleClose(); // Close the modal
+      })
+      .catch((err) => toast.error(err.response.data));
+  }
+
   return (
     <React.Fragment>
       <button className=' bg-sky-700 text-white m-3 p-3 rounded-md hover:bg-sky-300 self-center' onClick={handleOpen}>
@@ -119,15 +148,28 @@ function ChildTwo() {
           <form className=''>
             <div className=' grid grid-cols-2 font-bold gap-1 p-6 '>
               <label>Enter Your ID Number</label>
-              <input type="text" name="IDComplaint" className=' p-2 border-2 border-sky-200 rounded-md font-normal' placeholder=' Index number' />
+              <input type="text" 
+              name="Id" 
+              className=' p-2 border-2 border-sky-800 rounded-md font-normal' 
+              placeholder=' Index number' 
+              onChange={(e)=>{
+                setId(e.target.value)}}
+              />
+              
+              
               <label>Please Express Your Concerns</label>
-              <textarea type='text' name="IDComplaint" className=' p-2 border-2 border-sky-200 rounded-md font-normal h-full min-h-12' placeholder=' Index number' />
+              <textarea type='text' name="Complaints" 
+              className=' p-2 border-2 border-sky-00 rounded-md font-normal h-full min-h-12' 
+              placeholder=' Index number'
+              onChange={(e)=>{
+                setComplaints(e.target.value)}}
+              />
 
             </div>
 
             <div className=' grid grid-cols-4 p-6 gap-3'>
               <Button className='col-start-2' color='error' onClick={handleClose} variant='contained' endIcon={<Close />}>Cancel</Button>
-              <Button onclick='/Database.js' variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
+              <Button onClick={submitComplaint} variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
             </div>
 
           </form>

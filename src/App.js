@@ -17,12 +17,14 @@ import Registrar from "./Pages/Admin/Registrar";
 import CertRegistrar from "./Pages/Admin/CertRegistrar";
 import UserTranscript from "./Pages/User/UserTranscrpt"
 import AdminTranscript from "./Pages/Admin/AdminTranscript";
+import IntroductoryLetter from "./Pages/Admin/IntroductoryLetter";
 
 
 
 
 function App() {
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
@@ -30,7 +32,7 @@ function App() {
         <Route path="/newrequest" element={<Newrequest />} />
         <Route path="/idchoice" element={<IDchoice />} />
         <Route path="/modaltrial" element={<IDModalCard />} />
-        <Route path='/defermodal' element={<DefermentModal/>}/>
+        <Route path='/defermodal' element={<DefermentModal />} />
 
         {/* ADMIN PAGES */}
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
@@ -40,7 +42,8 @@ function App() {
         <Route path="/finance" element={<Finance />} />
         <Route path="/registrar" element={<Registrar />} />
         <Route path="/certapproval" element={<CertRegistrar />} />
-        
+        <Route path="/introductory-letter" element={<IntroductoryLetter />} />
+
         {/* USER PAGES */}
         <Route path="/defermentapplication" element={<UserDeferment />} />
         <Route path='/modalcomplaint' element={<BasicModal />} />
@@ -48,6 +51,8 @@ function App() {
         <Route path="/usertranscript" element={<UserTranscript />} />
         <Route path="/userindex" element={<Userindex />} />
 
+        {/* Demo Pages */}
+        {/* <Route path="/demo" element={<Blahha />} /> */}
       </Routes>
     </BrowserRouter>
   );

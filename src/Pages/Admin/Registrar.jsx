@@ -4,16 +4,16 @@ import RegistrarDash from '../../components/RegistrarDash'
 import Navbar from '../../components/Navbar'
 import Badges from '../../components/Badges'
 import Charts from '../../components/Charts'
-// import Badge from '@mui/material'
+import { Link } from '@mui/material'
+
 
 
 
 
 function Registrar() {
-    // const navigate = useNavigate()
 
     return (
-        <div className=' bg-slate-200 h-full'>
+        <div className=' bg-slate-200 h-screen'>
             <div>
                 <Navbar />
             </div>
@@ -22,7 +22,9 @@ function Registrar() {
                 <div className=' col-span-3'>
                     <p>Dashboard</p>
                 </div>
-                <div className=' col-start-5'><Badges /></div>
+                <div className=' col-start-5'>
+                    <Badges />
+                </div>
             </div>
 
             <div className=' col-span-4 m-6 text-2xl font-bold'>
@@ -30,7 +32,7 @@ function Registrar() {
             </div>
 
             <div className=' grid lg:grid-cols-3 p-6 gap-6 md:grid-cols-2'>
-                <div className=' shadow-xl bg-red-400 p-6 rounded-xl'>
+                <div className=' shadow-xl bg-lime-500 p-6 rounded-xl'>
                     <p className=' mb-6 font-bold text-blue-700'>REQUESTS TODAY:</p>
                     <Charts />
                 </div>
@@ -57,7 +59,9 @@ function Registrar() {
 
             <div className=' p-6 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2' >
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../../assets/imgs/messages.png')} title='DEFERMENT APPLICATIONS' badge={'VIEW'} />
+                    <Link href="/certapproval">
+                        <RegistrarDash image={require('../../assets/imgs/messages.png')} title='DEFERMENT APPLICATIONS' badge={'VIEW'} />
+                    </Link>
                 </div>
 
                 <div className=' hover:shadow-xl delay-150'>

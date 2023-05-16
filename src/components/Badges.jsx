@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack, Badge } from '@mui/material'
 import ChatIcon from '@mui/icons-material/Chat'
 import NotificationsIcon from '@mui/icons-material/Notifications'
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 
 
 function Badges() {
@@ -18,9 +18,6 @@ function Badges() {
                         <NotificationsIcon color='primary' />
                     </Badge>
 
-                    <Badge>
-                        <Avatar/>
-                    </Badge>
                 </Stack>    
             </div>
 

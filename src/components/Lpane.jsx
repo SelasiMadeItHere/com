@@ -57,9 +57,9 @@ function Lpane() {
                         </li>
 
                         <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/admindeferment">
+                            <Link to="/introductory-letter">
                                 <ExitToAppIcon fontSize='large' className=' pr-3' />
-                                DEFERMENT APPLICATION</Link>
+                                INTRODUCTORY LETTER</Link>
                         </li>
 
                         <li className=' py-5 border-gray-500 border-b-2'>
