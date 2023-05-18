@@ -3,9 +3,8 @@ import Navbar from '../../components/Navbar';
 import Lpane from '../../components/Lpane';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
+// import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
-// import { toast } from 'react-toastify';
 
 
 
@@ -33,15 +32,15 @@ function AdminCertificate() {
         setPage(0);
     };
 
-    const handleDeleteCard = (ID) => {
-        if (window.confirm("Are you sure you want to Delete this record?")) {
-            axios.delete(`http://localhost:5002/api/deleteCard/${ID}`);
-            alert('RECORD DELETED SUCCESSFULY')
-            setTimeout(()=>loadData(),500)
-        }
-        else{
-            console.log(console.error)
-        }}
+    // const handleDeleteCard = (ID) => {
+    //     if (window.confirm("Are you sure you want to Delete this record?")) {
+    //         axios.delete(`http://localhost:5002/api/deleteCard/${ID}`);
+    //         alert('RECORD DELETED SUCCESSFULY')
+    //         setTimeout(()=>loadData(),500)
+    //     }
+    //     else{
+    //         console.log(console.error)
+    //     }}
 
 
     return (
@@ -87,9 +86,9 @@ function AdminCertificate() {
                                                 <IconButton>
                                                     <SendIcon variant='contained' color='primary' />
                                                 </IconButton>
-                                                <IconButton variant='contained' color='error' onClick={() => handleDeleteCard(card.ID)}>
+                                                {/* <IconButton variant='contained' color='error' onClick={() => handleDeleteCard(card.ID)}>
                                                     <DeleteIcon />
-                                                </IconButton>
+                                                </IconButton> */}
                                             </Stack>
                                         </td>
                                     </tr>

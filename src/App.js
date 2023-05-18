@@ -11,6 +11,7 @@ import AdminCertificate from './Pages/Admin/AdminCertificate'
 import TransRegistrar from './Pages/Admin/TransRegistrar'
 import IntroRegistrar from './Pages/Admin/IntroRegistrar'
 import Announcements from "./Pages/Admin/Announcements";
+import RegistrarDefer from "./Pages/Admin/RegistrarDefer"
 
 import Userindex from "./Pages/User/Userindex"
 import UserCardrenewal from "./Pages/User/UserCardrenewal";
@@ -54,6 +55,7 @@ function App() {
         <Route path='/transcriptapproval' element={<TransRegistrar/>}/>
         <Route path="/introductoryapproval" element={<IntroRegistrar/>}/>
         <Route path="/announcements" element={<Announcements/>}/>
+        <Route path="/registrardeferment" element={<RegistrarDefer/>}/>
 
         {/* USER PAGES */}
         <Route path="/defermentapplication" element={<UserDeferment />} />

@@ -6,7 +6,6 @@ import Modal from '@mui/material/Modal';
 import axios from 'axios';
 import SendIcon from '@mui/icons-material/Send';
 import Close from '@mui/icons-material/Close';
-import {toast, ToastContainer} from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -26,10 +25,11 @@ function ChildModal() {
   const [Service, setService] = useState("")
 
   const submitRequest = () => {
-    const rqst_id = uuidv4();
+    const customText = 'Card-'
+    const rqst_id = customText + uuidv4().substring(0,6);
     axios.post("http://localhost:5002/api/insert", {
-      Request:rqst_id,
-      Id: Id,
+      rqst_id: rqst_id,
+      ID: Id,
       Campus: Campus,
       Service: Service
     })
@@ -37,10 +37,10 @@ function ChildModal() {
         setID("");
         setCampus("");
         setService("");
-        toast.success("DATA ADDED SUCCESSFULLY!!!!!!!");
+        window.alert("YOUR REQUEST ID IS " + rqst_id);
         handleClose(); // Close the modal
       })
-      .catch((err) => toast.error(err.response.data));
+      .catch((err) => window.alert(err.response.data));
   }
   
   return (
@@ -50,7 +50,6 @@ function ChildModal() {
         ID Card Renewal
       </button>
 
-      <ToastContainer/>
       <Modal
         hideBackdrop
         open={open}
@@ -98,7 +97,7 @@ function ChildModal() {
               </div>
 
               <div className=' grid grid-cols-4 gap-3'>
-                <Button className=' text-left col-start-2 ' onClick={handleClose} variant='contained' color='error'>Cancel</Button>
+                <Button className=' text-left col-start-2 ' onClick={handleClose} variant='contained' endIcon={<Close />} color='error'>Cancel</Button>
                 <Button className=' text-right '
                 onClick= {submitRequest} 
                 variant='contained' 
@@ -121,23 +120,27 @@ function ChildTwo() {
     setOpen(false);
   };
 
-  const [Id, setId] = useState("")
+  const [ID, setId] = useState("")
   const [Complaints, setComplaints] = useState("")
 
 
   const submitComplaint= () => {
+    const customText = 'Card-'
+    const rqst_id = customText + uuidv4().substring(0,6);
+
     axios.post("http://localhost:5002/api/complain", {
-      Id: Id,
+      rqst_id: rqst_id,
+      ID: ID,
       Complaints: Complaints,
     })
       .then(() => {
         setId("");
         setComplaints("");
 
-        toast.success("COMPLAINT SUBMITTED");
+        window.alert("COMPLAINT SUBMITTED");
         handleClose(); // Close the modal
       })
-      .catch((err) => toast.error(err.response.data));
+      .catch((err) => window.alert(err.response.data));
   }
 
   return (
@@ -163,7 +166,7 @@ function ChildTwo() {
               
               <label>Please Express Your Concerns</label>
               <textarea type='text' name="Complaints" 
-              className=' p-2 border-2 border-sky-00 rounded-md font-normal h-full min-h-12' 
+              className=' p-2 border-2 border-sky-800 rounded-md font-normal h-full min-h-12' 
               placeholder=' Index number'
               onChange={(e)=>{
                 setComplaints(e.target.value)}}
@@ -172,7 +175,7 @@ function ChildTwo() {
             </div>
 
             <div className=' grid grid-cols-4 p-6 gap-3'>
-              <Button className='col-start-2' color='error' onClick={handleClose} variant='contained' endIcon={<Close />}>Cancel</Button>
+              <Button className='col-start-2' color='error' onClick={handleClose} variant='outlined' endIcon={<Close />}>Cancel</Button>
               <Button onClick={submitComplaint} variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
             </div>
 

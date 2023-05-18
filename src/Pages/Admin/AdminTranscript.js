@@ -5,7 +5,7 @@ import TranscriptModal from '../../components/TranscriptModal';
 // import DefermentModal from '../../components/DefermentModal'
 import Lpane from '../../components/Lpane';
 import { Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagination, TableCell, IconButton, Stack } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
+// import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 
 
@@ -31,13 +31,7 @@ function AdminTranscript() {
         setPage(0);
     };
 
-    const handleDelete = (reqid) => {
-        if (window.confirm("Are you sure you want to Delete this record?")) {
-            axios.delete(`http://localhost:5002/api/delete/${reqid}`);
-            // toast.success('RECORD DELETED SUCCESSFULY');
-            setTimeout(() => loadData(), 500)
-        }
-    }
+ 
 
 
     return (
@@ -74,7 +68,7 @@ function AdminTranscript() {
                                             <th scope="row">  {index + 1}</th>
                                             <td className=' text-center p-3 border-y'>{trans.stuid}</td>
                                             <td className=' text-center p-3 border-y'>{trans.reqid}</td>
-                                            <td className=' text-center p-3 border-y'>{trans.prog}</td>
+                                            <td className=' text-center p-3 border-y'>{trans.name}</td>
                                             <td className=' text-center p-3 border-y'>{trans.phone}</td>
                                             <td className=' text-center p-3 border-y'>{trans.prog}</td>
                                             <td className=' text-center p-3 border-y'>{trans.level}</td>
@@ -86,9 +80,9 @@ function AdminTranscript() {
                                                     <IconButton>
                                                         <SendIcon variant='contained' color='primary' />
                                                     </IconButton>
-                                                    <IconButton variant='contained' color='error'onClick={() => handleDelete(trans.reqid)}>
+                                                    {/* <IconButton variant='contained' color='error'onClick={() => handleDelete(trans.reqid)}>
                                                         <DeleteIcon />
-                                                    </IconButton>
+                                                    </IconButton> */}
                                                 </Stack>
                                             </td>
                                         </tr>

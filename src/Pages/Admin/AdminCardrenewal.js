@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Lpane from '../../components/Lpane';
+import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -78,7 +79,7 @@ function Cardrenewal() {
                                         
                                         <td className=' text-center p-3 border-y'>
                                             <Stack direction='row' className=''>
-                                                {/* <TranscriptModal card={card} /> */}
+                                                <IDCardView card={card} />
                                                 <IconButton>
                                                     <SendIcon variant='contained' color='primary' />
                                                 </IconButton>
