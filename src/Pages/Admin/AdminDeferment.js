@@ -66,80 +66,87 @@ function AdminDeferment() {
 
 
     return (
-        <div className='bg-indigo-100 grid grid-cols-9 h-screen pb-12 min-h-screen'>
-            <div>
+        <div>
+            <div className='bg-indigo-100 grid grid-cols-9 h-screen pb-12 min-h-screen'>
+                <div>
 
-                <Navbar />
-                <Lpane className='col-span-2' />
-            </div>
-            
+                    <Navbar />
+                    <Lpane className='col-span-2' />
+                </div>
 
-            <div className='grid col-start-3 col-span-9 col-end-9 mt-28'>
-            {showAlert && (
-                <Alert severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                    {alertMessage}
-                </Alert>
-            )}
-                <Card>
-                    <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>
-                    <TableContainer>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell></TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ID NO.</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} >LEVEL</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>CURRENT SEMESTER</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DATE</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DEFERMENT ID</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>STATUS</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ACTION</TableCell>
-                                </TableRow>
-                            </TableHead>
 
-                            <TableBody className='text-sm'>
-                                {data.map((item, index) => {
-                                    return (
-                                        <tr key={item.id} className=' border p-12'>
-                                            <th scope="row">  {index + 1}</th>
-                                            <td className=' text-center p-3 border'>{item.stuid}</td>
-                                            <td className=' text-center p-3 border'>{item.clevel}</td>
-                                            <td className=' text-center p-3 border'>{item.csem}</td>
-                                            <td className=' text-center p-3 border'>{new Date(item.date).toISOString().slice(0, 10)}</td>
-                                            <td className=' text-center p-3 border'>{item.defid}</td>
-                                            <td className=' text-center p-3 border'>{item.status}</td>
-                                            <td className=' text-center p-3 border'>
-                                                <Stack direction='row' className=''>
-                                                    <DefermentModal item={item} />
-                                                    <IconButton>
-                                                        <SendIcon variant='contained' color='primary'
-                                                            onClick={() => fintoreg(item.defid)} />
-                                                    </IconButton>
-                                                    {/* <IconButton variant='contained' color='error' onClick={() => handleDelete(item.defid)}>
+                <div className='grid col-start-3 col-span-9 col-end-9 mt-28'>
+
+                    <Card>
+                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>
+                        <TableContainer>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell></TableCell>
+                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ID NO.</TableCell>
+                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} >LEVEL</TableCell>
+                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>CURRENT SEMESTER</TableCell>
+                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DATE</TableCell>
+                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DEFERMENT ID</TableCell>
+                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>STATUS</TableCell>
+                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ACTION</TableCell>
+                                    </TableRow>
+                                </TableHead>
+
+                                <TableBody className='text-sm'>
+                                    {data.map((item, index) => {
+                                        return (
+                                            <tr key={item.id} className=' border p-12'>
+                                                <th scope="row">  {index + 1}</th>
+                                                <td className=' text-center p-3 border'>{item.stuid}</td>
+                                                <td className=' text-center p-3 border'>{item.clevel}</td>
+                                                <td className=' text-center p-3 border'>{item.csem}</td>
+                                                <td className=' text-center p-3 border'>{new Date(item.date).toISOString().slice(0, 10)}</td>
+                                                <td className=' text-center p-3 border'>{item.defid}</td>
+                                                <td className=' text-center p-3 border'>{item.status}</td>
+                                                <td className=' text-center p-3 border'>
+                                                    <Stack direction='row' className=''>
+                                                        <DefermentModal item={item} />
+                                                        <IconButton>
+                                                            <SendIcon variant='contained' color='primary'
+                                                                onClick={() => fintoreg(item.defid)} />
+                                                        </IconButton>
+                                                        {/* <IconButton variant='contained' color='error' onClick={() => handleDelete(item.defid)}>
                                                         <DeleteIcon />
                                                     </IconButton> */}
-                                                </Stack>
-                                            </td>
-                                        </tr>
-                                    )
-                                })}
+                                                    </Stack>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
 
 
 
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                    <TablePagination className=' top-auto'
-                        rowsPerPageOptions={[10, 15, 25, 50, 100]}
-                        component="div"
-                        count={data.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        onPageChange={handleChangePage}
-                        onRowsPerPageChange={handleChangeRowsPerPage} />
-                </Card>
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                        <TablePagination className=' top-auto'
+                            rowsPerPageOptions={[10, 15, 25, 50, 100]}
+                            component="div"
+                            count={data.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            onRowsPerPageChange={handleChangeRowsPerPage} />
+                    </Card>
+                </div>
+
+                <div className=' col-span-6'></div>
+                <div className=' col-span-2 m-6'>
+                    {showAlert && (
+                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                            {alertMessage}
+                        </Alert>
+                    )}
+                </div>
+
             </div>
-
         </div>
     )
 }

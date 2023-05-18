@@ -22,7 +22,6 @@ function RegistrarDefer() {
     const loadData = async () => {
         const response = await axios.get("http://localhost:5002/api/getfinanceapproved");
         setData(response.data);
-        loadData();
     };
     
 
@@ -40,7 +39,7 @@ function RegistrarDefer() {
 
 
     return (
-        <div className=' bg-indigo-100 h-screen'>
+        <div className=' bg-indigo-100 h-screen min-h-screen'>
             <div>
                 <Navbar />
             </div>
@@ -67,7 +66,7 @@ function RegistrarDefer() {
             </div>
 
 
-            <div className=' mx-6 '>
+            <div className=' mx-20 '>
                 
                 <TableContainer className=' bg-white rounded-xl'>
                     <Table >
@@ -97,7 +96,7 @@ function RegistrarDefer() {
                                             <td className=' text-center p-3 border-2'>{fdef.defyear}</td>
                                             <td className=' text-center p-3 border-2'>{new Date(fdef.date).toISOString().slice(0, 10)}</td>
                                             <td className=' text-center p-3 border-2'>{fdef.defid}</td>
-                                            <td className=' text-center p-3 border-2'></td>
+                                            <td className=' text-center p-3 border-2'>{fdef.status}</td>
                                             <td className=' text-center p-3 border-2'>
                                                 <Stack direction='row' className=''>
                                                     <FinanceDeferModal fdef={fdef} />
