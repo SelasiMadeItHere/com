@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import axios from 'axios';
 import SendIcon from '@mui/icons-material/Send';
-import Close from '@mui/icons-material/Close';
+import CloseIcon from '@mui/icons-material/Close';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -16,6 +16,7 @@ function ChildModal() {
   const handleOpen = () => {
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -26,7 +27,7 @@ function ChildModal() {
 
   const submitRequest = () => {
     const customText = 'Card-'
-    const rqst_id = customText + uuidv4().substring(0,6);
+    const rqst_id = customText + uuidv4().substring(0, 6);
     axios.post("http://localhost:5002/api/insert", {
       rqst_id: rqst_id,
       ID: Id,
@@ -37,12 +38,13 @@ function ChildModal() {
         setID("");
         setCampus("");
         setService("");
-        window.alert("YOUR REQUEST ID IS " + rqst_id);
-        handleClose(); // Close the modal
+        console.log("YOUR REQUEST ID IS " + rqst_id);
+
+        setOpen(true);
       })
       .catch((err) => window.alert(err.response.data));
   }
-  
+
   return (
     <React.Fragment>
 
@@ -67,28 +69,28 @@ function ChildModal() {
                 <input placeholder='Enter Your ID Number'
                   className=' border-sky-800 border-2 rounded w-[100%] p-2'
                   name='id'
-                  onChange={(e)=>{
+                  onChange={(e) => {
                     setID(e.target.value)
                   }}
                 />
 
                 <label className=' font-bold p-2'>CAMPUS OF COLLECTION</label>
-                <select className=' border-sky-800 border-2 rounded' 
-                name='campus' 
-                onChange={(e)=>{
-                  setCampus(e.target.value)
-                }}>
+                <select className=' border-sky-800 border-2 rounded'
+                  name='campus'
+                  onChange={(e) => {
+                    setCampus(e.target.value)
+                  }}>
                   <option>--Select--</option>
                   <option>SEAVIEW</option>
                   <option>KCC Campus</option>
                 </select>
 
                 <label className=' font-bold p-2'>I am requesting for a </label>
-                <select className=' border-sky-800 border-2 rounded p-2' 
-                id='servicetype'
-                onChange={(e)=>{
-                  setService(e.target.value)
-                }}>
+                <select className=' border-sky-800 border-2 rounded p-2'
+                  id='servicetype'
+                  onChange={(e) => {
+                    setService(e.target.value)
+                  }}>
                   <option>--Select--</option>
                   <option >Replacement</option>
                   <option>Renewal</option>
@@ -97,11 +99,11 @@ function ChildModal() {
               </div>
 
               <div className=' grid grid-cols-4 gap-3'>
-                <Button className=' text-left col-start-2 ' onClick={handleClose} variant='contained' endIcon={<Close />} color='error'>Cancel</Button>
+                <Button className=' text-left col-start-2 ' onClick={handleClose} variant='contained' endIcon={<CloseIcon />} color='error'>Cancel</Button>
                 <Button className=' text-right '
-                onClick= {submitRequest} 
-                variant='contained' 
-                endIcon={<SendIcon />}>SUBMIT</Button>
+                  onClick={submitRequest}
+                  variant='contained'
+                  endIcon={<SendIcon />}>SUBMIT</Button>
               </div>
             </form>
           </div>
@@ -124,9 +126,9 @@ function ChildTwo() {
   const [Complaints, setComplaints] = useState("")
 
 
-  const submitComplaint= () => {
+  const submitComplaint = () => {
     const customText = 'Card-'
-    const rqst_id = customText + uuidv4().substring(0,6);
+    const rqst_id = customText + uuidv4().substring(0, 6);
 
     axios.post("http://localhost:5002/api/complain", {
       rqst_id: rqst_id,
@@ -155,27 +157,29 @@ function ChildTwo() {
           <form className=''>
             <div className=' grid grid-cols-2 font-bold gap-1 p-6 '>
               <label>Enter Your ID Number</label>
-              <input type="text" 
-              name="Id" 
-              className=' p-2 border-2 border-sky-800 rounded-md font-normal' 
-              placeholder=' Index number' 
-              onChange={(e)=>{
-                setId(e.target.value)}}
+              <input type="text"
+                name="Id"
+                className=' p-2 border-2 border-sky-800 rounded-md font-normal'
+                placeholder=' Index number'
+                onChange={(e) => {
+                  setId(e.target.value)
+                }}
               />
-              
-              
+
+
               <label>Please Express Your Concerns</label>
-              <textarea type='text' name="Complaints" 
-              className=' p-2 border-2 border-sky-800 rounded-md font-normal h-full min-h-12' 
-              placeholder=' Index number'
-              onChange={(e)=>{
-                setComplaints(e.target.value)}}
+              <textarea type='text' name="Complaints"
+                className=' p-2 border-2 border-sky-800 rounded-md font-normal h-full min-h-12'
+                placeholder=' Index number'
+                onChange={(e) => {
+                  setComplaints(e.target.value)
+                }}
               />
 
             </div>
 
             <div className=' grid grid-cols-4 p-6 gap-3'>
-              <Button className='col-start-2' color='error' onClick={handleClose} variant='outlined' endIcon={<Close />}>Cancel</Button>
+              <Button className='col-start-2' color='error' onClick={handleClose} variant='outlined' endIcon={<CloseIcon />}>Cancel</Button>
               <Button onClick={submitComplaint} variant='contained' endIcon={<SendIcon />}>SUBMIT</Button>
             </div>
 
@@ -216,6 +220,9 @@ export default function BasicModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleChildModalClose = () => {
+    handleClose(); // Close the parent modal
+  };
   return (
     <div>
       <Button onClick={handleOpen} variant="Outlined" style={{ padding: '1px' }}>Apply</Button>
@@ -231,10 +238,10 @@ export default function BasicModal() {
           </div>
           <Typography id="modal-modal-description" sx={{ mt: 2 }} className=' p-3 center grid grid-cols-2'>
             <div className=' col-start-1 text-center'>
-              <ChildModal />
-              </div>
+              <ChildModal onClose={handleChildModalClose}/>
+            </div>
 
-              <div>
+            <div>
               <ChildTwo />
             </div>
 

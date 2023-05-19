@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import Stack from '@mui/material/Stack';
-import SendIcon from '@mui/icons-material/Send'
-
+// import SendIcon from '@mui/icons-material/Send'
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Navbar from '../../components/Navbar'
 import { Breadcrumbs, Link, IconButton, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, TablePagination } from '@mui/material'
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -67,10 +68,10 @@ function RegistrarDefer() {
 
 
             <div className=' mx-20 '>
-                
+            <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>
                 <TableContainer className=' bg-white rounded-xl'>
                     <Table >
-                        <TableHead className=' text-center text-white bg-sky-800'>
+                        <TableHead className=' text-center text-white'>
                             <TableRow >
                                 <TableCell></TableCell>
                                 <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border'>ID NO.</TableCell>
@@ -100,12 +101,16 @@ function RegistrarDefer() {
                                             <td className=' text-center p-3 border-2'>
                                                 <Stack direction='row' className=''>
                                                     <FinanceDeferModal fdef={fdef} />
-                                                    <IconButton>
-                                                        <SendIcon variant='contained' color='primary' />
+                                                   
+                                                    <IconButton variant='contained' color='primary' 
+                                                    // onClick={() => handleDelete(trans.reqid)}
+                                                    >
+                                                        <ThumbUpIcon />
                                                     </IconButton>
-                                                    {/* <IconButton variant='contained' color='error'onClick={() => handleDelete(trans.reqid)}>
-                                                        <DeleteIcon />
-                                                    </IconButton> */}
+                                                    
+                                                     <IconButton>
+                                                        <ThumbDownIcon variant='contained' color='error' />
+                                                    </IconButton>
                                                 </Stack>
                                             </td>
                                         </tr>

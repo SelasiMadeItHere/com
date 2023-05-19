@@ -4,8 +4,8 @@ import Lpane from '../../components/Lpane';
 import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 // import { toast } from 'react-toastify';
 
 
@@ -46,16 +46,16 @@ function Cardrenewal() {
 
 
     return (
-        <div className=' bg-slate-300 grid grid-cols-9 md:h-screen lg:h-full   '>
+        <div className=' bg-white grid grid-cols-9 h-full   '>
             <div>
                 <Navbar />
                 <Lpane className='col-span-2' />
             </div>
 
             <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
-                <Card className='my-12'>
+                <Card className='my-12 drop-shadow-2xl'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Card Renewal Requests</h1>
-                    <Table className='mt-5'>
+                    <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
                         <TableHead className=' text-center'>
                             <TableRow >
                                 <TableCell style={{ fontWeight: "bolder" }} className=' border'></TableCell>
@@ -81,10 +81,10 @@ function Cardrenewal() {
                                             <Stack direction='row' className=''>
                                                 <IDCardView card={card} />
                                                 <IconButton>
-                                                    <SendIcon variant='contained' color='primary' />
+                                                    <ThumbUpIcon variant='contained' color='primary' />
                                                 </IconButton>
                                                 <IconButton variant='contained' color='error' onClick={() => handleDeleteCard(card.ID)}>
-                                                    <DeleteIcon />
+                                                    <ThumbDownIcon />
                                                 </IconButton>
                                             </Stack>
                                         </td>

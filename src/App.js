@@ -12,6 +12,7 @@ import TransRegistrar from './Pages/Admin/TransRegistrar'
 import IntroRegistrar from './Pages/Admin/IntroRegistrar'
 import Announcements from "./Pages/Admin/Announcements";
 import RegistrarDefer from "./Pages/Admin/RegistrarDefer"
+import DoneBasket from "./Pages/Admin/DoneBasket";
 
 import Userindex from "./Pages/User/Userindex"
 import UserCardrenewal from "./Pages/User/UserCardrenewal";
@@ -56,6 +57,7 @@ function App() {
         <Route path="/introductoryapproval" element={<IntroRegistrar/>}/>
         <Route path="/announcements" element={<Announcements/>}/>
         <Route path="/registrardeferment" element={<RegistrarDefer/>}/>
+        <Route path="/processedrequests" element={<DoneBasket/>}/>
 
         {/* USER PAGES */}
         <Route path="/defermentapplication" element={<UserDeferment />} />

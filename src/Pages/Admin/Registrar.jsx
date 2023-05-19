@@ -32,7 +32,7 @@ function Registrar() {
             </div>
 
             <div className=' grid lg:grid-cols-3 p-6 gap-6 md:grid-cols-2'>
-                <div className=' shadow-xl bg-red-600 p-6 rounded-xl'>
+                <div className=' shadow-xl bg-red-500 p-6 rounded-xl'>
                     <p className=' mb-6 font-bold text-blue-700'>REQUESTS TODAY:</p>
                     <Charts className=' w-full'/>
                 </div>
@@ -45,7 +45,7 @@ function Registrar() {
 
                 </div>
 
-                <div className=' shadow-xl bg-white p-6 rounded-xl'>
+                <div className=' shadow-xl bg-green-600 p-6 rounded-xl'>
                     <div >
                         <p className=' mb-6 font-bold text-blue-700'>TOTAL REQUESTS:</p>
                         <Charts className=' w-full' />

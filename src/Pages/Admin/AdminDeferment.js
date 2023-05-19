@@ -4,8 +4,8 @@ import Navbar from '../../components/Navbar'
 import Lpane from '../../components/Lpane'
 import DefermentModal from '../../components/DefermentModal'
 import { Card, Table, TableRow, TableCell, TableHead, TableBody, TableContainer, IconButton, Stack, TablePagination } from '@mui/material';
-// import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Alert from '@mui/material/Alert'
 
 
@@ -56,13 +56,13 @@ function AdminDeferment() {
     };
 
 
-    // const handleDelete = (defid) => {
-    //     if (window.confirm("Are you sure you want to Delete this record?")) {
-    //         axios.delete(`http://localhost:5002/api/delete/${defid}`);
-    //         toast.success('RECORD DELETED SUCCESSFULY');
-    //         setTimeout(() => loadData(), 500)
-    //     }
-    // }
+    const handleDelete = (defid) => {
+        if (window.confirm("Are you sure you want to Delete this record?")) {
+            axios.delete(`http://localhost:5002/api/delete/${defid}`);
+
+            setTimeout(() => loadData(), 500)
+        }
+    }
 
 
     return (
@@ -97,7 +97,7 @@ function AdminDeferment() {
                                 <TableBody className='text-sm'>
                                     {data.map((item, index) => {
                                         return (
-                                            <tr key={item.id} className=' border p-12'>
+                                            <tr key={item.id} className=' border p-12 text-md'>
                                                 <th scope="row">  {index + 1}</th>
                                                 <td className=' text-center p-3 border'>{item.stuid}</td>
                                                 <td className=' text-center p-3 border'>{item.clevel}</td>
@@ -109,12 +109,14 @@ function AdminDeferment() {
                                                     <Stack direction='row' className=''>
                                                         <DefermentModal item={item} />
                                                         <IconButton>
-                                                            <SendIcon variant='contained' color='primary'
+                                                            <ThumbUpIcon variant='contained' color='primary'
                                                                 onClick={() => fintoreg(item.defid)} />
                                                         </IconButton>
-                                                        {/* <IconButton variant='contained' color='error' onClick={() => handleDelete(item.defid)}>
-                                                        <DeleteIcon />
-                                                    </IconButton> */}
+                                                        
+                                                        <IconButton variant='contained' color='error' 
+                                                        onClick={() => handleDelete(item.defid)}>
+                                                        <ThumbDownIcon />
+                                                    </IconButton>
                                                     </Stack>
                                                 </td>
                                             </tr>
