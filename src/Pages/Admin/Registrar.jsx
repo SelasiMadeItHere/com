@@ -58,24 +58,24 @@ function Registrar() {
             </div>
 
             <div className=' p-6 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2' >
-                <div className=' hover:shadow-xl delay-150'>
-                        <RegistrarDash image={require('../../assets/imgs/messages.png')} title='INTRODUCTORY LETTER'
+                <div className=' hover:shadow-xl delay-200'>
+                        <RegistrarDash image={require('../../assets/imgs/messages.png')} title='INTRODUCTORY LETTER REQUESTS'
                          badge={'VIEW'}  link={'/introductoryapproval'}/>
                 </div>
 
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../../assets/imgs/3d-documents.png')} title='CERTIFICATE APPLICATIONS' 
+                    <RegistrarDash image={require('../../assets/imgs/3d-documents.png')} title='CERTIFICATE REQUESTS' 
                     badge={'VIEW'} link={'/certapproval'} />
                 </div>
 
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../../assets/imgs/no-pic.png')} title='TRANSCRIPT APPLICATIONS' 
+                    <RegistrarDash image={require('../../assets/imgs/no-pic.png')} title='TRANSCRIPT REQUESTS' 
                     badge={'VIEW'} link={'/transcriptapproval'}/>
                 </div>
 
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../../assets/imgs/3d-megaphone.png')} title='ANNOUNCEMENTS' 
-                    badge={'VIEW'} link={'/announcements'}/>
+                    <RegistrarDash image={require('../../assets/imgs/3d-megaphone.png')} title='DEFERMENT REQUESTS' 
+                    badge={'VIEW'} link={'/registrardeferment'}/>
                 </div>
             </div>
 

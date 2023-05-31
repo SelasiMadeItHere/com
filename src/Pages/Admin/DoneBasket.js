@@ -13,7 +13,7 @@ function DoneBasket() {
                 <div className=' grid-cols-1 row-start-2 m-24'>
                     <Card className=' h-24 pl-12'>
                         <div className=' text-xl'>DEFERMENT</div>
-                        <div></div>
+                        <div className=' text-center'>100</div>
                     </Card>
                 </div>
             </div>

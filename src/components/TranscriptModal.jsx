@@ -28,18 +28,18 @@ function TranscriptModal({ trans }) {
         className='mx-[30%]'
         sx={{
           display: 'flex',
-          alignItems: 'center',
+          alignfdefs: 'center',
           justifyContent: 'center',
         }}
       >
 
-        <Box 
-        className=' rounded-lg shadow-md px-4 origin-center w-full top-20 bg-white m-3 overflow-y-auto' 
-        sx={{ maxHeight: '80vh' }}
+        <Box
+          className=' rounded-lg shadow-md px-4 origin-center w-full top-20 bg-white m-3 overflow-y-auto'
+          sx={{ maxHeight: '80vh' }}
         >
-          <Typography id="modal-modal-title" variant="h5" 
-          sx={{ fontWeight: 600 }} 
-          className=' text-center text-blue-700 border-b-2 py-4'>
+          <Typography id="modal-modal-title" variant="h5"
+            sx={{ fontWeight: 600 }}
+            className=' text-center text-blue-700 border-b-2 py-4'>
             View Request Details
           </Typography>
           <Typography id="modal-modal-description">
@@ -73,12 +73,12 @@ function TranscriptModal({ trans }) {
               <div className='  py-1'>
                 <label className='  text-blue-700 font-bold'> Organization's Contact Person: </label>{trans.ogcontact}
               </div>
-              
+
               <div className='  py-1'>
                 <label className='  text-blue-700 font-bold'> Purpose: </label>{trans.purpose}
               </div>
-              
-               <div className='  py-1'>
+
+              <div className='  py-1'>
                 <label className='  text-blue-700 font-bold'> Organization's Mail: </label>{trans.ogemail}
               </div>
               <div className='  py-1'>
@@ -96,7 +96,7 @@ function TranscriptModal({ trans }) {
                 <label className='  text-blue-700 font-bold'> Specify Mode: </label>{trans.mode_specify}
               </div>
 
-              
+
               {/* */}
 
             </div>

@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Lpane from '../../components/Lpane';
+import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
-import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, } from '@mui/material';
-// import DeleteIcon from '@mui/icons-material/Delete';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination } from '@mui/material';
+// import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+// import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+// import Alert from '@mui/material/Alert'
 
-
-
-
-function AdminCertificate() {
+function FinishedCards() {
 
     const [data, setData] = useState([]);
+    // const [showAlert, setShowAlert] = useState(false);
+    // const [alertSeverity, setAlertSeverity] = useState('success');
+    // const [alertMessage, setAlertMessage] = useState('');
+
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/getCard");
+        const response = await axios.get("http://localhost:5002/api/finishedcards");
         setData(response.data);
     };
     useEffect(() => {
@@ -33,41 +36,27 @@ function AdminCertificate() {
         setPage(0);
     };
 
-    // const handleDeleteCard = (ID) => {
-    //     if (window.confirm("Are you sure you want to Delete this record?")) {
-    //         axios.delete(`http://localhost:5002/api/deleteCard/${ID}`);
-    //         alert('RECORD DELETED SUCCESSFULY')
-    //         setTimeout(()=>loadData(),500)
-    //     }
-    //     else{
-    //         console.log(console.error)
-    //     }}
-
-
-    return (
-        <div className=' bg-slate-300 grid grid-cols-9 md:h-screen lg:h-full   '>
+  return (
+    <div>
+        <div className=' bg-white grid grid-cols-9 h-full   '>
             <div>
                 <Navbar />
                 <Lpane className='col-span-2' />
             </div>
 
+
             <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
-                <Card className='my-12'>
-                    <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Certificate Requests</h1>
-                    <Table className='mt-5'>
+                <Card className='my-12 drop-shadow-2xl'>
+                    <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Processed Card Requests</h1>
+                    <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
                         <TableHead className=' text-center'>
                             <TableRow >
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'></TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border'>  </TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' border'>ID NO.</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'>REQUEST ID</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border'>CAMPUS</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' border'>TRACKING ID</TableCell>
-                                {/* <TableCell style={{ fontWeight: "bolder" }}>SURNAME NAME</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>PROGRAM</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>LEVEL</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>CAMPUS</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>STATUS</TableCell> */}
-                                <TableCell style={{ fontWeight: "bolder" }} className=' grid grid-cols-2'>ACTION</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border grid grid-cols-2'>ACTION</TableCell>
                             </TableRow>
                         </TableHead>
 
@@ -82,13 +71,9 @@ function AdminCertificate() {
                                         <td className=' text-left p-3 border'>{card.rqst_id}</td>
                                         
                                         <td className=' text-center p-3 border-y'>
-                                            <Stack direction='row' className=''>
                                             
-                                                <IconButton>
-                                                    <ThumbUpIcon variant='contained' color='primary' />
-                                                </IconButton>
+                                                <IDCardView card={card} />
                                                 
-                                            </Stack>
                                         </td>
                                     </tr>
                                 )
@@ -98,18 +83,28 @@ function AdminCertificate() {
                         </TableBody>
                     </Table>
                     <TablePagination className=' bottom-0'
-                        rowsPerPageOptions={[10, 15, 25, 100]}
+                        rowsPerPageOptions={[10, 15, 25, 100]} 
                         component="div"
                         count={data.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
-                        onPageChange={handleChangePage} 
+                        onPageChange={handleChangePage}
                         onRowsPerPageChange={handleChangeRowsPerPage} />
                 </Card>
             </div>
 
         </div>
-    )
+        
+            {/* <div className=' col-span-4'></div>
+            <div className=' col-span-3 m-6'>
+                {showAlert && (
+                    <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                        {alertMessage}
+                    </Alert>
+                )}
+            </div> */}
+    </div>
+  )
 }
 
-export default AdminCertificate
+export default FinishedCards

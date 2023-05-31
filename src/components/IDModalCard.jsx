@@ -7,6 +7,7 @@ import axios from 'axios';
 import SendIcon from '@mui/icons-material/Send';
 import CloseIcon from '@mui/icons-material/Close';
 import { v4 as uuidv4 } from 'uuid';
+// import { Alert } from '@mui/material';
 
 
 
@@ -34,13 +35,16 @@ function ChildModal() {
       Campus: Campus,
       Service: Service
     })
-      .then(() => {
-        setID("");
-        setCampus("");
-        setService("");
-        console.log("YOUR REQUEST ID IS " + rqst_id);
-
-        setOpen(true);
+      .then((response) => {
+        const data = response.data;
+        if (data) {
+          setID("");
+          setCampus("");
+          setService("");
+          window.alert("YOUR REQUEST ID IS " + rqst_id);
+          handleClose()
+        }
+       
       })
       .catch((err) => window.alert(err.response.data));
   }
@@ -85,7 +89,7 @@ function ChildModal() {
                   <option>KCC Campus</option>
                 </select>
 
-                <label className=' font-bold p-2'>I am requesting for a </label>
+                <label className=' font-bold p-2'>I AM REQUESTING FOR A </label>
                 <select className=' border-sky-800 border-2 rounded p-2'
                   id='servicetype'
                   onChange={(e) => {
@@ -238,7 +242,7 @@ export default function BasicModal() {
           </div>
           <Typography id="modal-modal-description" sx={{ mt: 2 }} className=' p-3 center grid grid-cols-2'>
             <div className=' col-start-1 text-center'>
-              <ChildModal onClose={handleChildModalClose}/>
+              <ChildModal onClose={handleChildModalClose} />
             </div>
 
             <div>

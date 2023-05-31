@@ -21,7 +21,7 @@ import avatar from '../assets/imgs/avatar2.png'
 //   p: 4,
 // };
 
-export default function DefermentModal({ item }) {
+export default function DefermentModal({ fdef }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -51,57 +51,57 @@ export default function DefermentModal({ item }) {
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> ID Number: </label>{item.stuid}
+                <label className='  text-blue-700 font-bold'> ID Number: </label>{fdef.stuid}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Level: </label>{item.clevel}
+                <label className=' text-blue-700 font-bold'>Level: </label>{fdef.clevel}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Current Semester: </label>{item.csem}
+                <label className=' text-blue-700 font-bold'> Current Semester: </label>{fdef.csem}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Deferment ID: </label>{item.defid}
+                <label className=' text-blue-700 font-bold'> Deferment ID: </label>{fdef.defid}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Deferment Semester: </label>{item.defsem}
+                <label className=' text-blue-700 font-bold'> Deferment Semester: </label>{fdef.defsem}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Deferment Year: </label>{item.defyear}
+                <label className=' text-blue-700 font-bold'> Deferment Year: </label>{fdef.defyear}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Returning Year: </label>{item.retyear}
+                <label className=' text-blue-700 font-bold'>Returning Year: </label>{fdef.retyear}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Previously Deferred Semster: </label>{item.prevdef}
+                <label className=' text-blue-700 font-bold'> Previously Deferred Semster: </label>{fdef.prevdef}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Reason for Deferment: </label>{item.reason}
+                <label className=' text-blue-700 font-bold'>Reason for Deferment: </label>{fdef.reason}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Detailed Reason: </label>{item.reason_specify}
-              </div>
-
-
-              <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'> Date: </label>{new Date(item.date).toISOString().slice(0, 10)}
+                <label className=' text-blue-700 font-bold'>Detailed Reason: </label>{fdef.reason_specify}
               </div>
 
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Returning Year: </label>{item.retyear}
+                <label className=' text-blue-700 font-bold'> Date: </label>{new Date(fdef.date).toISOString().slice(0, 10)}
+              </div>
+
+
+              <div className='  py-1'>
+                <label className=' text-blue-700 font-bold'>Returning Year: </label>{fdef.retyear}
               </div>
 
               <div className='  py-1'>
-                <label className=' text-blue-700 font-bold'>Returning Semester: </label>{item.retsem}
+                <label className=' text-blue-700 font-bold'>Returning Semester: </label>{fdef.retsem}
               </div>
             </div>
 

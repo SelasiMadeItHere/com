@@ -28,18 +28,18 @@ function FinanceDeferModal({ fdef }) {
         className='mx-[30%]'
         sx={{
           display: 'flex',
-          alignItems: 'center',
+          alignfdefs: 'center',
           justifyContent: 'center',
         }}
       >
 
-        <Box 
-        className=' rounded-lg shadow-md px-4 origin-center w-full top-20 bg-white m-3 overflow-y-auto' 
-        sx={{ maxHeight: '80vh' }}
+        <Box
+          className=' rounded-lg shadow-md px-4 origin-center w-full top-20 bg-white m-3 overflow-y-auto'
+          sx={{ maxHeight: '80vh' }}
         >
-          <Typography id="modal-modal-title" variant="h5" 
-          sx={{ fontWeight: 600 }} 
-          className=' text-center text-blue-700 border-b-2 py-4'>
+          <Typography id="modal-modal-title" variant="h5"
+            sx={{ fontWeight: 600 }}
+            className=' text-center text-blue-700 border-b-2 py-4'>
             View Request Details
           </Typography>
           <Typography id="modal-modal-description">
@@ -49,54 +49,54 @@ function FinanceDeferModal({ fdef }) {
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Request ID: </label>{fdef.reqid}
+                <label className='  text-blue-700 font-bold'> Request ID: </label>{fdef.defid}
               </div>
 
               <div className='  py-1'>
                 <label className='  text-blue-700 font-bold'>Student ID: </label>{fdef.stuid}
               </div>
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Name: </label>{fdef.name}
+                <label className='  text-blue-700 font-bold'> Level: </label>{fdef.clevel}
               </div>
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Program of Study: </label>{fdef.prog}
+                <label className='  text-blue-700 font-bold'> Current Semester: </label>{fdef.csem}
               </div>
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Level: </label>{fdef.level}
+                <label className='  text-blue-700 font-bold'> Deferring Semester: </label>{fdef.defsem}
               </div>
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Phone: </label>{fdef.purpose}
+                <label className='  text-blue-700 font-bold'> Deferment Year: </label>{fdef.defyear}
               </div>
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Organization's Name: </label>{fdef.ogname}
+                <label className='  text-blue-700 font-bold'> Returning Semester: </label>{fdef.retsem}
               </div>
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Organization's Contact Person: </label>{fdef.ogcontact}
-              </div>
-              
-              <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Purpose: </label>{fdef.purpose}
-              </div>
-              
-               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Organization's Mail: </label>{fdef.ogemail}
-              </div>
-              <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Organization's Postal Address: </label>{fdef.ogpostal}
-              </div>
-              <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Organization's Phone Number: </label>{fdef.phone}
+                <label className='  text-blue-700 font-bold'> Returning Year: </label>{fdef.retyear}
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Delivery Mode: </label>{fdef.deliv_mode}
+                <label className='  text-blue-700 font-bold'> Reason: </label>{fdef.reason}
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Specify Mode: </label>{fdef.mode_specify}
+                <label className='  text-blue-700 font-bold'> Specific Reasons: </label>{fdef.reason_specify}
               </div>
 
-              
+
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Previously deferred: </label>{fdef.prevdef}
+              </div>
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Semester of previous deferment: </label>{fdef.prevdef_sem}
+              </div>
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Semester of previous deferment: </label>{fdef.prevdef_year}
+              </div>
+
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Date of Request: </label>{new Date(fdef.date).toISOString().slice(0, 10)}
+              </div>
+
               {/* */}
 
             </div>

@@ -5,12 +5,19 @@ import TranscriptModal from '../../components/TranscriptModal';
 // import DefermentModal from '../../components/DefermentModal'
 import Lpane from '../../components/Lpane';
 import { Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagination, TableCell, IconButton, Stack } from '@mui/material';
-// import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+import Alert from '@mui/material/Alert'
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { ThumbDown } from '@mui/icons-material';
 
 
 function AdminTranscript() {
+
     const [data, setData] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertSeverity, setAlertSeverity] = useState('success');
+    const [alertMessage, setAlertMessage] = useState('');
+
+
     const loadData = async () => {
         const response = await axios.get("http://localhost:5002/api/gettranscript");
         setData(response.data);
@@ -31,6 +38,23 @@ function AdminTranscript() {
         setPage(0);
     };
 
+    const fintoregtrans = (defid) => {
+        axios
+            .post('http://localhost:5002/api/transcript/finapprov', { defid })
+            .then((response) => {
+                console.log(response.data);
+                setAlertSeverity('success');
+                setAlertMessage('Status updated successfully.');
+                setShowAlert(true);
+                loadData();
+            })
+            .catch((error) => {
+                console.error(error);
+                setAlertSeverity('error');
+                setAlertMessage('Failed to update status.');
+                setShowAlert(true);
+            });
+    };
  
 
 
@@ -49,15 +73,15 @@ function AdminTranscript() {
                             <TableHead>
                                 <TableRow>
                                     <TableCell></TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ID NO.</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>REQUEST ID</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>NAME</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>CONTACT</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>PROGRAM</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>LEVEL</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DELIVERY</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>STATUS</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ACTION</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>ID NO.</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>REQUEST ID</TableCell>
+                                    {/* <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>NAME</TableCell> */}
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>CONTACT</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>PROGRAM</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>LEVEL</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>DELIVERY</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>STATUS</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>ACTION</TableCell>
                                 </TableRow>
                             </TableHead>
 
@@ -66,23 +90,26 @@ function AdminTranscript() {
                                     return (
                                         <tr key={trans.stuid} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
-                                            <td className=' text-center p-3 border-y'>{trans.stuid}</td>
-                                            <td className=' text-center p-3 border-y'>{trans.reqid}</td>
-                                            <td className=' text-center p-3 border-y'>{trans.name}</td>
-                                            <td className=' text-center p-3 border-y'>{trans.phone}</td>
-                                            <td className=' text-center p-3 border-y'>{trans.prog}</td>
-                                            <td className=' text-center p-3 border-y'>{trans.level}</td>
-                                            <td className=' text-center p-3 border-y'>{trans.deliv_mode}</td>
-                                            <td className=' text-center p-3 border-y'></td>
+                                            <td className=' text-center p-3 border-2'>{trans.stuid}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.reqid}</td>
+                                            {/* <td className=' text-center p-3 border-2'>{trans.name}</td> */}
+                                            <td className=' text-center p-3 border-2'>{trans.phone}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.prog}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.level}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.deliv_mode}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.status}</td>
+                                            {/* <td className=' text-center p-3 border-y'></td> */}
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row' className=''>
                                                     <TranscriptModal trans={trans} />
                                                     <IconButton>
-                                                        <SendIcon variant='contained' color='primary' />
+                                                        <ThumbUpIcon variant='contained' color='primary' onClick={() => fintoregtrans(trans.reqid)}  />
                                                     </IconButton>
-                                                    {/* <IconButton variant='contained' color='error'onClick={() => handleDelete(trans.reqid)}>
-                                                        <DeleteIcon />
-                                                    </IconButton> */}
+                                                    <IconButton variant='contained' color='error' 
+                                                    // onClick={() => handleDelete(trans.reqid)}
+                                                    >
+                                                        <ThumbDown color='error' />
+                                                    </IconButton>
                                                 </Stack>
                                             </td>
                                         </tr>
@@ -101,7 +128,14 @@ function AdminTranscript() {
                         onRowsPerPageChange={handleChangeRowsPerPage} />
                 </Card>
             </div>
-
+            <div className=' col-span-6'></div>
+                <div className=' col-span-2 m-6'>
+                    {showAlert && (
+                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                            {alertMessage}
+                        </Alert>
+                    )}
+                </div>
         </div>
     )
 }

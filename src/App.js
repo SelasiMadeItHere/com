@@ -25,6 +25,7 @@ import IDModalCard from "./components/IDModalCard";
 import DefermentModal from "./components/DefermentModal";
 // import ModalComplaint from "./components/ModalComplaint";
 import BasicModal from "./components/DefermentModal";
+import FinishedCards from "./Pages/Admin/FinishedCards";
 
 
 
@@ -36,6 +37,7 @@ function App() {
 
     <BrowserRouter>
       <Routes>
+        {/* Coponents*/}
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/newrequest" element={<Newrequest />} />
@@ -58,6 +60,7 @@ function App() {
         <Route path="/announcements" element={<Announcements/>}/>
         <Route path="/registrardeferment" element={<RegistrarDefer/>}/>
         <Route path="/processedrequests" element={<DoneBasket/>}/>
+        <Route path="/finishedCards" element={<FinishedCards/>}/>
 
         {/* USER PAGES */}
         <Route path="/defermentapplication" element={<UserDeferment />} />

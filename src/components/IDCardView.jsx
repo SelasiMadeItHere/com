@@ -16,7 +16,7 @@ function IDCardView({ card }) {
 
   return (
     <div>
-      <IconButton variant='outlined' onClick={handleOpen}>
+      <IconButton variant='outlined' color='primary' onClick={handleOpen}>
         <VisibilityIcon />
       </IconButton>
 
@@ -28,18 +28,18 @@ function IDCardView({ card }) {
         className='mx-[30%]'
         sx={{
           display: 'flex',
-          alignItems: 'center',
+          alignfdefs: 'center',
           justifyContent: 'center',
         }}
       >
 
-        <Box 
-        className=' rounded-lg shadow-md px-4 origin-center w-full top-20 bg-white m-3 overflow-y-auto' 
-        sx={{ maxHeight: '80vh' }}
+        <Box
+          className=' rounded-lg shadow-md px-4 origin-center w-full bg-white m-3 overflow-y-auto'
+          sx={{ maxHeight: '60vh' }}
         >
-          <Typography id="modal-modal-title" variant="h5" 
-          sx={{ fontWeight: 600 }} 
-          className=' text-center text-blue-700 border-b-2 py-4'>
+          <Typography id="modal-modal-title" variant="h5"
+            sx={{ fontWeight: 600 }}
+            className=' text-center text-blue-700 border-b-2 py-4'>
             View Request Details
           </Typography>
           <Typography id="modal-modal-description">
@@ -55,15 +55,15 @@ function IDCardView({ card }) {
               <div className='  py-1'>
                 <label className='  text-blue-700 font-bold'>Student ID: </label>{card.ID}
               </div>
-              
+
               <div className='  py-1'>
                 <label className='  text-blue-700 font-bold'> Service: </label>{card.service}
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Service: </label>{card.campus}
+                <label className='  text-blue-700 font-bold'> Campus: </label>{card.campus}
               </div>
-             
+
 
             </div>
 

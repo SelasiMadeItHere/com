@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import Navbar from '../../components/Navbar'
-import Lpane from '../../components/Lpane'
-import DefermentModal from '../../components/DefermentModal'
-import { Card, Table, TableRow, TableCell, TableHead, TableBody, TableContainer, IconButton, Stack, TablePagination } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import Navbar from '../../components/Navbar';
+import Lpane from '../../components/Lpane';
+import DefermentModal from '../../components/DefermentModal';
+import axios from 'axios';
+import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, Button, Link,  } from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import FinanceDeferModal from '../../components/FinanceDeferModal';
 import Alert from '@mui/material/Alert'
+import BadgeIcon from '@mui/icons-material/Badge';
 
 
 
 function AdminDeferment() {
+
     const [data, setData] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
     const [alertSeverity, setAlertSeverity] = useState('success');
@@ -24,9 +27,10 @@ function AdminDeferment() {
         loadData();
     }, []);
 
+
     const fintoreg = (defid) => {
         axios
-            .post('http://localhost:5002/api/deferment/finance-approve', { defid })
+            .post('http://localhost:5002/api/deferment/finapprove', { defid })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -55,102 +59,110 @@ function AdminDeferment() {
         setPage(0);
     };
 
-
-    const handleDelete = (defid) => {
+    const handleDeleteCard = (ID) => {
         if (window.confirm("Are you sure you want to Delete this record?")) {
-            axios.delete(`http://localhost:5002/api/delete/${defid}`);
-
+            axios.delete(`http://localhost:5002/api/deleteCard/${ID}`);
+            alert('RECORD DELETED SUCCESSFULY')
             setTimeout(() => loadData(), 500)
+        }
+        else {
+            console.log(console.error)
         }
     }
 
 
     return (
-        <div>
-            <div className='bg-indigo-100 grid grid-cols-9 h-screen pb-12 min-h-screen'>
-                <div>
+        <div className=' bg-white grid grid-cols-9 h-full   '>
+            <div>
+                <Navbar />
+                <Lpane className='col-span-2' />
+            </div>
 
-                    <Navbar />
-                    <Lpane className='col-span-2' />
+            <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
+                <div className=' col-span-full grid'>
+                    <div className=' col-start-2 pt-6'>
+                        <Link to="/finishedcards">
+                            <Button variant='contained' className=' px-6' startIcon={<BadgeIcon />}> PROCESSED REQUESTS</Button>
+                        </Link>
+                    </div>
+
+                    <div className=' col-start-8 pt-6'>
+                        <Link to="/finishedcards">
+                            <Button variant='contained' color='error' className=' px-6' startIcon={<BadgeIcon />}> CANCELLED REQUESTS</Button>
+                        </Link>
+                    </div>
+
                 </div>
+                <Card className='my-12 drop-shadow-2xl'>
+                    <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>DEFERMENT REQUESTS</h1>
+                    <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
+                        <TableHead className=' text-center'>
+                            <TableRow >
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2 mx-12'></TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>REQUEST ID</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>STUDENT ID</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>LEVEL</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>CURRENT SEMESTER</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>DEFFERING SEMESTER</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>REASON</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>STATUS</TableCell>
+
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border grid grid-cols-2'>ACTION</TableCell>
+                            </TableRow>
+                        </TableHead>
+
+                        <TableBody>
+                            {data.map((fdef, index) => {
+                                return (
+                                    <tr key={fdef.ID} className=' border p-12'>
+                                        <th scope="row">  {index + 1}</th>
+                                        <td className=' text-center p-3 border-2'>{fdef.defid}</td>
+                                        <td className=' text-center p-3 border-2'>{fdef.stuid}</td>
+                                        <td className=' text-center p-3 border-2'>{fdef.clevel}</td>
+                                        <td className=' text-center p-3 border-2'>{fdef.csem}</td>
+                                        <td className=' text-center p-3 border-2'>{fdef.defsem}</td>
+                                        <td className=' text-center p-3 border-2'>{fdef.reason}</td>
+                                        <td className=' text-center p-3 border-2'>{fdef.status}</td>
+                                        <td className=' text-center p-3 border-y'>
+                                            <Stack direction='row' className=''>
+                                                {/* <DefermentModal fdef={fdef}/> */}
+                                                <IconButton onClick={() => fintoreg(fdef.defid)}>
+                                                    <ThumbUpIcon variant='contained' color='primary' />
+                                                </IconButton>
+                                                <IconButton variant='contained' color='error' onClick={() => handleDeleteCard(fdef.ID)}>
+                                                    <ThumbDownIcon />
+                                                </IconButton>
+                                            </Stack>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
 
 
-                <div className='grid col-start-3 col-span-9 col-end-9 mt-28'>
-
-                    <Card>
-                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>
-                        <TableContainer>
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell></TableCell>
-                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ID NO.</TableCell>
-                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} >LEVEL</TableCell>
-                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>CURRENT SEMESTER</TableCell>
-                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DATE</TableCell>
-                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DEFERMENT ID</TableCell>
-                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>STATUS</TableCell>
-                                        <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ACTION</TableCell>
-                                    </TableRow>
-                                </TableHead>
-
-                                <TableBody className='text-sm'>
-                                    {data.map((item, index) => {
-                                        return (
-                                            <tr key={item.id} className=' border p-12 text-md'>
-                                                <th scope="row">  {index + 1}</th>
-                                                <td className=' text-center p-3 border'>{item.stuid}</td>
-                                                <td className=' text-center p-3 border'>{item.clevel}</td>
-                                                <td className=' text-center p-3 border'>{item.csem}</td>
-                                                <td className=' text-center p-3 border'>{new Date(item.date).toISOString().slice(0, 10)}</td>
-                                                <td className=' text-center p-3 border'>{item.defid}</td>
-                                                <td className=' text-center p-3 border'>{item.status}</td>
-                                                <td className=' text-center p-3 border'>
-                                                    <Stack direction='row' className=''>
-                                                        <DefermentModal item={item} />
-                                                        <IconButton>
-                                                            <ThumbUpIcon variant='contained' color='primary'
-                                                                onClick={() => fintoreg(item.defid)} />
-                                                        </IconButton>
-                                                        
-                                                        <IconButton variant='contained' color='error' 
-                                                        onClick={() => handleDelete(item.defid)}>
-                                                        <ThumbDownIcon />
-                                                    </IconButton>
-                                                    </Stack>
-                                                </td>
-                                            </tr>
-                                        )
-                                    })}
-
-
-
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                        <TablePagination className=' top-auto'
-                            rowsPerPageOptions={[10, 15, 25, 50, 100]}
-                            component="div"
-                            count={data.length}
-                            rowsPerPage={rowsPerPage}
-                            page={page}
-                            onPageChange={handleChangePage}
-                            onRowsPerPageChange={handleChangeRowsPerPage} />
-                    </Card>
-                </div>
-
-                <div className=' col-span-6'></div>
-                <div className=' col-span-2 m-6'>
-                    {showAlert && (
-                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                            {alertMessage}
-                        </Alert>
-                    )}
-                </div>
+                        </TableBody>
+                    </Table>
+                    <TablePagination className=' bottom-0'
+                        rowsPerPageOptions={[10, 15, 25, 100]}
+                        component="div"
+                        count={data.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage} />
+                </Card>
 
             </div>
+            <div className=' col-span-4'></div>
+            <div className=' col-span-3 m-6'>
+                {showAlert && (
+                    <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                        {alertMessage}
+                    </Alert>
+                )}
+            </div>
         </div>
+
     )
 }
 
-export default AdminDeferment;
+export default AdminDeferment
