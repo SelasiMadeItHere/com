@@ -65,8 +65,8 @@ function IntroductoryLetter() {
                                             <td className=' text-center p-3 border-2'>{new Date(card.created_at).toISOString().slice(0, 10)}</td>
                                             <td className=' text-center p-3 border-2'>
                                                 <Stack direction='row' className=''>
-                                                    {/* <IntroductoryModal card={Card} /> */}
-                                                    <IDCardView card={Card}/>
+                                                    <IntroductoryModal card={Card} />
+                                                    {/* <IDCardView card={Card}/> */}
                                                     <IconButton>
                                                         <ThumbUpIcon variant='contained' color='primary' />
                                                     </IconButton>

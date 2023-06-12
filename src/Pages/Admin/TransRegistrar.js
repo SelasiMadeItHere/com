@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Navbar from '../../components/Navbar';
-import DefermentModal from '../../components/DefermentModal'
+// import DefermentModal from '../../components/DefermentModal'
 import { Breadcrumbs, Link, IconButton, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Stack, TablePagination } from '@mui/material'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MessageIcon from '@mui/icons-material/Message';
@@ -23,9 +23,9 @@ function TransRegistrar() {
         loadData();
     }, []);
 
-    const fintoregtrans = (defid) => {
+    const fintoregtrans = (stuid) => {
         axios
-            .post('http://localhost:5002/api/deferment/finance-approve', { defid })
+            .post('http://localhost:5002/api/transcript/finapprove', { stuid })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -117,14 +117,14 @@ function TransRegistrar() {
                                         <td className=' text-center p-3 border'>{trans.status}</td>
                                         <td className=' text-center p-3 border'>
                                             <Stack direction='row' className=''>
-                                                {/* <DefermentModal trans={trans} /> */}
+                                                <DefermentModal trans={trans} />
                                                 <IconButton>
                                                     <ThumbUpIcon variant='contained' color='primary'
                                                         onClick={() => fintoregtrans(trans.trans)} />
                                                 </IconButton>
 
                                                 <IconButton variant='contained' color='error'
-                                                // onClick={() => handleDelete(fdef.defid)}
+                                                onClick={() => handleDelete(fdef.defid)}
                                                 >
                                                     <ThumbDownIcon />
                                                 </IconButton>
@@ -154,6 +154,7 @@ function TransRegistrar() {
                 )}
             </div>
         </div>
+       
     )
 }
 

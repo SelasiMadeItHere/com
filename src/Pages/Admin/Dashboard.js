@@ -32,6 +32,9 @@ function Dashboard() {
                 <Link to="/admintranscript">
                     <Dashcards image={require("../../assets/imgs/apply-paper.jpg")} name="Transcript Application" button={"VIEW"} />
                 </Link>
+                <Link to="/admintranscript">
+                    <Dashcards image={require("../../assets/imgs/system network.png")} name="Introductory Letter     Application" button={"VIEW"} />
+                </Link>
             </div>
 
             <div className='rounded-md bg-white grid-cols-5 col-start-2 col-span-4 m-11 p-12 text-center'>

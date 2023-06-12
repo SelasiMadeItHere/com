@@ -38,9 +38,9 @@ function AdminTranscript() {
         setPage(0);
     };
 
-    const fintoregtrans = (defid) => {
+    const fintoregtrans = (reqid) => {
         axios
-            .post('http://localhost:5002/api/transcript/finapprov', { defid })
+            .post('http://localhost:5002/api/transcript/finapprove', { reqid })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -72,10 +72,9 @@ function AdminTranscript() {
                         <Table className='mt-5'>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell></TableCell>
+                                    <TableCell className=' border-2'>SN</TableCell>
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>ID NO.</TableCell>
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>REQUEST ID</TableCell>
-                                    {/* <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>NAME</TableCell> */}
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>CONTACT</TableCell>
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>PROGRAM</TableCell>
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>LEVEL</TableCell>
@@ -88,17 +87,15 @@ function AdminTranscript() {
                             <TableBody className='text-sm'>
                                 {data.map((trans, index) => {
                                     return (
-                                        <tr key={trans.stuid} className=' border p-12'>
+                                        <tr key={trans.reqid} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
                                             <td className=' text-center p-3 border-2'>{trans.stuid}</td>
                                             <td className=' text-center p-3 border-2'>{trans.reqid}</td>
-                                            {/* <td className=' text-center p-3 border-2'>{trans.name}</td> */}
                                             <td className=' text-center p-3 border-2'>{trans.phone}</td>
                                             <td className=' text-center p-3 border-2'>{trans.prog}</td>
                                             <td className=' text-center p-3 border-2'>{trans.level}</td>
                                             <td className=' text-center p-3 border-2'>{trans.deliv_mode}</td>
-                                            <td className=' text-center p-3 border-2'>{trans.status}</td>
-                                            {/* <td className=' text-center p-3 border-y'></td> */}
+                                            <td className=' text-center p-3 border-2'>{trans.state  }</td>
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row' className=''>
                                                     <TranscriptModal trans={trans} />

@@ -11,7 +11,7 @@ function UserDeferment() {
                     <Navbar />
                 </div>
 
-                <div className=' mx-24 my-12 text-center text-sky-800 text-3xl font-semibold py-12 bg-white'>
+                <div className=' mx-24 my-12 text-center text-sky-800 text-3xl font-semibold py-12  '>
                     FILL OUT THE FORM BELOW TO APPLY FOR DEFERMENT
                 </div>
 

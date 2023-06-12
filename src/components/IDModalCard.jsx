@@ -25,15 +25,38 @@ function ChildModal() {
   const [Id, setID] = useState("")
   const [Campus, setCampus] = useState("")
   const [Service, setService] = useState("")
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
   const submitRequest = () => {
+    try {
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+
+      axios.post('/api/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      // Reset the form after successful upload
+      setSelectedFile(null);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
+
+
     const customText = 'Card-'
     const rqst_id = customText + uuidv4().substring(0, 6);
     axios.post("http://localhost:5002/api/insert", {
       rqst_id: rqst_id,
       ID: Id,
       Campus: Campus,
-      Service: Service
+      Service: Service,
+      imagePath: selectedFile.name,
     })
       .then((response) => {
         const data = response.data;
@@ -44,10 +67,19 @@ function ChildModal() {
           window.alert("YOUR REQUEST ID IS " + rqst_id);
           handleClose()
         }
-       
+
       })
       .catch((err) => window.alert(err.response.data));
   }
+
+
+
+
+
+
+
+
+
 
   return (
     <React.Fragment>
@@ -63,8 +95,9 @@ function ChildModal() {
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
-        <Box sx={{ ...style, width: 600 }}>
+        <Box sx={{ ...style, width: 600, }}>
           <h2 id="child-modal-title" className=' text-center text-2xl font-bold'>ID Card Renewal</h2>
+          <hr className=' shadow-3xl mt-6 '/>
           <div id="child-modal-description">
             <form className=' p-6 drop-shadow-12'>
               <div className=' grid grid-cols-2 gap-3 p-6' >
@@ -100,13 +133,23 @@ function ChildModal() {
                   <option>Renewal</option>
                 </select>
 
+
+
               </div>
+
+              <div className=' text-center my-6'>
+                <label className=' font-bold p-2'>UPLOAD YOUR RECEIPT HERE </label>
+                <input type="file" onChange={handleFileChange} className=' p-2' />
+              </div>
+
 
               <div className=' grid grid-cols-4 gap-3'>
                 <Button className=' text-left col-start-2 ' onClick={handleClose} variant='contained' endIcon={<CloseIcon />} color='error'>Cancel</Button>
                 <Button className=' text-right '
                   onClick={submitRequest}
                   variant='contained'
+                  id="image" 
+                  name="image"
                   endIcon={<SendIcon />}>SUBMIT</Button>
               </div>
             </form>
@@ -199,7 +242,7 @@ function ChildTwo() {
 
 }
 
-
+  
 
 
 
@@ -227,6 +270,8 @@ export default function BasicModal() {
   const handleChildModalClose = () => {
     handleClose(); // Close the parent modal
   };
+
+
   return (
     <div>
       <Button onClick={handleOpen} variant="Outlined" style={{ padding: '1px' }}>Apply</Button>

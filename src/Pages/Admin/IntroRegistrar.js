@@ -20,7 +20,7 @@ function IntroRegistrar() {
                 <div className=' inline-flex gap-3 pt-3 text-black '>
                     <Breadcrumbs arial-label='breadcrumb' separator=">">
                         <Link href='/registrar' underline='hover'>HOME</Link>
-                        <Link href='#' underline='hover'>CERTIFICATES</Link>
+                        <Link href='#' underline='hover'>INTRODUCTORY LETTER</Link>
                     </Breadcrumbs>
                 </div>
 

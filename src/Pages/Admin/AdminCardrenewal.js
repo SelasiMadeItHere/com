@@ -105,7 +105,7 @@ function Cardrenewal() {
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'></TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>ID NO.</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>CAMPUS</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell> 
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>TRACKING ID</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border text-center'>ACTION</TableCell>
                                 </TableRow>

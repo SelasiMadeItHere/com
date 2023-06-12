@@ -35,7 +35,7 @@ function IDCardView({ card }) {
 
         <Box
           className=' rounded-lg shadow-md px-4 origin-center w-full bg-white m-3 overflow-y-auto'
-          sx={{ maxHeight: '60vh' }}
+          sx={{ maxHeight: '70vh' }}
         >
           <Typography id="modal-modal-title" variant="h5"
             sx={{ fontWeight: 600 }}
@@ -64,6 +64,17 @@ function IDCardView({ card }) {
                 <label className='  text-blue-700 font-bold'> Campus: </label>{card.campus}
               </div>
 
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Proof of Receipt: </label>
+              
+                  <div key={card.rqst_id}>
+                    <img src={card.imagePath} alt="Preview" />
+                  </div>
+              </div>
+
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Date of Request: </label>{card.DateApplied}
+              </div>
 
             </div>
 

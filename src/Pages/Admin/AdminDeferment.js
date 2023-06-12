@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Lpane from '../../components/Lpane';
-import DefermentModal from '../../components/DefermentModal';
+// import DefermentModal from '../../components/DefermentModal';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, Button, Link,  } from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
@@ -103,7 +103,7 @@ function AdminDeferment() {
                                 <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>STUDENT ID</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>LEVEL</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>CURRENT SEMESTER</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>DEFFERING SEMESTER</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2 flex-wrap'>DEF. SEMESTER</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>REASON</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' text-center border-2'>STATUS</TableCell>
 
