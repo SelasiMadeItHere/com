@@ -25,6 +25,7 @@ function ChildModal() {
   const [Id, setID] = useState("")
   const [Campus, setCampus] = useState("")
   const [Service, setService] = useState("")
+  const [Email, setEmail] = useState("")
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -56,6 +57,7 @@ function ChildModal() {
       ID: Id,
       Campus: Campus,
       Service: Service,
+      Email: Email,
       imagePath: selectedFile.name,
     })
       .then((response) => {
@@ -64,6 +66,7 @@ function ChildModal() {
           setID("");
           setCampus("");
           setService("");
+          setEmail("");
           window.alert("YOUR REQUEST ID IS " + rqst_id);
           handleClose()
         }
@@ -97,9 +100,9 @@ function ChildModal() {
       >
         <Box sx={{ ...style, width: 600, }}>
           <h2 id="child-modal-title" className=' text-center text-2xl font-bold'>ID Card Renewal</h2>
-          <hr className=' shadow-3xl mt-6 '/>
+          <hr className=' shadow-3xl mt-6 ' />
           <div id="child-modal-description">
-            <form className=' p-6 drop-shadow-12'>
+            <form className=' p-6 drop-shadow-12' encType='multipart/form-data'>
               <div className=' grid grid-cols-2 gap-3 p-6' >
 
                 <label className=' font-bold'> ENTER YOUR ID NUMBER</label>
@@ -108,6 +111,17 @@ function ChildModal() {
                   name='id'
                   onChange={(e) => {
                     setID(e.target.value)
+                  }}
+                />
+
+                <label className=' font-bold'> ENTER YOUR EMAIL</label>
+                <input 
+                  type='email'
+                  placeholder='Enter a Valid Email Address'
+                  className=' border-sky-800 border-2 rounded w-[100%] p-2'
+                  name='email'
+                  onChange={(e) => {
+                    setEmail(e.target.value)
                   }}
                 />
 
@@ -138,8 +152,8 @@ function ChildModal() {
               </div>
 
               <div className=' text-center my-6'>
-                <label className=' font-bold p-2'>UPLOAD YOUR RECEIPT HERE </label>
-                <input type="file" onChange={handleFileChange} className=' p-2' />
+                <label className=' font-bold p-2'>UPLOAD YOUR RECEIPT </label>
+                <input type="file" name="image" onChange={handleFileChange} className=' p-2' />
               </div>
 
 
@@ -148,7 +162,7 @@ function ChildModal() {
                 <Button className=' text-right '
                   onClick={submitRequest}
                   variant='contained'
-                  id="image" 
+                  id="image"
                   name="image"
                   endIcon={<SendIcon />}>SUBMIT</Button>
               </div>
@@ -242,7 +256,7 @@ function ChildTwo() {
 
 }
 
-  
+
 
 
 

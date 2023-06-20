@@ -44,6 +44,7 @@ function IDCardView({ card }) {
           </Typography>
           <Typography id="modal-modal-description">
             <div className=' p-6'>
+              
               <div className=' grid grid-cols-3'>
                 <Avatar className=' col-start-2' src={avatar} sx={{ height: 120, width: 120 }} />
               </div>

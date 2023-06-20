@@ -125,7 +125,7 @@ function AdminDeferment() {
                                         <td className=' text-center p-3 border-2'>{fdef.status}</td>
                                         <td className=' text-center p-3 border-y'>
                                             <Stack direction='row' className=''>
-                                                {/* <DefermentModal fdef={fdef}/> */}
+                                                <FinanceDeferModal fdef={fdef}/>
                                                 <IconButton onClick={() => fintoreg(fdef.defid)}>
                                                     <ThumbUpIcon variant='contained' color='primary' />
                                                 </IconButton>

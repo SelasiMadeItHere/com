@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../../components/Navbar';
 import TranscriptModal from '../../components/TranscriptModal';
-// import DefermentModal from '../../components/DefermentModal'
 import Lpane from '../../components/Lpane';
 import { Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagination, TableCell, IconButton, Stack } from '@mui/material';
 import Alert from '@mui/material/Alert'
@@ -69,7 +68,7 @@ function AdminTranscript() {
                 <Card>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Transcripts Requests</h1>
                     <TableContainer>
-                        <Table className='mt-5'>
+                        <Table>
                             <TableHead>
                                 <TableRow>
                                     <TableCell className=' border-2'>SN</TableCell>
@@ -102,9 +101,7 @@ function AdminTranscript() {
                                                     <IconButton>
                                                         <ThumbUpIcon variant='contained' color='primary' onClick={() => fintoregtrans(trans.reqid)}  />
                                                     </IconButton>
-                                                    <IconButton variant='contained' color='error' 
-                                                    // onClick={() => handleDelete(trans.reqid)}
-                                                    >
+                                                    <IconButton>
                                                         <ThumbDown color='error' />
                                                     </IconButton>
                                                 </Stack>

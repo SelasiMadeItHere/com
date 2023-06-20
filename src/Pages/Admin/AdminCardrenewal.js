@@ -124,7 +124,9 @@ function Cardrenewal() {
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row' className=''>
                                                     <IDCardView card={card} />
-                                                    <IconButton onClick={() => finished(card.rqst_id)}>
+                                                    <IconButton 
+                                                    onClick={() => finished(card.rqst_id)}
+                                                    >
                                                         <ThumbUpIcon variant='contained' color='success' />
                                                     </IconButton>
                                                     <IconButton variant='contained' color='error'

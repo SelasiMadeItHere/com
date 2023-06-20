@@ -23,7 +23,7 @@ import UserCertificate from "./Pages/User/UserCertificate";
 import UserTranscript from "./Pages/User/UserTranscrpt";
 import IDModalCard from "./components/IDModalCard";
 import DefermentModal from "./components/DefermentModal";
-// import ModalComplaint from "./components/ModalComplaint";
+import Tracker from "./Pages/User/Tracker";
 import BasicModal from "./components/DefermentModal";
 import FinishedCards from "./Pages/Admin/FinishedCards";
 
@@ -68,6 +68,7 @@ function App() {
         <Route path="/usercertificate" element={<UserCertificate />} />
         <Route path="/usertranscript" element={<UserTranscript />} />
         <Route path="/userindex" element={<Userindex />} />
+        <Route path="/tracker" element={<Tracker />}/>
 
         {/* Demo Pages */}
         {/* <Route path="/demo" element={<Blahha />} /> */}

@@ -32,7 +32,7 @@ function Dashboard() {
                 <Link to="/admintranscript">
                     <Dashcards image={require("../../assets/imgs/apply-paper.jpg")} name="Transcript Application" button={"VIEW"} />
                 </Link>
-                <Link to="/admintranscript">
+                <Link to="/introductory-letter">
                     <Dashcards image={require("../../assets/imgs/system network.png")} name="Introductory Letter     Application" button={"VIEW"} />
                 </Link>
             </div>

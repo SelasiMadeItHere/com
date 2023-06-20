@@ -94,7 +94,7 @@ function FinanceDeferModal({ fdef }) {
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Date of Request: </label>{new Date(fdef.date).toISOString().slice(0, 10)}
+                <label className='  text-blue-700 font-bold'> Date of Request: </label>{new Date(fdef.created_at).toISOString().slice(0, 10)}
               </div>
 
               {/* */}

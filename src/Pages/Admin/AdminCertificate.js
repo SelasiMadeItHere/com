@@ -3,7 +3,8 @@ import Navbar from '../../components/Navbar';
 import Lpane from '../../components/Lpane';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, } from '@mui/material';
-// import DeleteIcon from '@mui/icons-material/Delete';
+import IDCardView from '../../components/IDCardView';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 
@@ -83,11 +84,15 @@ function AdminCertificate() {
                                         
                                         <td className=' text-center p-3 border-y'>
                                             <Stack direction='row' className=''>
-                                            
-                                                <IconButton>
-                                                    <ThumbUpIcon variant='contained' color='primary' />
-                                                </IconButton>
-                                                
+                                            <IDCardView card={card} />
+                                                    {/* <IconButton 
+                                                    onClick={() => finished(card.rqst_id)}
+                                                    >
+                                                        <ThumbUpIcon variant='contained' color='success' />
+                                                    </IconButton> */}
+                                                    <IconButton variant='contained' color='error'>
+                                                        <ThumbDownIcon />
+                                                    </IconButton>
                                             </Stack>
                                         </td>
                                     </tr>

@@ -54,26 +54,26 @@ function IntroductoryLetter() {
                             </TableHead>
 
                             <TableBody className='text-sm'>
-                                {data.map((card, index) => {
+                                {data.map((introl, index) => {
                                     return (
-                                        <tr key={card.id} className=' border p-12'>
+                                        <tr key={introl.id} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
-                                            <td className=' text-center p-3 border-2'>{card.stuid}</td>
-                                            <td className=' text-center p-3 border-2'>{card.reqid}</td>
-                                            <td className=' text-center p-3 border-2'>{card.for}</td>
-                                            <td className=' text-center p-3 border-2'>{card.reciept_path}</td>
-                                            <td className=' text-center p-3 border-2'>{new Date(card.created_at).toISOString().slice(0, 10)}</td>
+                                            <td className=' text-center p-3 border-2'>{introl.stuid}</td>
+                                            <td className=' text-center p-3 border-2'>{introl.reqid}</td>
+                                            <td className=' text-center p-3 border-2'>{introl.for}</td>
+                                            <td className=' text-center p-3 border-2'>{introl.reciept_path}</td>
+                                            <td className=' text-center p-3 border-2'>{new Date(introl.created_at).toISOString().slice(0, 10)}</td>
                                             <td className=' text-center p-3 border-2'>
                                                 <Stack direction='row' className=''>
-                                                    <IntroductoryModal card={Card} />
-                                                    {/* <IDCardView card={Card}/> */}
+                                                    <IntroductoryModal introl={introl} />
+                                                    
                                                     <IconButton>
                                                         <ThumbUpIcon variant='contained' color='primary' />
                                                     </IconButton>
-                                                    <IconButton variant='contained' color='error' 
+                                                    <IconButton variant='contained' color='error'
                                                     // onClick={handleDeleteIntro}
                                                     >
-                                                        <ThumbDownIcon />   
+                                                        <ThumbDownIcon />
                                                     </IconButton>
                                                 </Stack>
                                             </td>

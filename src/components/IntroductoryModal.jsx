@@ -35,7 +35,7 @@ function IntroductoryModal({ introl }) {
 
         <Box
           className=' rounded-lg shadow-md px-4 origin-center w-full bg-white m-3 overflow-y-auto'
-          sx={{ maxHeight: '60vh' }}
+          sx={{ maxHeight: '80vh' }}
         >
           <Typography id="modal-modal-title" variant="h5"
             sx={{ fontWeight: 600 }}
@@ -49,7 +49,7 @@ function IntroductoryModal({ introl }) {
                 <Avatar className=' col-start-2' src={avatar} sx={{ height: 120, width: 120 }} />
               </div>
 
-              <div className=' py-1'>
+              <div className=' py-1 pt-4'>
                 <label className=' text-blue-700 font-bold'> ID Number: </label>{introl.stuid}
               </div>
 
@@ -78,12 +78,10 @@ function IntroductoryModal({ introl }) {
               </div>
 
               <div className=' py-1'>
-                <label className=' text-blue-700 font-bold'> Previously Deferred Semster: </label>{introl.eaddress}
+                <label className=' text-blue-700 font-bold'>Address of the Embassy: </label>{introl.eaddress}
               </div>
 
-              <div className=' py-1'>
-                <label className=' text-blue-700 font-bold'>Reason for Deferment: </label>{new Date(introl.date).toISOString().slice(0, 10)}
-              </div>
+             
 
               <div className=' py-1'>
                 <label className=' text-blue-700 font-bold'>Detailed Reason: </label>{new Date(introl.updated_at).toISOString().slice(0, 10)}
@@ -94,13 +92,13 @@ function IntroductoryModal({ introl }) {
               </div>
             </div>
 
-           
-          <div className=' text-center pb-4'>
-            <Button variant='contained' color='primary' onClick={handleClose}>CLOSE</Button>
-          </div>
-        </Typography>
-      </Box>
-    </Modal>
+
+            <div className=' text-center pb-4'>
+              <Button variant='contained' color='primary' onClick={handleClose}>CLOSE</Button>
+            </div>
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   )
 }
