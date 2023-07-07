@@ -3,8 +3,10 @@ import Navbar from '../../components/Navbar';
 import Lpane from '../../components/Lpane';
 import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
-import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, 
-    IconButton, Stack, Button } from '@mui/material';
+import {
+    Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination,
+    IconButton, Stack, Button
+} from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Alert from '@mui/material/Alert'
@@ -79,24 +81,34 @@ function Cardrenewal() {
             </div>
 
 
-
             <div className='grid grid-cols-9'>
 
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
                     <div className=' col-span-full grid'>
                         <div className=' col-start-2 pt-6'>
-                                <Button variant='contained' className=' px-6' startIcon={<BadgeIcon/>} href='/finishedCards'>
-                                    PROCESSED REQUESTS
-                                </Button>
+                            <Button variant='contained' className=' px-6' startIcon={<BadgeIcon />} href='/finishedCards'>
+                                PROCESSED REQUESTS
+                            </Button>
                         </div>
 
                         <div className=' col-start-8 pt-6'>
-                                <Button variant='contained' color='error' className=' px-6' startIcon={<BadgeIcon/>} href='/finishedCards'>
-                                    REJECTED REQUESTS
-                                </Button>
+                            <Button variant='contained' color='error' className=' px-6' startIcon={<BadgeIcon />} href='/finishedCards'>
+                                REJECTED REQUESTS
+                            </Button>
                         </div>
 
+                        <div className=' col-span-4'></div>
+                        <div className=' col-span-3 m-2'>
+                            {showAlert && (
+                                <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                                    {alertMessage}
+                                </Alert>
+                            )}
+                        </div>
                     </div>
+
+
+
                     <Card className='my-12 drop-shadow-2xl'>
                         <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Card Renewal Requests</h1>
                         <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
@@ -105,7 +117,7 @@ function Cardrenewal() {
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'></TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>ID NO.</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>CAMPUS</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell> 
+                                    <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>TRACKING ID</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border text-center'>ACTION</TableCell>
                                 </TableRow>
@@ -124,8 +136,8 @@ function Cardrenewal() {
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row' className=''>
                                                     <IDCardView card={card} />
-                                                    <IconButton 
-                                                    onClick={() => finished(card.rqst_id)}
+                                                    <IconButton
+                                                        onClick={() => finished(card.rqst_id)}
                                                     >
                                                         <ThumbUpIcon variant='contained' color='success' />
                                                     </IconButton>
@@ -153,14 +165,7 @@ function Cardrenewal() {
                             onRowsPerPageChange={handleChangeRowsPerPage} />
                     </Card>
                 </div>
-                <div className=' col-span-4'></div>
-                <div className=' col-span-3 m-6'>
-                    {showAlert && (
-                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                            {alertMessage}
-                        </Alert>
-                    )}
-                </div>
+
             </div>
 
 

@@ -72,11 +72,15 @@ function IDCardView({ card }) {
                     <img src={card.imagePath} alt="Preview" />
                   </div>
               </div>
+              
 
-              <div className='  py-1'>
+              <div className='  pt-3'>
                 <label className='  text-blue-700 font-bold'> Date of Request: </label>{card.DateApplied}
               </div>
 
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Date of Verification: </label>{card.DateApproved}
+              </div>
             </div>
 
             <div className=' text-center pb-4'>

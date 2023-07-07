@@ -1,81 +1,176 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import RegistrarDash from '../../components/RegistrarDash'
-// import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 import Navbar from '../../components/Navbar'
 import Badges from '../../components/Badges'
-import Charts from '../../components/Charts'
-
-
+import ActivityCard from '../../components/ActivityCard';
+import { ChartBarIcon, ChartBarSquareIcon, ChartPieIcon } from '@heroicons/react/20/solid'
 
 
 
 
 function Registrar() {
 
+    //PENDING REQUESTS
+    const [transs, setTrans] = useState([]);
+    const [defers, setDefer] = useState([]);
+    const [intros, setIntro] = useState([]);
+    const [cards, setCards] = useState([]);
+    // const [Certificates, setCertificates] = useState([]); To be updated when hosted live*************************
+    const [totalPending, setTotalPending] = useState(0);
+
+    const loadTrans = async () => {
+        const response = await axios.get("http://localhost:5002/api/gettranscript");
+        setTrans(response.data);
+    };
+    const loadDefer = async () => {
+        const response = await axios.get("http://localhost:5002/api/getdeferment");
+        setDefer(response.data);
+    };
+    const loadIntro = async () => {
+        const response = await axios.get("http://localhost:5002/api/getIntro");
+        setIntro(response.data);
+    };
+    const loadCard = async () => {
+        const response = await axios.get("http://localhost:5002/api/getCard");
+        setCards(response.data);
+    }
+
+    useEffect(() => {
+        loadTrans();
+        loadDefer();
+        loadIntro();
+        loadCard();
+        const totalPending = transs.length + defers.length + cards.length + intros.length;
+        setTotalPending(totalPending);
+    }, [transs.length, defers.length, cards.length, intros.length,
+    ]);
+
+
+
+
+    // VERIFIED REQUESTS
+    const [Vtranss, setVTrans] = useState([]);
+    const [Vdefers, setVDefer] = useState([]);
+    const [Vintros, setVIntro] = useState([]);
+    const [Vcards, setVCards] = useState([]);
+    const [totalVerified, setTotalVerified] = useState(0);
+
+    const loadVIntro = async () => {
+        const response = await axios.get("http://localhost:5002/api/getIntro");
+        setVIntro(response.data);
+    };
+
+    const loadVTrans = async () => {
+        const response = await axios.get("http://localhost:5002/api/getIntro");
+        setVTrans(response.data);
+    };
+    const loadVDefer = async () => {
+        const response = await axios.get("http://localhost:5002/api/getIntro");
+        setVDefer(response.data);
+    };
+    const loadVCards = async () => {
+        const response = await axios.get("http://localhost:5002/api/getIntro");
+        setVCards(response.data);
+    };
+    // const loadData = async () => {
+    //     const response = await axios.get("http://localhost:5002/api/getIntro");
+    //     setData(response.data);
+    // };
+
+
+    useEffect(() => {
+        loadVTrans();
+        loadVDefer();
+        loadVIntro();
+        loadVCards();
+        const totalVerified = Vtranss.length + Vdefers.length + Vcards.length + Vintros.length;
+        setTotalVerified(totalVerified);
+    }, [Vtranss.length, Vdefers.length, Vcards.length, Vintros.length,
+    ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
-        <div className=' bg-slate-200 h-full'>
+        <div className=' bg-slate-200 min-h-screen'>
             <div>
                 <Navbar />
             </div>
 
             <div className=' grid grid-cols-4 pt-24 ml-6'>
-                <div className=' col-span-3'>
-                    
+                <div className=' col-span-4 m-6 text-2xl font-bold'>
+                    <h2>Stats</h2>
                 </div>
                 <div className=' col-start-5'>
                     <Badges />
                 </div>
             </div>
 
-            <div className=' col-span-4 m-6 text-2xl font-bold'>
-                <h2>Stats</h2>
-            </div>
 
-            <div className=' grid lg:grid-cols-3 p-6 gap-6 md:grid-cols-2'>
-                <div className=' shadow-xl bg-red-500 p-6 rounded-xl'>
-                    <p className=' mb-6 font-bold text-blue-700'>REQUESTS TODAY:</p>
-                    <Charts className=' w-full'/>
-                </div>
-
-                <div className=' shadow-xl bg-yellow-400 p-6 rounded-xl'>
-                    <div >
-                        <p className=' mb-6 font-bold text-blue-700'>REQUESTS ATTENDED TO:</p>
-                        <Charts className=' w-full' />
-                    </div>
-
-                </div>
-
-                <div className=' shadow-xl bg-green-600 p-6 rounded-xl'>
-                    <div >
-                        <p className=' mb-6 font-bold text-blue-700'>TOTAL REQUESTS:</p>
-                        <Charts className=' w-full' />
-                    </div>
-
+            <div className='px-5 py-3'>
+                <div className='grid grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'>
+                    <ActivityCard Icon={ChartBarIcon} text="Pending Requests" number={totalPending} />
+                    <ActivityCard Icon={ChartPieIcon} text="Verified Requests" number={totalVerified} />
+                    <ActivityCard Icon={ChartBarSquareIcon} text="Processed Requests" number={1000} />
+                    {/* <ActivityCard Icon={DocumentChartBarIcon} text="Total-Earning" number={1000} /> */}
                 </div>
             </div>
+
+
+
             <div className=' col-span-4 m-6 text-2xl font-bold'>
                 <h2>Services</h2>
             </div>
 
-            <div className=' p-6 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2' >
+            <div className=' px-28 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2' >
                 <div className=' hover:shadow-xl delay-200'>
-                        <RegistrarDash image={require('../../assets/imgs/messages.png')} title='INTRODUCTORY LETTER REQUESTS'
-                         badge={'VIEW'}  link={'/introductoryapproval'}/>
+                    <RegistrarDash image={require('../../assets/imgs/messages.png')} title='INTRODUCTORY LETTER REQUESTS'
+                        badge={'VIEW'} link={'/introductoryapproval'} />
                 </div>
 
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../../assets/imgs/3d-documents.png')} title='CERTIFICATE REQUESTS' 
-                    badge={'VIEW'} link={'/certapproval'} />
+                    <RegistrarDash image={require('../../assets/imgs/3d-documents.png')} title='CERTIFICATE REQUESTS'
+                        badge={'VIEW'} link={'/certapproval'} />
                 </div>
 
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../../assets/imgs/no-pic.png')} title='TRANSCRIPT REQUESTS' 
-                    badge={'VIEW'} link={'/transcriptapproval'}/>
+                    <RegistrarDash image={require('../../assets/imgs/no-pic.png')} title='TRANSCRIPT REQUESTS'
+                        badge={'VIEW'} link={'/transcriptapproval'} />
                 </div>
 
                 <div className=' hover:shadow-xl delay-150'>
-                    <RegistrarDash image={require('../../assets/imgs/3d-megaphone.png')} title='DEFERMENT REQUESTS' 
-                    badge={'VIEW'} link={'/registrardeferment'}/>
+                    <RegistrarDash image={require('../../assets/imgs/3d-megaphone.png')} title='DEFERMENT REQUESTS'
+                        badge={'VIEW'} link={'/registrardeferment'} />
                 </div>
             </div>
 

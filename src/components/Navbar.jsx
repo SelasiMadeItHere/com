@@ -18,7 +18,7 @@ function Navbar() {
           </div>
           <p className=' pt-4 text-center text-4xl font-bold '>AIT E-commerce</p>
           <div>
-            <Bars3Icon className='w-7 font-extrabold flex fdefs-end mx-5 lg:hidden' />
+            <Bars3Icon className='w-7 font-extrabold flex mx-5 lg:hidden' />
           </div>
         </div>
       </div>

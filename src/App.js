@@ -26,6 +26,7 @@ import DefermentModal from "./components/DefermentModal";
 import Tracker from "./Pages/User/Tracker";
 import BasicModal from "./components/DefermentModal";
 import FinishedCards from "./Pages/Admin/FinishedCards";
+import RegNav from "./components/RegNav";
 
 
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/idchoice" element={<IDchoice />} />
         <Route path="/modaltrial" element={<IDModalCard />} />
         <Route path='/defermodal' element={<DefermentModal />} />
+        <Route path='/regnavigation' element={<RegNav/>} />
 
         {/* ADMIN PAGES */}
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
