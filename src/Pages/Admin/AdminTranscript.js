@@ -58,14 +58,14 @@ function AdminTranscript() {
 
 
     return (
-        <div className=' bg-indigo-100 grid grid-cols-9 h-screen pb-12 min-h-screen'>
+        <div className=' grid grid-cols-9 h-screen pb-12 min-h-screen'>
             <div>
                 <Navbar />
                 <Lpane className='col-span-2' />
             </div>
 
             <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
-                <Card>
+                <Card className='my-12 drop-shadow-2xl'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Transcripts Requests</h1>
                     <TableContainer>
                         <Table>
@@ -112,7 +112,7 @@ function AdminTranscript() {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <TablePagination className=' bottom-0'
+                    <TablePagination    className=' bottom-0'
                         rowsPerPageOptions={[10, 15, 25, 100]}
                         component="div"
                         count={data.length}

@@ -57,20 +57,20 @@ function Registrar() {
     const [totalVerified, setTotalVerified] = useState(0);
 
     const loadVIntro = async () => {
-        const response = await axios.get("http://localhost:5002/api/getIntro");
+        const response = await axios.get("http://localhost:5002/api/Intro/getfinapproved");
         setVIntro(response.data);
     };
 
     const loadVTrans = async () => {
-        const response = await axios.get("http://localhost:5002/api/getIntro");
+        const response = await axios.get("http://localhost:5002/api/getfinanceapprovedtranscripts");
         setVTrans(response.data);
     };
     const loadVDefer = async () => {
-        const response = await axios.get("http://localhost:5002/api/getIntro");
+        const response = await axios.get("http://localhost:5002/api/reggetdeferment");
         setVDefer(response.data);
     };
     const loadVCards = async () => {
-        const response = await axios.get("http://localhost:5002/api/getIntro");
+        const response = await axios.get("http://localhost:5002/api/finishedcards");
         setVCards(response.data);
     };
     // const loadData = async () => {
@@ -90,30 +90,8 @@ function Registrar() {
     ]);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //PROCESSED REQUESTS
+    
 
 
 

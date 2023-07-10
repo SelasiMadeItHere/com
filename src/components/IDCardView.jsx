@@ -75,11 +75,11 @@ function IDCardView({ card }) {
               
 
               <div className='  pt-3'>
-                <label className='  text-blue-700 font-bold'> Date of Request: </label>{card.DateApplied}
+                <label className='  text-blue-700 font-bold'> Date of Request: </label>{new Date(card.DateApplied).toISOString().slice(0, 10)}
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Date of Verification: </label>{card.DateApproved}
+                <label className='  text-blue-700 font-bold'> Verified by DFA on: </label>{new Date(card.DateApproved).toISOString().slice(0, 10)}
               </div>
             </div>
 
