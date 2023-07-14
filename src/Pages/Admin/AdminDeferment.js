@@ -79,7 +79,7 @@ function AdminDeferment() {
             </div>
 
             <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
-                <div className=' col-span-full grid'>
+                {/* <div className=' col-span-full grid'>
                     <div className=' col-start-2 pt-6'>
                         <Link to="/finisheddeferment">
                             <Button variant='contained' className=' px-6' startIcon={<BadgeIcon />}> PROCESSED REQUESTS</Button>
@@ -92,7 +92,7 @@ function AdminDeferment() {
                         </Link>
                     </div>
 
-                </div>
+                </div> */}
                 <Card className='my-12 drop-shadow-2xl'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>DEFERMENT REQUESTS</h1>
                     <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
@@ -116,7 +116,7 @@ function AdminDeferment() {
                                 return (
                                     <tr key={fdef.ID} className=' border p-12'>
                                         <th scope="row">  {index + 1}</th>
-                                        <td className=' text-center p-3 border-2'>{fdef.defid}</td>
+                                        <td className=' text-center p-3 border-2'>{fdef.rqst_id}</td>
                                         <td className=' text-center p-3 border-2'>{fdef.stuid}</td>
                                         <td className=' text-center p-3 border-2'>{fdef.clevel}</td>
                                         <td className=' text-center p-3 border-2'>{fdef.csem}</td>
@@ -126,7 +126,7 @@ function AdminDeferment() {
                                         <td className=' text-center p-3 border-y'>
                                             <Stack direction='row' className=''>
                                                 <FinanceDeferModal fdef={fdef}/>
-                                                <IconButton onClick={() => fintoreg(fdef.defid)}>
+                                                <IconButton onClick={() => fintoreg(fdef.rqst_id)}>
                                                     <ThumbUpIcon variant='contained' color='primary' />
                                                 </IconButton>
                                                 <IconButton variant='contained' color='error' onClick={() => handleDeleteCard(fdef.ID)}>

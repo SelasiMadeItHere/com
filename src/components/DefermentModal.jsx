@@ -103,6 +103,15 @@ export default function DefermentModal({ fdef }) {
               <div className='  py-1'>
                 <label className=' text-blue-700 font-bold'>Returning Semester: </label>{fdef.retsem}
               </div>
+              <br />
+              <br />
+              <div className='  py-1'>
+                <label className=' text-blue-700 font-bold'>Date of Request: </label>{new Date(fdef.created_at).toISOString().slice(0, 10)}
+              </div>
+              
+              <div className='  py-1'>
+                <label className=' text-blue-700 font-bold'>Verified by DFA on: </label>{new Date(fdef.updated_at).toISOString().slice(0, 10)}
+              </div>
             </div>
 
             <div className=' text-center'>

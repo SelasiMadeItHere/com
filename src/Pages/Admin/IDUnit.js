@@ -8,7 +8,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Alert from '@mui/material/Alert'
 
-function FinishedCards() {
+function Idunit() {
 
     const [data, setData] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
@@ -47,7 +47,7 @@ function FinishedCards() {
 
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
                     <Card className='my-12 drop-shadow-2xl'>
-                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Processed Card Requests</h1>
+                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '> Card Requests</h1>
                         <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
                             <TableHead className=' text-center'>
                                 <TableRow >
@@ -113,4 +113,4 @@ function FinishedCards() {
     )
 }
 
-export default FinishedCards
+export default Idunit

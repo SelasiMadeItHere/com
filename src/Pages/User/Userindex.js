@@ -244,7 +244,7 @@ function Userindex() {
 
             <Modal open={open} onClose={handleCloseModal}>
 
-              <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 800, height: 400, bgcolor: 'background.paper', boxShadow: 24, p: 4 }}>
+              <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 1000, height: 400, bgcolor: 'background.paper', boxShadow: 24, p: 4 }}>
                 <h2 id='modal-title' className=' text-center text-2xl font-bold'>Request Status</h2>
                 <hr />
 
@@ -261,6 +261,14 @@ function Userindex() {
                       </Step>
                       <Step>
                         <StepLabel>Approved</StepLabel>
+
+                      </Step>
+                      <Step>
+                        <StepLabel>Being Worked</StepLabel>
+                        <p>An officer is currently working on your request</p>
+                      </Step>
+                      <Step>
+                        <StepLabel>Ready</StepLabel>
 
                       </Step>
                     </Stepper>

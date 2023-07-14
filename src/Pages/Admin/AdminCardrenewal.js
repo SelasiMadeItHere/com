@@ -86,7 +86,7 @@ function Cardrenewal() {
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
                     <div className=' col-span-full grid'>
                         <div className=' col-start-2 pt-6'>
-                            <Button variant='contained' className=' px-6' startIcon={<BadgeIcon />} href='/finishedCards'>
+                            <Button variant='contained' className=' px-6' startIcon={<BadgeIcon />} href='/idunit'>
                                 PROCESSED REQUESTS
                             </Button>
                         </div>
