@@ -91,7 +91,46 @@ function Registrar() {
 
 
     //PROCESSED REQUESTS
-    
+    const [Ptranss, setPTrans] = useState([]);
+    const [Pdefers, setPDefer] = useState([]);
+    const [Pintros, setPIntro] = useState([]);
+    const [Pcards, setPCards] = useState([]);
+    const [totalProcessed, setTotalProcessed] = useState(0);
+
+    const loadPIntro = async () => {
+        const response = await axios.get("http://localhost:5002/api/Intro/RegProcessed");
+        setPIntro(response.data);
+    };
+
+    const loadPTrans = async () => {
+        const response = await axios.get("http://localhost:5002/api/RegProcessedTrans");
+        setPTrans(response.data);
+    };
+    const loadPDefer = async () => {
+        const response = await axios.get("http://localhost:5002/api/RegProcessedDefer");
+        setPDefer(response.data);
+    };
+    const loadPCards = async () => {
+        const response = await axios.get("http://localhost:5002/api/finishedcards");
+        setPCards(response.data);
+    };
+
+    // const loadData = async () => {
+    //     const response = await axios.get("http://localhost:5002/api/getIntro");
+    //     setData(response.data);
+    // };
+
+
+    useEffect(() => {
+        loadPTrans();
+        loadPDefer();
+        loadPIntro();
+        loadPCards();
+        const totalProcessed = Ptranss.length + Pdefers.length + Pcards.length + Pintros.length;
+        setTotalProcessed(totalProcessed);
+    }, [Ptranss.length, Pdefers.length, Pcards.length, Pintros.length,
+    ]);
+
 
 
 
@@ -119,7 +158,7 @@ function Registrar() {
                 <div className='grid grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'>
                     <ActivityCard Icon={ChartBarIcon} text="Pending Requests" number={totalPending} />
                     <ActivityCard Icon={ChartPieIcon} text="Verified Requests" number={totalVerified} />
-                    <ActivityCard Icon={ChartBarSquareIcon} text="Processed Requests" number={1000} />
+                    <ActivityCard Icon={ChartBarSquareIcon} text="Processed Requests" number={totalProcessed} />
                     {/* <ActivityCard Icon={DocumentChartBarIcon} text="Total-Earning" number={1000} /> */}
                 </div>
             </div>

@@ -14,6 +14,7 @@ import Announcements from "./Pages/Admin/Announcements";
 import RegistrarDefer from "./Pages/Admin/RegistrarDefer"
 import DoneBasket from "./Pages/Admin/DoneBasket";
 
+
 import Userindex from "./Pages/User/Userindex"
 import UserCardrenewal from "./Pages/User/UserCardrenewal";
 import Newrequest from "./Pages/User/Newrequest";
@@ -29,7 +30,7 @@ import Idunit from "./Pages/Admin/IDUnit";
 import RegNav from "./components/RegNav";
 
 
-
+import Login from "./Pages/Login";
 
 
 
@@ -38,7 +39,7 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-        {/* Coponents*/}
+        {/* Components*/}
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/newrequest" element={<Newrequest />} />
@@ -72,8 +73,10 @@ function App() {
         <Route path="/userindex" element={<Userindex />} />
         <Route path="/tracker" element={<Tracker />}/>
 
-        {/* Demo Pages */}
-        {/* <Route path="/demo" element={<Blahha />} /> */}
+        {/* Other Pages */}
+        <Route path="/login" element={<Login />} />
+
+
       </Routes>
     </BrowserRouter>
   );
