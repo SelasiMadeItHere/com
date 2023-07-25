@@ -57,8 +57,8 @@ function AdminCertificate() {
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Certificate Requests</h1>
                     <Table className='mt-5'>
                         <TableHead className=' text-center'>
-                            <TableRow >
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'></TableCell>
+                            <TableRow>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border'> SN</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' border'>ID NO.</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' border'>REQUEST ID</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell>

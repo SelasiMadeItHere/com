@@ -13,11 +13,11 @@ function Login() {
     const login = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:5002/api/blahblah', { uname, password })
+        axios.post('http://localhost:5002/api/login', { uname, password })
             .then((response) => {
                 if (response.data.success) {
                     setStatus(response.data.status);
-                    setError('');
+                    
                 } else {
                     setError(response.data.message);    
                 }
@@ -32,13 +32,13 @@ function Login() {
 
     return (
         <div className=' bg-blue-600 h-screen'>
-            <div className=' pt-20'>
+            <div className=' p-48'>
                 <Card className=' text-center justify-center p-6 rounded-4xl m-auto w-2/5'>
                     
                     <img src={require('../assets/imgs/ait_logo.jpg')} alt='Logo' className='w-24 h-24 m-auto' />
-                    {/* <br />
-                    <h1 className='font-bold text-2xl'>Login</h1>
-                    <br /> */}
+                    <br />
+                    <h1 className='font-bold text-xl'>Login with your assigned credentials</h1>
+                    <br />
                     <form onSubmit={login}
                     >
                         <TextField
@@ -48,7 +48,6 @@ function Login() {
                             label="Username" variant="outlined"
                             value={uname}
                             onChange={(e) => setUname(e.target.value)}
-                            className=' text-center p-1 w-[70]'
                         />
                         <br />
                         <br />
@@ -60,7 +59,6 @@ function Login() {
                             label="Password" variant="outlined"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className=' text-center p-1 w-[100]'
                         />
                         <br />
                         <br />
