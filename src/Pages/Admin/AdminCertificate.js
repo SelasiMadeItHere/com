@@ -46,7 +46,7 @@ function AdminCertificate() {
 
 
     return (
-        <div className=' bg-slate-300 grid grid-cols-9 md:h-screen lg:h-full   '>
+        <div className=' grid grid-cols-9 md:h-screen lg:h-full   '>
             <div>
                 <Navbar />
                 <Lpane className='col-span-2' />
@@ -55,19 +55,14 @@ function AdminCertificate() {
             <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
                 <Card className='my-12'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Certificate Requests</h1>
-                    <Table className='mt-5'>
+                    <Table >
                         <TableHead className=' text-center'>
                             <TableRow>
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'> SN</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'>ID NO.</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'>REQUEST ID</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }} className=' border'>TRACKING ID</TableCell>
-                                {/* <TableCell style={{ fontWeight: "bolder" }}>SURNAME NAME</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>PROGRAM</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>LEVEL</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>CAMPUS</TableCell>
-                                <TableCell style={{ fontWeight: "bolder" }}>STATUS</TableCell> */}
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border-2'> SN</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border-2'>ID NO.</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border-2'>REQUEST ID</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border-2'>SERVICE</TableCell>
+                                <TableCell style={{ fontWeight: "bolder" }} className=' border-2'>TRACKING ID</TableCell>
                                 <TableCell style={{ fontWeight: "bolder" }} className=' grid grid-cols-2'>ACTION</TableCell>
                             </TableRow>
                         </TableHead>
@@ -77,10 +72,10 @@ function AdminCertificate() {
                                 return (
                                     <tr key={card.ID} className=' border p-12'>
                                         <th scope="row">  {index + 1}</th>
-                                        <td className=' text-left p-3 border'>{card.ID}</td>
-                                        <td className=' text-left p-3 border'>{card.campus}</td>
-                                        <td className=' text-left p-3 border'>{card.service}</td>
-                                        <td className=' text-left p-3 border'>{card.rqst_id}</td>
+                                        <td className=' text-left p-3 border-2'>{card.ID}</td>
+                                        <td className=' text-left p-3 border-2'>{card.campus}</td>
+                                        <td className=' text-left p-3 border-2'>{card.service}</td>
+                                        <td className=' text-left p-3 border-2'>{card.rqst_id}</td>
                                         
                                         <td className=' text-center p-3 border-y'>
                                             <Stack direction='row' className=''>

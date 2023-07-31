@@ -95,6 +95,12 @@ function TranscriptModal({ trans }) {
               <div className='  py-1'>
                 <label className='  text-blue-700 font-bold'> Specify Mode: </label>{trans.mode_specify}
               </div>
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Date of Request: </label>{trans.created_at}
+              </div>
+              <div className='  py-1'>
+                <label className='  text-blue-700 font-bold'> Date of Verification: </label>{trans.updated_at}
+              </div>
 
 
               {/* */}

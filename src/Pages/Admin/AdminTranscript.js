@@ -22,7 +22,7 @@ function AdminTranscript() {
         setData(response.data);
     };
     useEffect(() => {
-        loadData( );
+        loadData();
     }, []);
 
     const [page, setPage] = React.useState(0);
@@ -37,9 +37,9 @@ function AdminTranscript() {
         setPage(0);
     };
 
-    const fintoregtrans = (reqid) => {
+    const fintoregtrans = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/transcript/finapprove', { reqid })
+            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -54,7 +54,7 @@ function AdminTranscript() {
                 setShowAlert(true);
             });
     };
- 
+
 
 
     return (
@@ -86,20 +86,20 @@ function AdminTranscript() {
                             <TableBody className='text-sm'>
                                 {data.map((trans, index) => {
                                     return (
-                                        <tr key={trans.reqid} className=' border p-12'>
+                                        <tr key={trans.rqst_id} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
                                             <td className=' text-center p-3 border-2'>{trans.stuid}</td>
-                                            <td className=' text-center p-3 border-2'>{trans.reqid}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.rqst_id}</td>
                                             <td className=' text-center p-3 border-2'>{trans.phone}</td>
                                             <td className=' text-center p-3 border-2'>{trans.prog}</td>
                                             <td className=' text-center p-3 border-2'>{trans.level}</td>
                                             <td className=' text-center p-3 border-2'>{trans.deliv_mode}</td>
-                                            <td className=' text-center p-3 border-2'>{trans.state  }</td>
+                                            <td className=' text-center p-3 border-2'>{trans.status}</td>
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row' className=''>
                                                     <TranscriptModal trans={trans} />
-                                                    <IconButton>
-                                                        <ThumbUpIcon variant='contained' color='primary' onClick={() => fintoregtrans(trans.reqid)}  />
+                                                    <IconButton onClick={() => fintoregtrans(trans.rqst_id)}>
+                                                        <ThumbUpIcon variant='contained' color='primary' />
                                                     </IconButton>
                                                     <IconButton>
                                                         <ThumbDown color='error' />
@@ -112,7 +112,7 @@ function AdminTranscript() {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <TablePagination    className=' bottom-0'
+                    <TablePagination className=' bottom-0'
                         rowsPerPageOptions={[10, 15, 25, 100]}
                         component="div"
                         count={data.length}
@@ -123,13 +123,13 @@ function AdminTranscript() {
                 </Card>
             </div>
             <div className=' col-span-6'></div>
-                <div className=' col-span-2 m-6'>
-                    {showAlert && (
-                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                            {alertMessage}
-                        </Alert>
-                    )}
-                </div>
+            <div className=' col-span-2 m-6'>
+                {showAlert && (
+                    <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                        {alertMessage}
+                    </Alert>
+                )}
+            </div>
         </div>
     )
 }

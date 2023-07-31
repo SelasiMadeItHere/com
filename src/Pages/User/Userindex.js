@@ -163,24 +163,7 @@ function Userindex() {
         setStatus('');
       });
 
-    axios.post('http://localhost:5002/api/entries', { id, rqst_id })
 
-      .then((response) => {
-
-
-        if (response.data.success) {
-          setStatus(response.data.status);
-          setError('');
-        } else {
-          setError(response.data.message);
-          setStatus('');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setError('An error occurred. Please try again later.');
-        setStatus('');
-      });
   };
 
   const handleOpenModal = () => {
@@ -193,10 +176,12 @@ function Userindex() {
 
   return (
     <div>
-      <div className='grid lg:grid-cols-2 h-screen '>
+      <div className='grid lg:grid-cols-2 h-screen sm:flex-1'>
         {/* New Request card */}
-        <div className='grid-cols-1 bg-slate-200 pt-[20%] text-center'>
-          <div className='bg-white outline-blue-500 w-[50%] m-auto rounded-2xl pt-12 p-24 border-solid'>
+        {/* <div className='grid-cols-1 bg-slate-200 pt-[20%] text-center' > */}
+
+        <div className='flex items-center justify-center bg-slate-200 text-center' >
+          <div className='bg-white outline-blue-500 md:w-[50%] m-auto rounded-2xl pt-12 p-24 border-solid'>
             <img src={require('../../assets/imgs/AIT_CREST.png')} alt='Logo' className='w-24 h-24 m-auto p-auto' />
             <br />
             <h1 className='font-bold text-lg'>NEW REQUEST</h1>
@@ -210,7 +195,9 @@ function Userindex() {
           </div>
         </div>
 
-        <div className='grid-cols-2 bg-blue-700 pt-[20%] text-center'>
+        {/* <div className='grid-cols-2 bg-blue-700 pt-[20%] text-center'> */}
+        <div className='flex items-center justify-center bg-blue-700 text-center' >
+
           <div className='bg-white outline-blue-500 w-[50%] m-auto p-auto rounded-2xl pt-12 p-24 border-solid'>
             <img src={require('../../assets/imgs/AIT_CREST.png')} alt='Logo' className='w-24 h-24 m-auto' />
             <br />
@@ -255,13 +242,15 @@ function Userindex() {
                     <Stepper activeStep={(status === 'Approved' || status === 'worked_on') ? 3 : status === 'verified' ? 2 : 1} alternativeLabel className=' my-20'>
                       <Step>
                         <StepLabel>Pending</StepLabel>
+                        <p>Your request is yet to be attended to by an officer</p>
                       </Step>
                       <Step>
                         <StepLabel>Verified</StepLabel>
+                        <p>Your payment for this service or request has been approved by the DFA</p>
                       </Step>
                       <Step>
                         <StepLabel>Approved</StepLabel>
-
+                        <p>The Registrar has approved of your request and hass been assigned to an officer</p>
                       </Step>
                       <Step>
                         <StepLabel>Being Worked</StepLabel>

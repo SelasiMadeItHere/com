@@ -5,37 +5,58 @@ import axios from 'axios';
 
 
 function Login() {
-    const [uname, setUname] = useState('');
+    const [username, setUname] = useState('');
     const [password, setPassword] = useState('');
-    const [status, setStatus] = useState('');
+    // const [status, setStatus] = useState('');
     const [error, setError] = useState('');
+
 
     const login = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:5002/api/login', { uname, password })
+        axios.post('http://localhost:5002/login', { username, password })
             .then((response) => {
-                if (response.data.success) {
-                    setStatus(response.data.status);
-                    
-                } else {
-                    setError(response.data.message);    
-                }
-            })
+                if (response.status === 200) {
+                    switch (response.data.role) {
+                        case 'admin':
+                            // window.location.href = response.headers.location;
+                            window.location.href = '/';
+                            break;
+                        case 'DFA':
+                            window.location.href = '/dashboard';
 
+                            break;
+                        case 'IDU':
+                            window.location.href = '/idunit';
+
+                            break;
+                        case 'Registrar':
+
+                            window.location.href = '/registrar';
+                            
+                            break;
+                        default:
+                        //
+                    }
+
+                } else {
+                    setError('Invalid username or password');
+                }
+
+            })
             .catch((error) => {
                 console.log(error);
                 setError('Check your Credentials and Try again.');
             });
-
     }
+
 
     return (
         <div className=' bg-blue-600 h-screen'>
             <div className=' p-48'>
-                <Card className=' text-center justify-center p-6 rounded-4xl m-auto w-2/5'>
-                    
-                    <img src={require('../assets/imgs/ait_logo.jpg')} alt='Logo' className='w-24 h-24 m-auto' />
+                <Card className=' text-center justify-center p-6 rounded-4xl m-auto w-fit items-center'>
+
+                    <img src={require('../../assets/imgs/ait_logo.jpg')} alt='Logo' className='w-24 h-24 m-auto' />
                     <br />
                     <h1 className='font-bold text-xl'>Login with your assigned credentials</h1>
                     <br />
@@ -44,9 +65,9 @@ function Login() {
                         <TextField
                             placeholder='Enter your username'
                             type='text'
-                            name='uname'
+                            name='username'
                             label="Username" variant="outlined"
-                            value={uname}
+                            value={username}
                             onChange={(e) => setUname(e.target.value)}
                         />
                         <br />
@@ -62,9 +83,8 @@ function Login() {
                         />
                         <br />
                         <br />
-                        <Button type='submit' className='justify-center' variant='contained'
-                        // onClick={handleOpenModal}
-                        >
+
+                        <Button type='submit' className='justify-center' variant='contained' onClick={login}>
                             SUBMIT
                         </Button>
                     </form>

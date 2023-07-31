@@ -29,8 +29,9 @@ import BasicModal from "./components/DefermentModal";
 import Idunit from "./Pages/Admin/IDUnit";
 import RegNav from "./components/RegNav";
 
-
-import Login from "./Pages/Login";
+//System Admin pages
+import Login from "./Pages/Admin//Login";
+import Register from "./Pages/Admin/Register"
 
 
 
@@ -40,7 +41,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Components*/}
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/newrequest" element={<Newrequest />} />
         <Route path="/idchoice" element={<IDchoice />} />
@@ -48,7 +49,7 @@ function App() {
         <Route path='/defermodal' element={<DefermentModal />} />
         <Route path='/regnavigation' element={<RegNav/>} />
 
-        {/* ADMIN PAGES */}
+        {/* STAFF PAGES */}
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
         <Route path="/admintranscript" element={<AdminTranscript />} />
         <Route path="/admindeferment" element={<AdminDeferment />} />
@@ -73,8 +74,9 @@ function App() {
         <Route path="/userindex" element={<Userindex />} />
         <Route path="/tracker" element={<Tracker />}/>
 
-        {/* Other Pages */}
+        {/* ADMIN PAGES */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
 
       </Routes>

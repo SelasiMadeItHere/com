@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Navbar from '../../components/Navbar'
 import Lpane from '../../components/Lpane'
-import { Card, Table, TableHead, TableRow, TableBody, TableCell, Stack, IconButton, } from '@mui/material'
+import { Card, Table, TableHead, TableRow, TableBody, TableCell, Stack, IconButton, TablePagination} from '@mui/material'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 import IntroductoryModal from '../../components/IntroductoryModal'
@@ -24,32 +24,41 @@ function IntroductoryLetter() {
         loadData();
     }, []);
 
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(+event.target.value);
+        setPage(0);
+    };
+
+
 
     return (
         <>
-            <div className=' bg-indigo-100 grid grid-cols-9 h-screen pb-12 min-h-screen'>
+            <div className=' grid grid-cols-9 h-screen pb-12 min-h-screen'>
                 <div>
                     <Navbar />
                     <Lpane />
                 </div>
 
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
-                    <Card>
+                    <Card className='my-12'>
                         <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Introductory Letter Requests</h1>
-                        <Table className='mt-5'>
+                        <Table className=''>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell></TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ID NO.</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>REQUEST ID</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>PHONE</TableCell>
-                                    {/* <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>REASON</TableCell> */}
-                                    {/* <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>PASSPORT</TableCell> */}
-                                    {/* <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>RESIDENCY</TableCell> */}
-                                    {/* <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>BANK NAME</TableCell> */}
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>RECEIPT</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>DATE</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }}>ACTION</TableCell>
+                                    <TableCell className=' border-2'></TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>ID NO.</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>REQUEST ID</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>PHONE</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>RECEIPT</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'> DATE</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2 items-center'>ACTION</TableCell>
                                 </TableRow>
                             </TableHead>
 
@@ -59,14 +68,14 @@ function IntroductoryLetter() {
                                         <tr key={introl.id} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
                                             <td className=' text-center p-3 border-2'>{introl.stuid}</td>
-                                            <td className=' text-center p-3 border-2'>{introl.reqid}</td>
+                                            <td className=' text-center p-3 border-2'>{introl.rqst_id}</td>
+                                            <td className=' text-center p-3 border-2'>{introl.phone}</td>
                                             <td className=' text-center p-3 border-2'>{introl.for}</td>
-                                            <td className=' text-center p-3 border-2'>{introl.reciept_path}</td>
                                             <td className=' text-center p-3 border-2'>{new Date(introl.created_at).toISOString().slice(0, 10)}</td>
                                             <td className=' text-center p-3 border-2'>
-                                                <Stack direction='row' className=''>
+                                                <Stack direction='row' className=' items-center'>
                                                     <IntroductoryModal introl={introl} />
-                                                    
+
                                                     <IconButton>
                                                         <ThumbUpIcon variant='contained' color='primary' />
                                                     </IconButton>
@@ -82,6 +91,14 @@ function IntroductoryLetter() {
                                 })}
                             </TableBody>
                         </Table>
+                        <TablePagination className=' bottom-0'
+                            rowsPerPageOptions={[10, 15, 25, 100]}
+                            component="div"
+                            count={data.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            onRowsPerPageChange={handleChangeRowsPerPage} />
                     </Card>
                 </div>
             </div>

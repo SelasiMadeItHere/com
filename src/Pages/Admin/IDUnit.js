@@ -63,9 +63,9 @@ function Idunit() {
                             <TableBody>
                                 {data.map((card, index) => {
                                     return (
-                                        <tr key={card.ID} className=' border p-12'>
+                                        <tr key={card.stuid} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
-                                            <td className=' text-left p-3 border'>{card.ID}</td>
+                                            <td className=' text-left p-3 border'>{card.stuid}</td>
                                             <td className=' text-left p-3 border'>{card.campus}</td>
                                             <td className=' text-left p-3 border'>{card.service}</td>
                                             <td className=' text-left p-3 border'>{card.rqst_id}</td>
@@ -89,7 +89,7 @@ function Idunit() {
                             </TableBody>
                         </Table>
                         <TablePagination className=' bottom-0'
-                            rowsPerPageOptions={[10, 15, 25, 100]}
+                            rowsPerPageOptions={[2, 15, 25, 100]}
                             component="div"
                             count={data.length}
                             rowsPerPage={rowsPerPage}
