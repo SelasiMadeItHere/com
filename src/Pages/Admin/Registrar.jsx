@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar'
 import Badges from '../../components/Badges'
 import ActivityCard from '../../components/ActivityCard';
 import { ChartBarIcon, ChartBarSquareIcon, ChartPieIcon } from '@heroicons/react/20/solid'
+import Charts from '../../components/Charts';
 
 
 
@@ -163,10 +164,21 @@ function Registrar() {
                 </div>
             </div>
 
+            <div className=' grid grid-cols-4 pt-24 ml-6'>
+                <div className=' col-span-4 m-6 text-2xl font-bold'>
+                    <h2>Charts</h2>
+                </div>
+                <div className=' flex grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'>
+                    <Charts/>
+                </div>
+            </div>
 
 
-            <div className=' col-span-4 m-6 text-2xl font-bold'>
-                <h2>Services</h2>
+
+            <div className=' grid grid-cols-4 pt-24 ml-6'>
+                <div className=' col-span-4 m-6 text-2xl font-bold'>
+                    <h2>Services</h2>
+                </div>
             </div>
 
             <div className=' px-28 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2' >
