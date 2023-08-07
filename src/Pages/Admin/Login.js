@@ -33,7 +33,7 @@ function Login() {
                         case 'Registrar':
 
                             window.location.href = '/registrar';
-                            
+
                             break;
                         default:
                         //
@@ -89,9 +89,7 @@ function Login() {
                         </Button>
                     </form>
                 </Card>
-
             </div>
-
         </div>
     )
 }
