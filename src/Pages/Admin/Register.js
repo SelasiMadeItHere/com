@@ -52,7 +52,7 @@ function Register() {
             <br />
 
             <div className=' pb-12'>
-              <form onSubmit={SignUp} className=' p-12' >
+              <form onSubmit={SignUp} >
 
                 <TextField
                   placeholder='Enter Full Name'
@@ -60,10 +60,11 @@ function Register() {
                   name='Enter '
                   label="Officer's Name"
                   variant="outlined"
-                  className='p-6'
+                  className='p-2 w-[65%]'
                   value={officer_name}
                   onChange={(e) => setOfficer_name(e.target.value)}
                 />
+                <br />
                 <br />
 
 
@@ -73,27 +74,28 @@ function Register() {
                   name='email'
                   label="Email"
                   variant="outlined"
+                  className='p-2 w-[65%]'
                   value={mail}
                   onChange={(e) => setMail(e.target.value)}
                 />
-                <br />
+                <br /> <br />
 
-
+                <InputLabel className=' text-left left-20'>Assigned Role</InputLabel>
                 <Select
                   value={role}
                   id="outlined-select-currency-native"
                   placeholder='Role'
                   onChange={(e) => { setRole(e.target.value) }}
-                  label="Role"
-                  type='Select'
-                  className=' w-full'
+                  label="Select"
+                  defaultValue="Select"
+                  className=' w-[65%]'
                 >
-
+                  <MenuItem defaultValue="Select">--Select--</MenuItem>
                   <MenuItem value="Registrar">Registrar</MenuItem>
                   <MenuItem value="IDU">IDU</MenuItem>
                   <MenuItem value="DFA">DFA</MenuItem>
                 </Select>
-                <br />
+                <br /> <br />
 
 
                 <TextField
@@ -102,11 +104,12 @@ function Register() {
                   name='username'
                   label="Username"
                   variant="outlined"
+                  className='p-2 w-[65%]'
                   value={username}
                   onChange={(e) => setUname(e.target.value)}
                 />
                 <br />
-
+                <br />
 
                 <TextField
                   placeholder='Enter their designated Password'
@@ -114,10 +117,11 @@ function Register() {
                   name='password'
                   label="Password"
                   variant="outlined"
+                  className='p-2 w-[65%]'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <br />
+                <br /> <br />
 
 
                 <Button
