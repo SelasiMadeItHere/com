@@ -22,7 +22,7 @@ function ChildModal() {
     setOpen(false);
   };
 
-  const [Id, setID] = useState("")
+  const [stuid, setID] = useState("")
   const [Campus, setCampus] = useState("")
   const [Service, setService] = useState("")
   const [Email, setEmail] = useState("")
@@ -54,7 +54,7 @@ function ChildModal() {
     const rqst_id = customText + uuidv4().substring(0, 6);
     axios.post("http://localhost:5002/api/insert", {
       rqst_id: rqst_id,
-      ID: Id,
+      stuid: stuid,
       Campus: Campus,
       Service: Service,
       Email: Email,
@@ -108,7 +108,7 @@ function ChildModal() {
                 <label className=' font-bold'> ENTER YOUR ID NUMBER</label>
                 <input placeholder='Enter Your ID Number'
                   className=' border-sky-800 border-2 rounded w-[100%] p-2'
-                  name='id'
+                  name='stuid'
                   onChange={(e) => {
                     setID(e.target.value)
                   }}
