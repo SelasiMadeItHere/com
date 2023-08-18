@@ -116,10 +116,7 @@ function Registrar() {
         setPCards(response.data);
     };
 
-    // const loadData = async () => {
-    //     const response = await axios.get("http://localhost:5002/api/getIntro");
-    //     setData(response.data);
-    // };
+
 
 
     useEffect(() => {

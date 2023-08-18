@@ -53,7 +53,7 @@ function Login() {
 
     return (
         <div className=' bg-blue-600 h-screen'>
-            <div className=' p-48'>
+            <div className='    '>
                 <Card className=' text-center justify-center p-6 rounded-4xl m-auto w-fit items-center'>
 
                     <img src={require('../../assets/imgs/ait_logo.jpg')} alt='Logo' className='w-24 h-24 m-auto' />
