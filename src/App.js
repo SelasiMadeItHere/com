@@ -33,6 +33,7 @@ import RegNav from "./components/RegNav";
 import Login from "./Pages/Admin//Login";
 import Register from "./Pages/Admin/Register"
 import Reports from "./Pages/Admin/Reports"
+import ChartComponent from "./components/ChartComponent";
 
 
 
@@ -49,6 +50,7 @@ function App() {
         <Route path="/modaltrial" element={<IDModalCard />} />
         <Route path='/defermodal' element={<DefermentModal />} />
         <Route path='/regnavigation' element={<RegNav/>} />
+        <Route path="/chartcomponent" element={<ChartComponent/>} />
 
         {/* STAFF PAGES */}
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />

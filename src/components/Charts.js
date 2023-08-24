@@ -1,43 +1,46 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
+const Chart = () => {
+  // Inside your functional component
+const [chartData, setChartData] = useState([]);
 
-const Charts = () => {
-  const [chartData, setChartData] = useState([]);
+const fetchDataFromDatabase = async () => {
+  try {
+    const response = await fetch('http://localhost:5002/reportscalc');
+    const responseData = await response.json();
 
-  useEffect(() => {
-    // Retrieve data from the database and set it in the state
-    fetchDataFromDatabase().then((data) => {
-      setChartData(data);
-    });
-  }, []);
+    // Map the data to Recharts format
+    const mappedData = [
+      { label: 'Pending', value: responseData.data.pending },
+      { label: 'Verified', value: responseData.data.verified },
+      { label: 'Approved', value: responseData.data.approved }
+    ];
 
-  const fetchDataFromDatabase = async () => {
-    // Perform an API request to retrieve data from the database
-    const response = await fetch('http://localhost:5002/api/getCard');
-    const data = await response.json();
-    return data;
-  };
+    setChartData(mappedData);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
 
-  // const data = [
-  //   { name: "ID Cards", value: 205 },
-  //   { name: 'Deferment ', value: 73 },
-  //   { name: 'Certificate ', value: 124 },
-  //   { name: 'Transcript ', value: 222 },
-  // ]
+useEffect(() => {
+  fetchDataFromDatabase();
+}, []);
+
 
   return (
+    <div>
+      <h1>Bar Chart Example</h1>
+      <BarChart width={600} height={400} data={chartData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="label" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="value" fill="#8884d8" name="Value" />
+      </BarChart>
+    </div>
+  );
+};
 
-    <BarChart width={400} height={300} data={chartData}>
-      <XAxis dataKey="date" />
-      <YAxis />
-      <CartesianGrid strokeDasharray="3 3 " />
-      <Tooltip />
-      <Legend />
-      <Bar type="monotone" dataKey="value" stroke="#8884d8" />
-    </BarChart>
-    // </ResponsiveContainer>
-  )
-}
-
-export default Charts
+export default Chart;

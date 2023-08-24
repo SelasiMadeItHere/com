@@ -53,8 +53,8 @@ function Login() {
 
     return (
         <div className=' bg-blue-600 h-screen'>
-            <div className='    '>
-                <Card className=' text-center justify-center p-6 rounded-4xl m-auto w-fit items-center'>
+            <div className=' p-36'>
+                <Card className=' text-center justify-center p-6 rounded-4xl w-fit h-fit mx-auto'>
 
                     <img src={require('../../assets/imgs/ait_logo.jpg')} alt='Logo' className='w-24 h-24 m-auto' />
                     <br />
@@ -70,6 +70,7 @@ function Login() {
                             value={username}
                             onChange={(e) => setUname(e.target.value)}
                         />
+                        
                         <br />
                         <br />
 

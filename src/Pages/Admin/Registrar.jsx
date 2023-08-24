@@ -132,10 +132,6 @@ function Registrar() {
 
 
 
-
-
-
-
     return (
         <div className=' bg-slate-200 min-h-screen'>
             <div>
@@ -146,6 +142,7 @@ function Registrar() {
                 <div className=' col-span-4 m-6 text-2xl font-bold'>
                     <h2>Stats</h2>
                 </div>
+
                 <div className=' col-start-5'>
                     <Badges />
                 </div>
@@ -161,11 +158,13 @@ function Registrar() {
                 </div>
             </div>
 
-            <div className=' grid grid-cols-4 pt-24 ml-6'>
+            {/* <div className=' grid grid-cols-4 pt-24 ml-6'> */}
+            <div className=' '>
                 <div className=' col-span-4 m-6 text-2xl font-bold'>
                     <h2>Charts</h2>
                 </div>
-                <div className=' flex grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'>
+                {/* <div className=' flex grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'> */}
+                <div className=''>
                     <Charts/>
                 </div>
             </div>
@@ -199,8 +198,6 @@ function Registrar() {
                         badge={'VIEW'} link={'/registrardeferment'} />
                 </div>
             </div>
-
-
         </div>
     )
 }
