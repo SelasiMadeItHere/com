@@ -1,6 +1,6 @@
-// ReportsPage.js
+// // ReportsPage.js
 
-// import React, { useState, useEffect } from 'react';
+// import React, { useState,useEffect } from 'react';
 // import axios from 'axios';
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
@@ -42,17 +42,3 @@
 
 // export default ReportsPage;
 
-
-
-import React from 'react';
-import ChartComponent from '../../components/ChartComponent';
-
-function App() {
-  return (
-    <div className="App">
-      <ChartComponent />
-    </div>
-  );
-}
-
-export default App;

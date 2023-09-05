@@ -8,7 +8,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Alert from '@mui/material/Alert'
 
-function Idunit() {
+function IdunitApproved() {
 
     const [data, setData] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
@@ -17,7 +17,7 @@ function Idunit() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/finishedcards");
+        const response = await axios.get("http://localhost:5002/api/fetchapprovedcards ");
         setData(response.data);
     };
     useEffect(() => {
@@ -36,41 +36,6 @@ function Idunit() {
         setPage(0);
     };
 
-    const rejected = (rqst_id) => {
-        axios
-            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
-            .then((response) => {
-                console.log(response.data);
-                setAlertSeverity('success');
-                setAlertMessage('Status updated successfully.');
-                setShowAlert(true);
-                loadData();
-            })
-            .catch((error) => {
-                console.error(error);
-                setAlertSeverity('error');
-                setAlertMessage('Failed to update status.');
-                setShowAlert(true);
-            });
-    };
-
-    const approved = (rqst_id) => {
-        axios
-            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
-            .then((response) => {
-                console.log(response.data);
-                setAlertSeverity('success');
-                setAlertMessage('Status updated successfully.');
-                setShowAlert(true);
-                loadData();
-            })
-            .catch((error) => {
-                console.error(error);
-                setAlertSeverity('error');
-                setAlertMessage('Failed to update status.');
-                setShowAlert(true);
-            });
-    };
 
     return (
         <div>
@@ -111,14 +76,7 @@ function Idunit() {
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row'>
                                                     <IDCardView card={card} />
-                                                    <IconButton
-                                                        onClick={() => approved(card.rqst_id)}>
-                                                        <ThumbUpIcon variant='contained' color='success' />
-                                                    </IconButton>
-
-                                                    <IconButton variant='contained' color='error' onClick={()=>rejected(card.rqst_id)}>
-                                                        <ThumbDownIcon />
-                                                    </IconButton>
+                                                    
                                                 </Stack>
                                             </td>
                                         </tr>
@@ -153,4 +111,4 @@ function Idunit() {
     )
 }
 
-export default Idunit
+export default IdunitApproved

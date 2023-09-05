@@ -6,11 +6,9 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Navbar from '../../components/Navbar'
 import { Breadcrumbs, Link, IconButton, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, TablePagination } from '@mui/material'
-// import NotificationsIcon from '@mui/icons-material/Notifications';
-// import MessageIcon from '@mui/icons-material/Message';
 import FinanceDeferModal from '../../components/FinanceDeferModal';
 import Alert from '@mui/material/Alert'
-import RegNav from '../../components/RegNav';
+
 
 
 
@@ -31,9 +29,9 @@ function RegistrarDefer() {
         setData(response.data);
     };
 
-    const regapproved = (defid) => {
+    const regapproved = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/deferment/regapprove', { defid })
+            .post('http://localhost:5002/api/deferment/regapprove', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -73,13 +71,18 @@ function RegistrarDefer() {
 
 
             <div className=' grid grid-cols-5 pt-24 mx-14'>
-                <div className=' inline-flex gap-3 pt-3 text-black '>
-                    Hello!
+                <div className=' inline-flex gap-3 pt-3 text-black col-span-2'>
+                 {showAlert && (
+                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                            {alertMessage}
+                        </Alert>
+                    )}
                 </div>
 
-                <div className=' grid col-span-3'>
+                <div className=' grid col-span-2'>
+                    
                 </div>
-                
+
                 <div className=' inline-flex gap-3 text-right'>
                     <Breadcrumbs arial-label='breadcrumb' separator=">">
                         <Link href='/registrar' underline='hover'>Home</Link>
@@ -89,13 +92,9 @@ function RegistrarDefer() {
             </div>
             <div className='grid grid-cols-5 '>
                 <div className=' col-start-4 col-span-2 m-6'>
-                    {showAlert && (
-                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                            {alertMessage}
-                        </Alert>
-                    )}
+                    
                 </div>
-                
+
                 <div className='mx-20 col-span-5'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>
                     <TableContainer className=' bg-white rounded-xl'>
@@ -117,7 +116,7 @@ function RegistrarDefer() {
                             <TableBody>
                                 {data.map((fdef, index) => {
                                     return (
-                                        <tr key={fdef.defid} className=' border p-12'>
+                                        <tr key={fdef.id} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
                                             <td className=' text-center p-3 border'>{fdef.stuid}</td>
                                             <td className=' text-center p-3 border'>{fdef.clevel}</td>
@@ -125,7 +124,7 @@ function RegistrarDefer() {
                                             <td className=' text-center p-3 border'>{fdef.defsem}</td>
                                             <td className=' text-center p-3 border'>{fdef.defyear}</td>
                                             <td className=' text-center p-3 border'>{new Date(fdef.created_at).toISOString().slice(0, 10)}</td>
-                                            <td className=' text-center p-3 border'>{fdef.defid}</td>
+                                            <td className=' text-center p-3 border'>{fdef.rqst_id}</td>
                                             <td className=' text-center p-3 border'>{fdef.status}</td>
                                             <td className=' text-center p-3 border'>
                                                 <Stack direction='row' >
@@ -133,7 +132,7 @@ function RegistrarDefer() {
                                                     <FinanceDeferModal fdef={fdef} />
                                                     {/* </IconButton> */}
 
-                                                    <IconButton onClick={() => regapproved(fdef.defid)}>
+                                                    <IconButton onClick={() => regapproved(fdef.rqst_id)}>
                                                         <ThumbUpIcon color='primary' />
                                                     </IconButton>
 

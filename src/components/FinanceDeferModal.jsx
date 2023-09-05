@@ -49,7 +49,7 @@ function FinanceDeferModal({ fdef }) {
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Request ID: </label>{fdef.defid}
+                <label className='  text-blue-700 font-bold'> Request ID: </label>{fdef.rqst_id}
               </div>
 
               <div className='  py-1'>

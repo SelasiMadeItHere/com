@@ -20,7 +20,7 @@ function TransRegistrar() {
     const [alertMessage, setAlertMessage] = useState('');
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/gettranscript");
+        const response = await axios.get("http://localhost:5002/api/getfinanceapprovedtranscripts");
         setData(response.data);
     };
     useEffect(() => {
@@ -39,9 +39,9 @@ function TransRegistrar() {
         setPage(0);
     };
 
-    const fintoregtrans = (reqid) => {
+    const fintoregtrans = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/transcript/finapprove', { reqid })
+            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -90,12 +90,12 @@ function TransRegistrar() {
 
             <div className=' mx-16'>
                 <Card>
-                <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Transcripts Requests</h1>
+                    <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Transcripts Requests</h1>
                     <TableContainer >
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell style={{ fontWeight: "bolder",}} className=' border-2'>SN</TableCell>
+                                    <TableCell style={{ fontWeight: "bolder", }} className=' border-2'>SN</TableCell>
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>ID NO.</TableCell>
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>REQUEST ID</TableCell>
                                     <TableCell style={{ fontWeight: "bolder", textAlign: 'center' }} className=' border-2'>CONTACT</TableCell>
@@ -110,20 +110,20 @@ function TransRegistrar() {
                             <TableBody className='text-sm'>
                                 {data.map((trans, index) => {
                                     return (
-                                        <tr key={trans.reqid} className=' border p-12'>
+                                        <tr key={trans.rqst_id} className=' border p-12'>
                                             <th scope="row">  {index + 1}</th>
                                             <td className=' text-center p-3 border-2'>{trans.stuid}</td>
-                                            <td className=' text-center p-3 border-2'>{trans.reqid}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.rqst_id}</td>
                                             <td className=' text-center p-3 border-2'>{trans.phone}</td>
                                             <td className=' text-center p-3 border-2'>{trans.prog}</td>
                                             <td className=' text-center p-3 border-2'>{trans.level}</td>
                                             <td className=' text-center p-3 border-2'>{trans.deliv_mode}</td>
-                                            <td className=' text-center p-3 border-2'>{trans.state}</td>
+                                            <td className=' text-center p-3 border-2'>{trans.status}</td>
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row' className=''>
                                                     <TranscriptModal trans={trans} />
                                                     <IconButton>
-                                                        <ThumbUpIcon variant='contained' color='primary' onClick={() => fintoregtrans(trans.reqid)} />
+                                                        <ThumbUpIcon variant='contained' color='primary' onClick={() => fintoregtrans(trans.rqst_id)} />
                                                     </IconButton>
                                                     <IconButton>
                                                         <ThumbDownIcon color='error' />

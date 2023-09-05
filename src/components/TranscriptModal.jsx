@@ -49,7 +49,7 @@ function TranscriptModal({ trans }) {
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'> Request ID: </label>{trans.reqid}
+                <label className='  text-blue-700 font-bold'> Request ID: </label>{trans.rqst_id}
               </div>
 
               <div className='  py-1'>

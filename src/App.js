@@ -12,7 +12,9 @@ import TransRegistrar from './Pages/Admin/TransRegistrar'
 import IntroRegistrar from './Pages/Admin/IntroRegistrar'
 import Announcements from "./Pages/Admin/Announcements";
 import RegistrarDefer from "./Pages/Admin/RegistrarDefer"
-import DoneBasket from "./Pages/Admin/DoneBasket";
+import RejectedCards from "./Pages/Admin/RejectedCards";
+import IDUnitApproved from "./Pages/Admin/IDUnitApproved"
+
 
 
 import Userindex from "./Pages/User/Userindex"
@@ -33,7 +35,7 @@ import RegNav from "./components/RegNav";
 import Login from "./Pages/Admin//Login";
 import Register from "./Pages/Admin/Register"
 import Reports from "./Pages/Admin/Reports"
-import ChartComponent from "./components/ChartComponent";
+
 
 
 
@@ -50,7 +52,6 @@ function App() {
         <Route path="/modaltrial" element={<IDModalCard />} />
         <Route path='/defermodal' element={<DefermentModal />} />
         <Route path='/regnavigation' element={<RegNav/>} />
-        <Route path="/chartcomponent" element={<ChartComponent/>} />
 
         {/* STAFF PAGES */}
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
@@ -66,8 +67,10 @@ function App() {
         <Route path="/introductoryapproval" element={<IntroRegistrar/>}/>
         <Route path="/announcements" element={<Announcements/>}/>
         <Route path="/registrardeferment" element={<RegistrarDefer/>}/>
-        <Route path="/processedrequests" element={<DoneBasket/>}/>
+        {/* <Route path="/processedrequests" element={<DoneBasket/>}/> */}
         <Route path="/idunit" element={<Idunit/>}/>
+        <Route path="/rejectedcards" element={<RejectedCards/>}/>
+        <Route path="/approvedcards" element ={<IDUnitApproved/>}/>
 
         {/* USER PAGES */}
         <Route path="/defermentapplication" element={<UserDeferment />} />

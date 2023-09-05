@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import RegistrarDash from '../../components/RegistrarDash'
+// import RegNav from '../../components/RegNav';
 import axios from 'axios';
 import Navbar from '../../components/Navbar'
-import Badges from '../../components/Badges'
+// import Badges from '../../components/Badges'
 import ActivityCard from '../../components/ActivityCard';
 import { ChartBarIcon, ChartBarSquareIcon, ChartPieIcon } from '@heroicons/react/20/solid'
-import Charts from '../../components/Charts';
+import Charts from '../../components/BarCharts';
+import PieChart from '../../components/PieChart'
+import LineChart  from '../../components/LineChart';
 
 
 
@@ -143,9 +146,9 @@ function Registrar() {
                     <h2>Stats</h2>
                 </div>
 
-                <div className=' col-start-5'>
+                {/* <div className=' col-start-5'>
                     <Badges />
-                </div>
+                </div> */}
             </div>
 
 
@@ -159,13 +162,15 @@ function Registrar() {
             </div>
 
             {/* <div className=' grid grid-cols-4 pt-24 ml-6'> */}
-            <div className=' '>
+            <div className=''>
                 <div className=' col-span-4 m-6 text-2xl font-bold'>
                     <h2>Charts</h2>
                 </div>
                 {/* <div className=' flex grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'> */}
-                <div className=''>
+                <div className=' flex overflow-auto gap-3 rounded-4xl p-6'>
                     <Charts/>
+                    <PieChart/>
+                    <LineChart/>
                 </div>
             </div>
 
@@ -177,7 +182,7 @@ function Registrar() {
                 </div>
             </div>
 
-            <div className=' px-28 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2' >
+            <div className=' px-28 grid lg:grid-cols-4 gap-4 rounded-lg md:grid-cols-2 ' >
                 <div className=' hover:shadow-xl delay-200'>
                     <RegistrarDash image={require('../../assets/imgs/messages.png')} title='INTRODUCTORY LETTER REQUESTS'
                         badge={'VIEW'} link={'/introductoryapproval'} />

@@ -54,7 +54,7 @@ function IntroductoryModal({ introl }) {
               </div>
 
               <div className=' py-1'>
-                <label className=' text-blue-700 font-bold'>Request ID: </label>{introl.reqid}
+                <label className=' text-blue-700 font-bold'>Request ID: </label>{introl.rqst_id}
               </div>
 
               <div className=' py-1'>
@@ -81,7 +81,7 @@ function IntroductoryModal({ introl }) {
                 <label className=' text-blue-700 font-bold'>Address of the Embassy: </label>{introl.eaddress}
               </div>
 
-             
+
 
               <div className=' py-1'>
                 <label className=' text-blue-700 font-bold'>Detailed Reason: </label>{new Date(introl.updated_at).toISOString().slice(0, 10)}

@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import IDLpane from '../../components/IDUnitLpane';
+import IDUnitLpane from '../../components/IDUnitLpane';
 import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack } from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import Alert from '@mui/material/Alert'
 
-function Idunit() {
+
+function RejectedCards() {
 
     const [data, setData] = useState([]);
-    const [showAlert, setShowAlert] = useState(false);
-    const [alertSeverity, setAlertSeverity] = useState('success');
-    const [alertMessage, setAlertMessage] = useState('');
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/finishedcards");
+        const response = await axios.get("http://localhost:5002/api/fetchrejectedcards");
         setData(response.data);
     };
     useEffect(() => {
@@ -36,54 +33,18 @@ function Idunit() {
         setPage(0);
     };
 
-    const rejected = (rqst_id) => {
-        axios
-            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
-            .then((response) => {
-                console.log(response.data);
-                setAlertSeverity('success');
-                setAlertMessage('Status updated successfully.');
-                setShowAlert(true);
-                loadData();
-            })
-            .catch((error) => {
-                console.error(error);
-                setAlertSeverity('error');
-                setAlertMessage('Failed to update status.');
-                setShowAlert(true);
-            });
-    };
-
-    const approved = (rqst_id) => {
-        axios
-            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
-            .then((response) => {
-                console.log(response.data);
-                setAlertSeverity('success');
-                setAlertMessage('Status updated successfully.');
-                setShowAlert(true);
-                loadData();
-            })
-            .catch((error) => {
-                console.error(error);
-                setAlertSeverity('error');
-                setAlertMessage('Failed to update status.');
-                setShowAlert(true);
-            });
-    };
-
     return (
         <div>
             <div className=' bg-white grid grid-cols-9 h-full   '>
                 <div>
                     <Navbar />
-                    <IDLpane className='col-span-2' />
+                    <IDUnitLpane className='col-span-2' />
                 </div>
 
 
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
                     <Card className='my-12 drop-shadow-2xl'>
-                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '> Card Requests</h1>
+                        <h1 className=' text-2xl font-semibold text-center bg-red-600 text-white p-6 '> Card Requests</h1>
                         <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
                             <TableHead className=' text-center'>
                                 <TableRow >
@@ -92,7 +53,6 @@ function Idunit() {
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>CAMPUS</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>SERVICE</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>TRACKING ID</TableCell>
-                                    <TableCell style={{ fontWeight: "bolder" }} className=' border'>Status</TableCell>
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border grid grid-cols-2'>ACTION</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -106,18 +66,15 @@ function Idunit() {
                                             <td className=' text-left p-3 border'>{card.campus}</td>
                                             <td className=' text-left p-3 border'>{card.service}</td>
                                             <td className=' text-left p-3 border'>{card.rqst_id}</td>
-                                            <td className=' text-left p-3 border'>{card.status}</td>
 
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row'>
                                                     <IDCardView card={card} />
-                                                    <IconButton
-                                                        onClick={() => approved(card.rqst_id)}>
-                                                        <ThumbUpIcon variant='contained' color='success' />
+                                                    <IconButton>
+                                                        <ThumbUpIcon color='primary' />
                                                     </IconButton>
-
-                                                    <IconButton variant='contained' color='error' onClick={()=>rejected(card.rqst_id)}>
-                                                        <ThumbDownIcon />
+                                                    <IconButton>
+                                                        <ThumbDownIcon color='error'/>
                                                     </IconButton>
                                                 </Stack>
                                             </td>
@@ -142,15 +99,8 @@ function Idunit() {
             </div>
 
             <div className=' col-span-4'></div>
-            <div className=' col-span-3 m-6'>
-                {showAlert && (
-                    <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                        {alertMessage}
-                    </Alert>
-                )}
-            </div>
         </div>
     )
 }
 
-export default Idunit
+export default RejectedCards;

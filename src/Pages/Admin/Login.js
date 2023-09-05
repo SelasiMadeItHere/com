@@ -14,6 +14,19 @@ function Login() {
     const login = (e) => {
         e.preventDefault();
 
+        // Handle successful login and store token
+        const handleLogin = async () => {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const data = await response.json();
+            localStorage.setItem('token', data.token);
+        };
+
+
         axios.post('http://localhost:5002/login', { username, password })
             .then((response) => {
                 if (response.status === 200) {
@@ -70,7 +83,7 @@ function Login() {
                             value={username}
                             onChange={(e) => setUname(e.target.value)}
                         />
-                        
+
                         <br />
                         <br />
 

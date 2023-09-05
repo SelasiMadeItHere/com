@@ -50,6 +50,25 @@ function Cardrenewal() {
             });
     };
 
+    const rejected = (rqst_id) => {
+        axios
+            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
+            .then((response) => {
+                console.log(response.data);
+                setAlertSeverity('success');
+                setAlertMessage('Status updated successfully.');
+                setShowAlert(true);
+                loadData();
+            })
+            .catch((error) => {
+                console.error(error);
+                setAlertSeverity('error');
+                setAlertMessage('Failed to update status.');
+                setShowAlert(true);
+            });
+    };
+
+
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -74,7 +93,7 @@ function Cardrenewal() {
 
 
     return (
-        <div className=' bg-white h-full   '>
+        <div className=' bg-white h-full relative'>
             <div>
                 <Navbar />
                 <Lpane className='col-span-2' />
@@ -85,17 +104,6 @@ function Cardrenewal() {
 
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
                     <div className=' col-span-full grid'>
-                        <div className=' col-start-2 pt-6'>
-                            <Button variant='contained' className=' px-6' startIcon={<BadgeIcon />} href='/idunit'>
-                                PROCESSED REQUESTS
-                            </Button>
-                        </div>
-
-                        <div className=' col-start-8 pt-6'>
-                            <Button variant='contained' color='error' className=' px-6' startIcon={<BadgeIcon />} href='/finishedCards'>
-                                REJECTED REQUESTS
-                            </Button>
-                        </div>
 
                         <div className=' col-span-4'></div>
                         <div className=' col-span-3 m-2'>
@@ -110,7 +118,7 @@ function Cardrenewal() {
 
 
                     <Card className='my-12 drop-shadow-2xl'>
-                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>Card Renewal Requests</h1>
+                        <h1 className=' text-2xl font-semibold text-center w-full bg-sky-800 text-white p-6' >Card Renewal Requests</h1>
                         <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
                             <TableHead className=' text-center'>
                                 <TableRow >
@@ -136,14 +144,13 @@ function Cardrenewal() {
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row' className=''>
                                                     <IDCardView card={card} />
+
                                                     <IconButton
-                                                        onClick={() => finished(card.rqst_id)}
-                                                    >
+                                                        onClick={() => finished(card.rqst_id)}>
                                                         <ThumbUpIcon variant='contained' color='success' />
                                                     </IconButton>
-                                                    <IconButton variant='contained' color='error'
-                                                    // onClick={() => handleDeleteCard(card.ID)}
-                                                    >
+
+                                                    <IconButton variant='contained' color='error' onClick={()=>rejected(card.rqst_id)}>
                                                         <ThumbDownIcon />
                                                     </IconButton>
                                                 </Stack>

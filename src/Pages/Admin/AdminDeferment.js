@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import Lpane from '../../components/Lpane';
 // import DefermentModal from '../../components/DefermentModal';
 import axios from 'axios';
-import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack, Button, Link,  } from '@mui/material';
+import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack } from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import FinanceDeferModal from '../../components/FinanceDeferModal';
@@ -28,9 +28,9 @@ function AdminDeferment() {
     }, []);
 
 
-    const fintoreg = (defid) => {
+    const fintoreg = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/deferment/finapprove', { defid })
+            .post('http://localhost:5002/api/deferment/finapprove', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -125,7 +125,7 @@ function AdminDeferment() {
                                         <td className=' text-center p-3 border-2'>{fdef.status}</td>
                                         <td className=' text-center p-3 border-y'>
                                             <Stack direction='row' className=''>
-                                                <FinanceDeferModal fdef={fdef}/>
+                                                <FinanceDeferModal fdef={fdef} />
                                                 <IconButton onClick={() => fintoreg(fdef.rqst_id)}>
                                                     <ThumbUpIcon variant='contained' color='primary' />
                                                 </IconButton>

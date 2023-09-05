@@ -8,7 +8,7 @@ import CardMembershipRounded from '@mui/icons-material/CardMembership';
 import { Settings, AdminPanelSettings } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
-function Lpane() {
+function IDLpane() {
     return (
         <>
             <nav className=' z-10 mt-24 h-screen left-0 fixed '>
@@ -16,52 +16,35 @@ function Lpane() {
 
                     <ul className=' text-white px-4  cursor-pointer '>
                         <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/dashboard"><DashboardIcon fontSize='large' className=' pr-3' />
-                                DASHBOARD</Link>
+                            <Link to="/idunit"><DashboardIcon fontSize='large' className=' pr-3' />
+                                VIEW ALL REQUESTS</Link>
                         </li>
 
                         <li className=' py-5 border-gray-500 border-b-2 ' to="/cardrenewal">
-                            <Link to="/admincardrenewal">
+                            <Link to="/approvedcards">
                                 <CreditCardIcon fontSize='large' className=' pr-3' />
-                                ID CARD RENEWALS
+                                APPROVED REQUESTS
                             </Link>
                         </li>
 
-                        <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/admintranscript">
+                        <li className=' py-5 border-gray-500'>
+                            <Link to="/rejectedcards">
                                 <CardMembershipRounded fontSize='large' className=' pr-2' />
-                                TRANSCRIPT APPLICATION
-                            </Link>
-                        </li>
-
-
-                        <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/admincertificate">
-                                <MilitaryTechIcon fontSize='large' className=' pr-3' />
-                                CERTIFICATE APPLICATION
-                            </Link>
-                        </li>
-
-                        <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/admindeferment">
-                                <ExitToAppIcon fontSize='large' className=' pr-3' />
-                                DEFERMENT APPLICATION
-                            </Link>
-                        </li>
-
-                        <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/introductory-letter">
-                                <ExitToAppIcon fontSize='large' className=' pr-3' />
-                                INTRODUCTORY LETTER</Link>
-                        </li>
-
-                        <li className=' py-5 border-gray-500 border-b-2'>
-                            <Link to="/admindeferment">
-                                <Settings fontSize='large' className=' pr-2' />
-                                SETTINGS
+                                REJECTED REQUESTS
                             </Link>
                         </li>
                     </ul>
+
+
+
+                    {/* <ul className=' text-white bg-sky-800 bottom-0'>
+                        <li className=' py-5 border-gray-500'>
+                            <Link to="/">
+                                <Settings fontSize='large' className=' pr-2' />
+                                PREFEERENCES
+                            </Link>
+                        </li>
+                    </ul> */}
 
                     {/* LOGOS FOR FAQs OR POSING QUESTIONS */}
                     <div className=' hidden'>
@@ -81,4 +64,4 @@ function Lpane() {
     )
 }
 
-export default Lpane
+export default IDLpane;
