@@ -28,29 +28,23 @@ function ChildModal() {
   const [Email, setEmail] = useState("")
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
   };
 
-  const submitRequest = () => {
+  const submitRequest = async () => {
     try {
       const formData = new FormData();
       formData.append('image', selectedFile);
 
-      axios.post('/api/upload', formData, {
+      const imageResponse = await axios.post('/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      // Reset the form after successful upload
-      setSelectedFile(null);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
-
-
-    const customText = 'Card-'
+      if (imageResponse.status===200){
+        const customText = 'Card-'
     const rqst_id = customText + uuidv4().substring(0, 6);
     axios.post("http://localhost:5002/api/insert", {
       rqst_id: rqst_id,
@@ -72,7 +66,13 @@ function ChildModal() {
         }
 
       })
-      .catch((err) => window.alert(err.response.data));
+      }
+
+      // Reset the form after successful upload
+      setSelectedFile(null);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
   }
 
 

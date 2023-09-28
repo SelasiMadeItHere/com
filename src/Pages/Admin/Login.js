@@ -82,6 +82,7 @@ function Login() {
                             label="Username" variant="outlined"
                             value={username}
                             onChange={(e) => setUname(e.target.value)}
+                            required
                         />
 
                         <br />
@@ -94,6 +95,7 @@ function Login() {
                             label="Password" variant="outlined"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
                         <br />
                         <br />

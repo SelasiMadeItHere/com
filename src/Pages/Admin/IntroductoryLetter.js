@@ -75,8 +75,8 @@ function IntroductoryLetter() {
 
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
 
-                    <Card className='my-6'>
-                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Introductory Letter Requests</h1>
+                    {/* <Card className='mt-6'> */}
+                        <h1 className=' font-semibold text-center bg-sky-800 text-white p-6'>Introductory Letter Requests</h1>
                         <Table className=''>
                             <TableHead>
                                 <TableRow>
@@ -127,9 +127,10 @@ function IntroductoryLetter() {
                             page={page}
                             onPageChange={handleChangePage}
                             onRowsPerPageChange={handleChangeRowsPerPage} />
-                    </Card>
+                    {/* </Card> */}
 
                 </div>
+                
                 <div className=' col-start-4 col-span-2'>
                     {showAlert && (
                         <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>

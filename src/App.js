@@ -34,7 +34,7 @@ import RegNav from "./components/RegNav";
 //System Admin pages
 import Login from "./Pages/Admin//Login";
 import Register from "./Pages/Admin/Register"
-import Reports from "./Pages/Admin/Reports"
+// import Reports from "./Pages/Admin/Reports"
 
 
 
@@ -83,7 +83,7 @@ function App() {
         {/* ADMIN PAGES */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/reports" element={<Reports/>}/>
+        {/* <Route path="/reports" element={<Reports/>}/> */}
 
 
       </Routes>
