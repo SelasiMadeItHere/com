@@ -16,7 +16,7 @@ function Login() {
 
         // Handle successful login and store token
         const handleLogin = async () => {
-            const response = await fetch('/login', {
+            const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password }),
@@ -27,7 +27,7 @@ function Login() {
         };
 
 
-        axios.post('http://localhost:5002/login', { username, password })
+        axios.post('http://localhost:5002/api/login', { username, password })
             .then((response) => {
                 if (response.status === 200) {
                     switch (response.data.role) {

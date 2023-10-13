@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar'
 function UserCertificate() {
     return (
         <>
-            <div className=' bg-slate-400 h-screen'>
+            <div className=' bg-slate-400 h-full'>
                 <div>
                     <Navbar />
                 </div>
@@ -16,7 +16,7 @@ function UserCertificate() {
 
                 <div className=' p-12'>
                     <form action='#' method='POST'>
-                        <div className='grid grid-cols-3 gap-6 bg-white rounded-md p-6 '>
+                        <div className='grid gap-6 bg-white rounded-md p-6 lg:grid-cols-3 md:grid-cols-2'>
                             <p className='text-blue-500 font-bold'>PROVIDE YOUR PERSONAL INFORMATION</p>
                             <div className=' col-span-2'></div>
 
@@ -51,8 +51,8 @@ function UserCertificate() {
                             </select>
                         </div>
 
-                        <div className=' bg-white grid grid-cols-3 gap-6 rounded-md p-6 my-4'>
-
+                        <div className=' bg-white grid grid-cols-3 gap-6 rounded-md p-6 mt==-4'>
+                            <p></p>
                         </div>
                     </form>
                 </div>
