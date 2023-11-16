@@ -37,41 +37,41 @@ function ChildModal() {
       const formData = new FormData();
       formData.append('image', selectedFile);
 
-      const imageResponse = await axios.post('/api/upload', formData, {
+      const imageResponse = await axios.post('http://localhost:5002/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      if (imageResponse.status===200){
+      if (imageResponse.status === 200) {
         const customText = 'Card-'
-    const rqst_id = customText + uuidv4().substring(0, 6);
-    axios.post("http://localhost:5002/api/insert", {
-      rqst_id: rqst_id,
-      stuid: stuid,
-      Campus: Campus,
-      Service: Service,
-      Email: Email,
-      imagePath: selectedFile.name,
-    })
-      .then((response) => {
-        const data = response.data;
-        if (data) {
-          setID("");
-          setCampus("");
-          setService("");
-          setEmail("");
-          window.alert("YOUR REQUEST ID IS " + rqst_id);
-          handleClose()
-        }
+        const rqst_id = customText + uuidv4().substring(0, 6);
+        axios.post("http://localhost:5002/api/insert", {
+          rqst_id: rqst_id,
+          stuid: stuid,
+          Campus: Campus,
+          Service: Service,
+          Email: Email,
+          imagePath: selectedFile.name,
+        })
+          .then((response) => {
+            const data = response.data;
+            if (data) {
+              setID("");
+              setCampus("");
+              setService("");
+              setEmail("");
+              window.alert("YOUR REQUEST ID IS " + rqst_id);
+              handleClose()
+            }
 
-      })
+          })
       }
 
       // Reset the form after successful upload
       setSelectedFile(null);
     } catch (error) {
-      console.error('Error uploading image:', error);
+      // console.error('Error uploading image:', error);
     }
   }
 
@@ -115,7 +115,7 @@ function ChildModal() {
                 />
 
                 <label className=' font-bold'> ENTER YOUR EMAIL</label>
-                <input 
+                <input
                   type='email'
                   placeholder='Enter a Valid Email Address'
                   className=' border-sky-800 border-2 rounded w-[100%] p-2'
@@ -277,7 +277,8 @@ const style = {
 
 
 export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);//defau
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -288,7 +289,7 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant="Outlined" style={{ padding: '1px' }}>Apply</Button>
+      <Button onClick={handleOpen} variant="Outlined" style={{ padding: '1px' }}>ApplFSFSGSGGy</Button>
       <Modal
         open={open}
         onClose={handleClose}

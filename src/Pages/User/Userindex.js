@@ -198,11 +198,12 @@ function Userindex() {
         {/* <div className='grid-cols-2 bg-blue-700 pt-[20%] text-center'> */}
         <div className='flex items-center justify-center bg-blue-700 text-center' >
 
-          <div className='bg-white outline-blue-500 w-[50%] m-auto p-auto rounded-2xl pt-12 p-24 border-solid'>
-            <img src={require('../../assets/imgs/AIT_CREST.png')} alt='Logo' className='w-24 h-24 m-auto' />
+          <div className='bg-white outline-blue-500 md:w-[50%] m-auto rounded-2xl pt-12 p-24 border-solid'>
+            <img src={require('../../assets/imgs/AIT_CREST.png')} alt='Logo' className='w-24 h-24 m-auto p-auto' />
             <br />
             <h1 className='font-bold'>TRACK REQUEST STATUS</h1>
             <br />
+            
             <form onSubmit={handleStatusCheck}>
               <Input
                 placeholder='Enter Your ID Number'
@@ -227,7 +228,6 @@ function Userindex() {
                 SUBMIT
               </Button>
             </form>
-
 
             <Modal open={open} onClose={handleCloseModal}>
 

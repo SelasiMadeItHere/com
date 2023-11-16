@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Stepper, Step, StepLabel, TextField, Button } from '@mui/material';
+import { Stepper, Step, StepLabel, 
+  // TextField, Button 
+} from '@mui/material';
 
 function Tracker() {
-  const [id, setId] = useState('');
-  const [rqst_id, setTrackingId] = useState('');
+  const [id, 
+    // setId
+  ] = useState('');
+  const [rqst_id, 
+    // setTrackingId
+  ] = useState('');
   const [status, setStatus] = useState('');
   const [error, setError] = useState('');
 
-  const handleIdChange = (event) => {
-    setId(event.target.value);
-  };
+  // const handleIdChange = (event) => {
+  //   setId(event.target.value);
+  // };
 
-  const handleTrackingIdChange = (event) => {
-    setTrackingId(event.target.value);
-  };
+  // const handleTrackingIdChange = (event) => {
+  //   setTrackingId(event.target.value);
+  // };
 
   const handleStatusCheck = () => {
     axios

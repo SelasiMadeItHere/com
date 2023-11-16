@@ -69,7 +69,7 @@ function IDCardView({ card }) {
                 <label className='  text-blue-700 font-bold'> Proof of Receipt: </label>
               
                   <div key={card.rqst_id}>
-                    <img src={card.imagePath} alt="Preview" />
+                    <img src={card.image} alt="Preview" />
                   </div>
               </div>
               

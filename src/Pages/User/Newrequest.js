@@ -15,7 +15,7 @@ function Newrequest() {
       </div>
       <div className=' text-center text-5xl pt-28 bg-slate-200 '>
         What can we help you with?
-      </div>
+      </div> 
 
       <div className=' bg-slate-200 h-auto py-12 grid lg:grid-cols-6 justify-self-center'>
 

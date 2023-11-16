@@ -34,7 +34,7 @@ function UserCertificate() {
 
                             <select className='border-b-2 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'>
                                 <option> --SELECT--</option>
-                                <option name='business'> BUSINESS</option>
+                                <option name='business'>BUSINESS</option>
                                 <option name='cve'> CIVIL ENGINEERING</option>
                                 <option name='ce'> COMPUTER ENGINEERING</option>
                                 <option name='cs'> COMPUTER SCIENCE</option>

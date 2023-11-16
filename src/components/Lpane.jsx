@@ -5,7 +5,9 @@ import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { ChatBubbleLeftIcon, HomeIcon, TicketIcon, UserIcon, UserGroupIcon, BoltIcon } from '@heroicons/react/20/solid'
 import CardMembershipRounded from '@mui/icons-material/CardMembership';
-import { Settings, AdminPanelSettings } from '@mui/icons-material';
+import { Settings, 
+    // AdminPanelSettings 
+} from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
 function Lpane() {
