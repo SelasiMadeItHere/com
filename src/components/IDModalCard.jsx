@@ -289,7 +289,7 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant="Outlined" style={{ padding: '1px' }}>ApplFSFSGSGGy</Button>
+      <Button onClick={handleOpen} variant="Outlined" style={{ padding: '1px' }}>Apply</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -297,7 +297,7 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div id="modal-modal-title" className=' text-2xl font-semibold text-center'>
+          <div id="modal-modal-title" className=' text-2xl fon-semibold text-center'>
             Do you want to request a card renewal or make a complaint?
           </div>
           <Typography id="modal-modal-description" sx={{ mt: 2 }} className=' p-3 center grid grid-cols-2'>

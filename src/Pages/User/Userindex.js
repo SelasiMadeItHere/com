@@ -250,7 +250,7 @@ function Userindex() {
                       </Step>
                       <Step>
                         <StepLabel>Approved</StepLabel>
-                        <p>The Registrar has approved of your request and hass been assigned to an officer</p>
+                        <p>The Registrar has approved of your request and has been assigned to an officer</p>
                       </Step>
                       <Step>
                         <StepLabel>Being Worked</StepLabel>
@@ -261,7 +261,7 @@ function Userindex() {
 
                       </Step>
                     </Stepper>
-                    {/* <p>Status: {status}</p> */}
+
                   </>
                 )}
 

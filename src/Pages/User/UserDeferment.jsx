@@ -1,22 +1,23 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
+import { TextareaAutosize } from '@mui/base';
 // import Input from '@mui/material/Input'
 // import { Select } from '@mui/material'
 
 function UserDeferment() {
     return (
         <>
-            <div className=' bg-slate-300'>
+            <div className=' bg-slate-200 sm:min-w-full'>
                 <div>
                     <Navbar />
                 </div>
 
-                <div className=' mx-24 my-12 text-center text-sky-800 text-3xl font-semibold py-12  '>
+                <div className=' lg:mx-24 my-12 text-center text-sky-800 text-3xl font-semibold py-12'>
                     FILL OUT THE FORM BELOW TO APPLY FOR DEFERMENT
                 </div>
 
                 <div>
-                    <form className='bg-white rounded-xl drop-shadow-md mx-24 p-12'>
+                    <form className='bg-white rounded-xl drop-shadow-md lg:mx-24 p-12'>
                         <p className=' font-bold text-sky-800 p-8'>PERSONAL IDENTIFICATION</p>
 
                         <div className='grid text-lg'>
@@ -24,7 +25,7 @@ function UserDeferment() {
                             <div className='grid lg:grid-cols-3 px-12'>
                                 <div className=' pb-6 grid grid-rows-2'>
                                     <label>ID Number:</label>
-                                    <input name='lname' className='pl-6 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2 w-[60%]' />
+                                    <input name='idnumber' className='pl-6 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2 w-[70%]' />
                                 </div>
 
                                 <div className=' col-span-2' />
@@ -33,8 +34,8 @@ function UserDeferment() {
                                     <div className='grid-rows-1'>
                                         <label >First name</label>
                                     </div>
-                                    <div className='grid-rows-2 min-w-full'>
-                                        <input name='lname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
+                                    <div className='grid-rows-2'>
+                                        <input name='fname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
                                     </div>
                                 </div>
 
@@ -54,7 +55,7 @@ function UserDeferment() {
                                         <label> Other Name(optional)</label>
                                     </div>
                                     <div className='grid-rows-2'>
-                                        <input name='lname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
+                                        <input name='oname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +113,6 @@ function UserDeferment() {
                                         <option name='seaview'> SEAVIEW </option>
                                     </select>
                                 </div>
-
                             </div>
 
                             {/* <div className=' grid-rows-2 pb-6'>
@@ -165,9 +165,10 @@ function UserDeferment() {
                                 <p className=' font-bold text-sky-800 p-8'>REASON FOR DEFERMENT</p>
                             </div>
 
-                            <div className='grid-rows-3 text-center  '>
-                                <textarea name="" id="" cols="140" rows="10" className=' border-sky-700 border-2 rounded-md'>
-                                </textarea>
+                            <div className='grid-rows-3 pl-12'>
+                                {/* <textarea name="reason" id="reason" cols="120" rows="10" placeholder=' Enter your reason for deferrment' className=' border-sky-700 border-2 rounded-md'>
+                                </textarea> */}
+                                <TextareaAutosize name='reason' className=' lg:w-full focus:outline-blue-800 lg:h-9'/>
                             </div>
                         </div>
 
