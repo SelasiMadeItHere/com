@@ -114,28 +114,7 @@ function UserDeferment() {
                                     </select>
                                 </div>
                             </div>
-
-                            {/* <div className=' grid-rows-2 pb-6'>
-                                <div className='grid-rows-1'>
-                                    <label >First name</label>
-                                </div>
-
-                                <div className='grid-rows-2'>
-                                    <input name='lname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
-                                </div>
-                            </div>
-
-
-                            <div className=' grid-rows-2 pb-6'>
-                                <div className='grid-rows-1'>
-                                    <label >First name</label>
-                                </div>
-
-                                <div className='grid-rows-2'>
-                                    <input name='lname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
-                                </div>
-                            </div> */}
-
+                            
 
                             <div className=' grid-rows-2 pb-12'>
                                 <div className='grid-rows-1'>
@@ -166,9 +145,7 @@ function UserDeferment() {
                             </div>
 
                             <div className='grid-rows-3 pl-12'>
-                                {/* <textarea name="reason" id="reason" cols="120" rows="10" placeholder=' Enter your reason for deferrment' className=' border-sky-700 border-2 rounded-md'>
-                                </textarea> */}
-                                <TextareaAutosize name='reason' className=' lg:w-full focus:outline-blue-800 lg:h-9'  minRows={9}/>
+                                <TextareaAutosize name='reason' className=' lg:w-full focus:outline-blue-800 lg:h-9 border-2 border-gray-700 rounded-md'  minRows={9}  />
                             </div>
                         </div>
 
