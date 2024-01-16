@@ -168,7 +168,7 @@ function UserDeferment() {
                             <div className='grid-rows-3 pl-12'>
                                 {/* <textarea name="reason" id="reason" cols="120" rows="10" placeholder=' Enter your reason for deferrment' className=' border-sky-700 border-2 rounded-md'>
                                 </textarea> */}
-                                <TextareaAutosize name='reason' className=' lg:w-full focus:outline-blue-800 lg:h-9'/>
+                                <TextareaAutosize name='reason' className=' lg:w-full focus:outline-blue-800 lg:h-9'  minRows={9}/>
                             </div>
                         </div>
 
