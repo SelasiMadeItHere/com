@@ -4,8 +4,6 @@ import IDLpane from '../../components/IDUnitLpane';
 import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack } from '@mui/material';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Alert from '@mui/material/Alert'
 
 function IdunitApproved() {
@@ -48,7 +46,7 @@ function IdunitApproved() {
 
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
                     <Card className='my-12 drop-shadow-2xl'>
-                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '> Card Requests</h1>
+                        <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '> Cardvefverg Requests</h1>
                         <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
                             <TableHead className=' text-center'>
                                 <TableRow >

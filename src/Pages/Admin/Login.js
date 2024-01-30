@@ -165,7 +165,7 @@ function Login() {
                     window.location.href = '/dashboard';
                     break;
                   case 'IDU':
-                    window.location.href = '/admincardrenewal';
+                    window.location.href = '/idunit';
                     break;
                   case 'Registrar':
                     window.location.href = '/registrar';

@@ -46,6 +46,7 @@ function ChildModal() {
       if (imageResponse.status === 200) {
         const customText = 'Card-'
         const rqst_id = customText + uuidv4().substring(0, 6);
+        
         axios.post("http://localhost:5002/api/insert", {
           rqst_id: rqst_id,
           stuid: stuid,

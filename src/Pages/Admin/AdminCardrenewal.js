@@ -5,7 +5,7 @@ import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
 import {
     Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination,
-    IconButton, Stack, Button
+    IconButton, Stack
 } from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';

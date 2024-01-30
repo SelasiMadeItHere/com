@@ -54,7 +54,7 @@ function IDCardView({ card }) {
               </div>
 
               <div className='  py-1'>
-                <label className='  text-blue-700 font-bold'>Student ID: </label>{card.ID}
+                <label className='  text-blue-700 font-bold'>Student ID: </label>{card.stuid}
               </div>
 
               <div className='  py-1'>

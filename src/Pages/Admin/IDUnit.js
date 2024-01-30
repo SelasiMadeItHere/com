@@ -56,7 +56,7 @@ function Idunit() {
 
     const approved = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
+            .post('http://localhost:5002/api/cards/approvedcards', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -129,7 +129,7 @@ function Idunit() {
                             </TableBody>
                         </Table>
                         <TablePagination className=' bottom-0'
-                            rowsPerPageOptions={[2, 15, 25, 100]}
+                            rowsPerPageOptions={[2, 15, 25]}
                             component="div"
                             count={data.length}
                             rowsPerPage={rowsPerPage}

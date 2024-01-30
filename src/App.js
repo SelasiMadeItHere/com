@@ -53,6 +53,7 @@ function App() {
         <Route path="/modaltrial" element={<IDModalCard />} />
         <Route path='/defermodal' element={<DefermentModal />} />
         <Route path='/regnavigation' element={<RegNav/>} />
+        <Route path="/cardnav" element={<cardNav/>} />
 
         {/* STAFF PAGES */}
         <Route path="/admincardrenewal" element={<AdminCardrenewal />} />
