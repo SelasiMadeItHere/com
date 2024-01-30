@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Navbar from '../../components/Navbar'
 import { TextareaAutosize } from '@mui/base';
 // import Input from '@mui/material/Input'
 // import { Select } from '@mui/material'
 
 function UserDeferment() {
+
+    const [stuid, setIdnumber] = useState('');
+    const [fname, setFname] = useState('');
+    const [phone, setPhone] = useState('');
+    const [mail, setMail] = useState('');
+    const [clevel, setClevel] = useState('');
+    const [program, setProgram] = useState('');
+    const [ogname, setOgname] = useState('');
+    const [ogcontact, setContact] = useState('');
+    const [ogemail, setOgemail] = useState('');
+    const [ogpostal, setPostal] = useState('');
+    const [proof, setProof] = useState('');
+    const [post, setPost] = useState('')
+
+
     return (
         <>
             <div className=' bg-slate-200 sm:min-w-full'>
@@ -25,7 +40,9 @@ function UserDeferment() {
                             <div className='grid lg:grid-cols-3 px-12'>
                                 <div className=' pb-6 grid grid-rows-2'>
                                     <label>ID Number:</label>
-                                    <input name='idnumber' className='pl-6 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2 w-[70%]' />
+                                    <input name='stuid'
+                                    onChange={(e)=>setIdnumber(e.target.value)}
+                                    className='pl-6 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2 w-[70%]' />
                                 </div>
 
                                 <div className=' col-span-2' />
@@ -35,27 +52,32 @@ function UserDeferment() {
                                         <label >First name</label>
                                     </div>
                                     <div className='grid-rows-2'>
-                                        <input name='fname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
+                                        <input name='fname' 
+                                        onChange={(e)=>setFname(e.target.value)}
+                                        className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
                                     </div>
                                 </div>
 
 
                                 <div className=' grid-rows-2'>
                                     <div className='grid-rows-1'>
-                                        <label >Last name</label>
+                                        <label >Phone Number</label>
                                     </div>
                                     <div className='grid-rows-2'>
-                                        <input name='lname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
+                                        <input name='phone' 
+                                        onChange={(e)=>setPhone(e.target.value)}
+                                        className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
                                     </div>
                                 </div>
 
 
                                 <div className=' grid-rows-2'>
                                     <div className='grid-rows-1'>
-                                        <label> Other Name(optional)</label>
+                                        <label> Email</label>
                                     </div>
                                     <div className='grid-rows-2'>
-                                        <input name='oname' className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
+                                        <input name='mail'
+                                        onChange={(e)=>setMail(e.target.value)} className=' border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' />
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +94,10 @@ function UserDeferment() {
                                     <label >Program of Study</label>
                                 </div>
                                 <div className='grid-rows-2'>
-                                    <select className='border-b-2 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'>
+                                    <select 
+                                    name='program'
+                                    onChange={(e)=>setProgram(e.target.value)}
+                                    className='border-b-2 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'>
                                         <option> --SELECT--</option>
                                         <option name='business'> BUSINESS</option>
                                         <option name='cve'> CIVIL ENGINEERING</option>
@@ -91,7 +116,8 @@ function UserDeferment() {
                                 </div>
 
                                 <div className='grid-rows-2'>
-                                    <select className=' border-b-2 pr-12 border-2 border-gray-700 rounded-md min-w-[60%] focus:outline-blue-800 py-1 px-2 '>
+                                    <select onChange={(e)=>setClevel(e.target.value)} name='clevel'
+                                    className=' border-b-2 pr-12 border-2 border-gray-700 rounded-md min-w-[60%] focus:outline-blue-800 py-1 px-2 '>
                                         <option> --SELECT--</option>
                                         <option name='l100'> 100 </option>
                                         <option name='l200'> 200 </option>
@@ -125,7 +151,7 @@ function UserDeferment() {
                                     <div className=' grid grid-cols-4 text-center'>
                                         <div className=' col-start-1'>
                                             <input type="radio" name="yes" id="applied_before" value={'YES'} />
-                                            <label htmlFor="applied_before" name=''>YES</label>
+                                            <label htmlFor="applied_before" >YES</label>
                                         </div>
 
                                         <div>

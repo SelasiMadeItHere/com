@@ -128,7 +128,34 @@ function UserTranscrpt() {
                               </div>                                                        
                             </div>
                         </div>
-                      {/* </div> */}
+                      
+                        <div className=' grid-rows-2 pb-12 '>
+                          
+                          <div className='grid-rows-1'>
+                            <p className=' font-bold text-sky-800 pb-8'>ADDITIONAL INFORMATION</p>
+                          </div>
+
+                          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 px-4'>
+                            <div className='pb-4 grid-cols-1 '>
+                              <label>Proof of payment:</label>
+                              <input name='receipt_path' type='file' className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder='Organization Name' />
+                            </div>
+
+                            <div className='pb-4 grid-cols-2 '>
+                                <label>Delivery mode</label>
+                                <select name='delivery_mode' className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder=' +233 123 456 7890'>
+                                  <option name='post' >Post</option>
+                                  <option name='email'>Email </option>
+                                  <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div className='pb-4 grid-cols-3 '>
+                              <label>Organization's Email</label>
+                              <input name='ogemail' className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder='organization@email.com'/>
+                            </div>                                                         
+                          </div>
+                      </div>
 
 
                         <div className=' text-center'>

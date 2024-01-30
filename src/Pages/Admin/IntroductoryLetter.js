@@ -67,8 +67,6 @@ function IntroductoryLetter() {
                 <div>
                     <Navbar />
                     <Lpane />
-
-
                 </div>
 
 
@@ -76,7 +74,7 @@ function IntroductoryLetter() {
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
 
                     {/* <Card className='mt-6'> */}
-                        <h1 className=' font-semibold text-center bg-sky-800 text-white p-6'>Introductory Letter Requests</h1>
+                        <h1 className=' font-semibold text-center bg-sky-800 text-white p-6 lg:text-2xl '>Introductory Letter Requests</h1>
                         <Table className=''>
                             <TableHead>
                                 <TableRow>
