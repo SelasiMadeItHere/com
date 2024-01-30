@@ -12,8 +12,8 @@ function UserDeferment() {
     const [mail, setMail] = useState('');
     const [clevel, setClevel] = useState('');
     const [program, setProgram] = useState('');
-    const [ogname, setOgname] = useState('');
-    const [ogcontact, setContact] = useState('');
+    const [campus, setCampus] = useState('');
+    const [applied, setApplied] = useState('');
     const [ogemail, setOgemail] = useState('');
     const [ogpostal, setPostal] = useState('');
     const [proof, setProof] = useState('');
@@ -133,7 +133,9 @@ function UserDeferment() {
                                 </div>
 
                                 <div className='grid-rows-2'>
-                                    <select className=' border-b-2 pr-12 border-2 border-gray-700 rounded-md min-w-[60%] focus:outline-blue-800 py-1 px-2'>
+                                    <select 
+                                    name='campus' onChange={(e)=>setCampus}
+                                    className=' border-b-2 pr-12 border-2 border-gray-700 rounded-md min-w-[60%] focus:outline-blue-800 py-1 px-2'>
                                         <option> --SELECT--</option>
                                         <option name='kcc'> KCC </option>
                                         <option name='seaview'> SEAVIEW </option>
@@ -150,8 +152,8 @@ function UserDeferment() {
                                 <div className='grid-rows-3'>
                                     <div className=' grid grid-cols-4 text-center'>
                                         <div className=' col-start-1'>
-                                            <input type="radio" name="yes" id="applied_before" value={'YES'} />
-                                            <label htmlFor="applied_before" >YES</label>
+                                            <input type="radio" name="yes" onChange={(e)=>setApplied} id="applied_before" value={'YdeES'} />
+                                            <label htmlFor="applied_before" >YESsd</label>
                                         </div>
 
                                         <div>
