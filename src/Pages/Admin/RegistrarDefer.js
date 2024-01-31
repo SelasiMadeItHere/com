@@ -132,7 +132,7 @@ function RegistrarDefer() {
                                                     <FinanceDeferModal fdef={fdef} />
                                                     {/* </IconButton> */}
 
-                                                    <IconButton onClick={() => regapproved(fdef.rqst_id)}>
+                                                    <IconButton onClick={() => regapproved(fdef.stuid)}>
                                                         <ThumbUpIcon color='primary' />
                                                     </IconButton>
 

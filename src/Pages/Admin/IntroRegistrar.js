@@ -19,8 +19,13 @@ function IntroRegistrar() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/Intro/getfinapproved");
-        setData(response.data);
+        try {
+            const response = await axios.get("http://localhost:5002/api/Intro/getfinapproved");
+            setData(response.data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            // Optionally, you can set an error state here and display an error message in your component
+        }
     };
     useEffect(() => {
         loadData();
@@ -122,25 +127,25 @@ function IntroRegistrar() {
                             })}
                         </TableBody>
                     </Table>
-                    <TablePagination className=' bottom-0'
+                    {/* <TablePagination className=' bottom-0'
                         rowsPerPageOptions={[10, 15, 25, 100]}
                         component="div"
                         count={data.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
                         onPageChange={handleChangePage}
-                        onRowsPerPageChange={handleChangeRowsPerPage} />
+                        onRowsPerPageChange={handleChangeRowsPerPage} /> */}
                 </TableContainer>
             </div>
 
 
-            <div className=' col-start-4 col-span-2 m-6 w-56'>
+            {/* <div className=' col-start-4 col-span-2 m-6 w-56'>
                     {showAlert && (
                         <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
                             {alertMessage}
                         </Alert>
                     )}
-                </div>
+                </div> */}
 
         </div>
 

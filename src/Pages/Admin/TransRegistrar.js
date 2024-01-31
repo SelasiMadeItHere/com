@@ -204,7 +204,7 @@ function AdminTranscript() {
 
     const fintoregtrans = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
+            .post('http://localhost:5002/api/transcripts/regapprove', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -226,10 +226,10 @@ function AdminTranscript() {
         <div className=' grid grid-cols-9 h-screen pb-12 min-h-screen'>
             <div>
                 <Navbar />
-                <Lpane className='col-span-2' />
+                {/* <Lpane className='col-span-2' /> */}
             </div>
 
-            <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
+            <div className='mt-24 grid col-span-8 col-start-2 w-[90%]'>
                 <Card className='my-12 drop-shadow-2xl'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Transcripts Requests</h1>
                     <TableContainer>

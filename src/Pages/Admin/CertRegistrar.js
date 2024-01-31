@@ -26,7 +26,7 @@ function CertRegistrar() {
 
                 <div className=' grid col-span-3'></div>
 
-                <div className=' inline-flex gap-3 text-right'>
+                {/* <div className=' inline-flex gap-3 text-right'>
                     <IconButton>
                         <NotificationsIcon className=' text-sky-900' />
                     </IconButton>
@@ -34,7 +34,7 @@ function CertRegistrar() {
                         <MessageIcon className=' text-sky-900' />
                     </IconButton>
 
-                </div>
+                </div> */}
             </div>
 
 

@@ -95,19 +95,11 @@ function UserDeferment() {
                         <div className='grid text-lg'>
 
                             <div className='grid lg:grid-cols-3 px-12'>
-                                <div className=' pb-6 grid grid-rows-2'>
-                                    <label>ID Number:</label>
-                                    <input name='stuid'
-                                        value={stuid}
-                                        onChange={(e) => setIdnumber(e.target.value)}
-                                        className='pl-6 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2 w-[70%]' />
-                                </div>
 
-                                <div className=' col-span-2' />
 
                                 <div className=' grid-rows-2'>
                                     <div className='grid-rows-1'>
-                                        <label >Name</label>
+                                        <label>ID Number:</label>
                                     </div>
                                     <div className='grid-rows-2'>
                                         <input name='fname'
@@ -145,13 +137,13 @@ function UserDeferment() {
                         </div>
 
                         {/* Reminder: Request for deferment form form DFA*/}
-                        <p className=' font-bold text-sky-800 p-8'>ACADEMIC INFORMATION</p>
+                        <p className=' font-bold text-sky-800 p-8'>DEFERMENT INFORMATION</p>
 
                         <div className='grid lg:grid-cols-3 px-12'>
 
                             <div className=' grid-rows-2 pb-6'>
                                 <div className='grid-rows-1'>
-                                    <label >Program of Study</label>
+                                    <label >I am deferring semester/trimester</label>
                                 </div>
                                 <div className='grid-rows-2'>
                                     <select
@@ -160,16 +152,21 @@ function UserDeferment() {
                                         onChange={(e) => setProgram(e.target.value)}
                                         className='border-b-2 border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'>
                                         <option> --SELECT--</option>
-                                        <option name='business'> BUSINESS</option>
-                                        <option name='cve'> CIVIL ENGINEERING</option>
-                                        <option name='ce'> COMPUTER ENGINEERING</option>
-                                        <option name='cs'> COMPUTER SCIENCE</option>
-                                        <option name='it'> INFORMATION TECHNOLOGY</option>
-                                        <option name='eee'> ELECTRICAL ENGINEERING </option>
+                                        <option name='Sem1'> Semester 1 (September - December)</option>
+                                        <option name='Sem2'> Semester 2 (January to July) </option>
                                     </select>
                                 </div>
                             </div>
 
+                            <div className=' grid-rows-2 pb-6'>
+                                <div className='grid-rows-1'>
+                                    <label >of Academic Year</label>
+                                </div>
+                                <div className='grid-rows-2'>
+                                <input type="number" name="academicyear" defaultValue={2024} 
+                                className=' border-b-2 pr-12 border-2 border-gray-700 rounded-md min-w-[60%] focus:outline-blue-800 py-1 px-2 '/>
+                                </div>
+                            </div>
 
                             <div className=' grid-rows-2 pb-6'>
                                 <div className='grid-rows-1'>
@@ -185,13 +182,15 @@ function UserDeferment() {
                                         <option name='l200'> 200 </option>
                                         <option name='l300'> 300 </option>
                                         <option name='l400'> 400 </option>
+                                        <option name='masters'> Masters </option>
+                                        <option name='phd'> PhD </option>
                                     </select>
                                 </div>
                             </div>
 
                             <div className=' grid-rows-2 pb-6'>
                                 <div className='grid-rows-1'>
-                                    <label >Campus</label>
+                                    <label >Semester</label>
                                 </div>
 
                                 <div className='grid-rows-2'>
@@ -199,8 +198,8 @@ function UserDeferment() {
                                         name='campus' onChange={(e) => setCampus} value={campus}
                                         className=' border-b-2 pr-12 border-2 border-gray-700 rounded-md min-w-[60%] focus:outline-blue-800 py-1 px-2'>
                                         <option> --SELECT--</option>
-                                        <option name='kcc'> KCC </option>
-                                        <option name='seaview'> SEAVIEW </option>
+                                        <option name='Sem1'> Semester 1(January to July) </option>
+                                        <option name='Sem2'> Semester 2 (September - December) </option>
                                     </select>
                                 </div>
                             </div>

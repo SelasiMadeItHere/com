@@ -239,7 +239,7 @@ function Userindex() {
                 {error && <p>{error}</p>}
                 {status && (
                   <>
-                    <Stepper activeStep={(status === 'Approved' || status === 'worked_on') ? 3 : status === 'verified' ? 2 : 1} alternativeLabel className=' my-20'>
+                    <Stepper activeStep={(status === 'Ready'|| status === 'worked_on') ? 5 :(status === 'Approved' ) ? 3 : status === 'verified' ? 2 : 1} alternativeLabel className=' my-20'>
                       <Step>
                         <StepLabel>Pending</StepLabel>
                         <p>Your request is yet to be attended to by an officer</p>
