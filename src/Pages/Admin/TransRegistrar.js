@@ -167,11 +167,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../../components/Navbar';
 import TranscriptModal from '../../components/TranscriptModal';
-import Lpane from '../../components/Lpane';
-import { Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagination, TableCell, IconButton, Stack } from '@mui/material';
+// import Lpane from '../../components/Lpane';
+import { Button, Breadcrumbs, Link, Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagination, TableCell, IconButton, Stack} from '@mui/material';
 import Alert from '@mui/material/Alert'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { ThumbDown } from '@mui/icons-material';
+// import NotificationsIcon from '@mui/icons-material/Notifications';
+// import MessageIcon from '@mui/icons-material/Message';
 
 
 function AdminTranscript() {
@@ -228,9 +230,33 @@ function AdminTranscript() {
                 <Navbar />
                 {/* <Lpane className='col-span-2' /> */}
             </div>
+            
+            <div className=' col-span-7 pt-24 mx-14'>
+                <div className=' grid grid-cols-4 gap-3 pt-3 text-black col-span-full'>
+                    <Breadcrumbs arial-label='breadcrumb' separator=">">
+                        <Link href='/registrar' underline='hover'>Home</Link>
+                        <Link href='#' underline='hover'>Transcripts</Link>
+                    </Breadcrumbs>
+                    
+                    
+                    <div className=' inline-flex col-start-4 gap-3 col-end-8'>
+                    <Button color='primary' variant='contained'>
+                        Approved
+                    </Button>
+                    <Button color='error' variant='contained'>
+                        Rejected
+                    </Button>
 
-            <div className='mt-24 grid col-span-8 col-start-2 w-[90%]'>
-                <Card className='my-12 drop-shadow-2xl'>
+                </div>
+                </div>
+
+                {/* <div className=' grid col-span-3'></div> */}
+
+                
+            </div>
+
+            <div className=' grid col-span-8 col-start-2 w-[90%]'>
+                <Card className='drop-shadow-2xl'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Transcripts Requests</h1>
                     <TableContainer>
                         <Table>

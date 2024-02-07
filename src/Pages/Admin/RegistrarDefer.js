@@ -83,7 +83,7 @@ function RegistrarDefer() {
                     
                 </div>
 
-                <div className=' inline-flex gap-3 text-right'>
+                <div className=' inline-flex gap-3'>
                     <Breadcrumbs arial-label='breadcrumb' separator=">">
                         <Link href='/registrar' underline='hover'>Home</Link>
                         <li>Deferment</li>
@@ -91,9 +91,7 @@ function RegistrarDefer() {
                 </div>
             </div>
             <div className='grid grid-cols-5 '>
-                <div className=' col-start-4 col-span-2 m-6'>
-                    
-                </div>
+
 
                 <div className='mx-20 col-span-5'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6'>Deferment Requests</h1>

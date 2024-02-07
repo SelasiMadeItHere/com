@@ -8,7 +8,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import FinanceDeferModal from '../../components/FinanceDeferModal';
 import Alert from '@mui/material/Alert'
-import BadgeIcon from '@mui/icons-material/Badge';
+// import BadgeIcon from '@mui/icons-material/Badge';
 
 
 
@@ -59,15 +59,21 @@ function AdminDeferment() {
         setPage(0);
     };
 
-    const handleDeleteCard = (ID) => {
-        if (window.confirm("Are you sure you want to Delete this record?")) {
-            axios.delete(`http://localhost:5002/api/deleteCard/${ID}`);
-            alert('RECORD DELETED SUCCESSFULY')
-            setTimeout(() => loadData(), 500)
-        }
-        else {
-            console.log(console.error)
-        }
+    const handleDeleteCard = (rqst_id) => {
+        axios.post(`http://localhost:5002/api/deferments/rejects`, { rqst_id })
+            .then((response) => {
+                console.log(response.data);
+                setAlertSeverity('success');
+                setAlertMessage('Status updated successfully.');
+                setShowAlert(true);
+                loadData();
+            })
+            .catch((error) => {
+                console.error(error);
+                setAlertSeverity('error');
+                setAlertMessage('Failed to update status.');
+                setShowAlert(true);
+            });
     }
 
 
@@ -79,20 +85,6 @@ function AdminDeferment() {
             </div>
 
             <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
-                {/* <div className=' col-span-full grid'>
-                    <div className=' col-start-2 pt-6'>
-                        <Link to="/finisheddeferment">
-                            <Button variant='contained' className=' px-6' startIcon={<BadgeIcon />}> PROCESSED REQUESTS</Button>
-                        </Link>
-                    </div>
-
-                    <div className=' col-start-8 pt-6'>
-                        <Link to="/finishedcards">
-                            <Button variant='contained' color='error' className=' px-6' startIcon={<BadgeIcon />}> CANCELLED REQUESTS</Button>
-                        </Link>
-                    </div>
-
-                </div> */}
                 <Card className='my-12 drop-shadow-2xl'>
                     <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '>DEFERMENT REQUESTS</h1>
                     <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
@@ -129,7 +121,7 @@ function AdminDeferment() {
                                                 <IconButton onClick={() => fintoreg(fdef.rqst_id)}>
                                                     <ThumbUpIcon variant='contained' color='primary' />
                                                 </IconButton>
-                                                <IconButton variant='contained' color='error' onClick={() => handleDeleteCard(fdef.ID)}>
+                                                <IconButton variant='contained' color='error' onClick={() => handleDeleteCard(fdef.rqst_id)}>
                                                     <ThumbDownIcon />
                                                 </IconButton>
                                             </Stack>

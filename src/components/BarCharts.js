@@ -13,7 +13,7 @@ const Chart = () => {
       // Map the data to Recharts format
       const mappedData = [
         { label: 'Pending', value: responseData.data.pending, fill:"red" },
-        { label: 'Verified', value: responseData.data.verified, fill:"yellow" },
+        { label: 'Verified', value: responseData.data.verified, fill:"#FFC714" },
         { label: 'Approved', value: responseData.data.approved, fill:"#3B82F6" }
       ];
 
@@ -32,7 +32,7 @@ const Chart = () => {
     <Card className=' '>
       <div className=' pr-6 rounded-2xl '>
         <div className=' text-center p-4 text-xl font-bold'>ID Cards Requests</div>
-        <BarChart width={400} height={200} data={chartData} barSize={60} className=' text-white'>
+        <BarChart width={300} height={200} data={chartData} barSize={40} className=' text-white'>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="label" />
           <YAxis />

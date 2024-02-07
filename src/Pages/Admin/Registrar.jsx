@@ -9,6 +9,7 @@ import { ChartBarIcon, ChartBarSquareIcon, ChartPieIcon } from '@heroicons/react
 import Charts from '../../components/BarCharts';
 import PieChart from '../../components/PieChart'
 import LineChart  from '../../components/LineChart';
+import RadialChart  from '../../components/RadialChart';
 
 
 
@@ -142,7 +143,7 @@ function Registrar() {
             </div>
 
             <div className=' grid grid-cols-4 pt-24 ml-6'>
-                <div className=' col-span-4 m-6 text-2xl font-bold'>
+                <div className=' col-span-4 mx-6 text-2xl font-semibold'>
                     <h2>Stats</h2>
                 </div>
 
@@ -152,7 +153,7 @@ function Registrar() {
             </div>
 
 
-            <div className='px-5 py-3'>
+            <div className='px-5'>
                 <div className='grid grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'>
                     <ActivityCard Icon={ChartBarIcon} text="Pending Requests" number={totalPending} />
                     <ActivityCard Icon={ChartPieIcon} text="Verified Requests" number={totalVerified} />
@@ -163,7 +164,7 @@ function Registrar() {
 
             {/* <div className=' grid grid-cols-4 pt-24 ml-6'> */}
             <div className=''>
-                <div className=' col-span-4 m-6 text-2xl font-bold'>
+                <div className='  col-span-4 mx-6 text-2xl font-semibold'>
                     <h2>Charts</h2>
                 </div>
                 {/* <div className=' flex grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'> */}
@@ -171,13 +172,14 @@ function Registrar() {
                     <Charts/>
                     <PieChart/>
                     <LineChart/>
+                    <RadialChart/>
                 </div>
             </div>
 
 
 
-            <div className=' grid grid-cols-4 pt-24 ml-6'>
-                <div className=' col-span-4 m-6 text-2xl font-bold'>
+            <div className=' grid grid-cols-4 pt-12 ml-6'>
+                <div className='  col-span-4 mx-6 text-2xl font-semibold'>
                     <h2>Services</h2>
                 </div>
             </div>
