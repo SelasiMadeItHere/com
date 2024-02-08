@@ -69,11 +69,15 @@
 import React, { useState }from 'react'
 import Navbar from '../../components/Navbar'
 import { TextField } from '@mui/material'
+import Alert from '@mui/material/Alert';
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+
 
 
 function UserCertificate() {
 
-  const [idnumber, setIdnumber] = useState('');
+  const [stuid, setStuid] = useState('');
   const [fname, setFname] = useState('');
   const [phone, setPhone] = useState('');
   const [program, setProgram] = useState('');
@@ -86,9 +90,52 @@ function UserCertificate() {
   const [proof, setProof] = useState('');
   const [post, setPost] = useState('')
 
+  const customText = stuid + '-CERT-'
+  const rqst_id = customText + uuidv4().substring(0, 6);
 
   const submit = (e)=>{
-     
+    axios.post("http://localhost:5002/api/newdefer", {
+      rqst_id: rqst_id,
+      stuid: stuid,
+      phone: phone,
+      level: level,
+      defsem: defsem,
+      retsem: retsem,
+      defyear: defyear,
+      retyear: retyear,
+      applied: applied,
+      reason: reason,
+      csem: csem
+  })
+
+      .then((response) => {
+          const data = response.data;
+          if (data) {
+              setIdnumber('');
+              setPhone('');
+              setMail('');
+              setClevel('');
+              setDefSem('');
+              setCsem('');
+              setDefYear('');
+              setRetYear('');
+              setApplied('');
+              setReason('');
+              setShowAlert('');
+              setAlertSeverity('');
+              setAlertMessage('');
+              window.alert("YOUR REQUEST ID IS " + rqst_id);
+          }
+
+      })
+      .catch((error) => {
+          console.error(error);
+          setAlertSeverity('error');
+          setAlertMessage('Failed to upload form.');
+          setShowAlert(true);
+      });
+
+
   }
 
   return (
@@ -112,7 +159,7 @@ function UserCertificate() {
                               <div className='pb-4'>
                                   <label>ID Number:</label>
                                   <TextField name='idnumber' value={idnumber} 
-                                  onChange={(e) => setIdnumber(e.target.value)}
+                                  onChange={(e) => setStuid(e.target.value)}
                                   className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' 
                                   placeholder='ADSXXXXXXXXXY'/>
                               </div>

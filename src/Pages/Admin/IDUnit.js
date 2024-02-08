@@ -78,10 +78,18 @@ function Idunit() {
                 <div>
                     <Navbar />
                     <IDLpane className='col-span-2' />
+                    
                 </div>
 
-
+               
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
+                     <div className=' m-6'>
+                    {showAlert && (
+                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                            {alertMessage}
+                        </Alert>
+                    )}
+                </div>
                     <Card className='my-12 drop-shadow-2xl'>
                         <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '> Card Requests</h1>
                         <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
@@ -116,7 +124,7 @@ function Idunit() {
                                                         <ThumbUpIcon variant='contained' color='success' />
                                                     </IconButton>
 
-                                                    <IconButton variant='contained' color='error' onClick={()=>rejected(card.rqst_id)}>
+                                                    <IconButton variant='contained' color='error' onClick={() => rejected(card.rqst_id)}>
                                                         <ThumbDownIcon />
                                                     </IconButton>
                                                 </Stack>
@@ -139,16 +147,11 @@ function Idunit() {
                     </Card>
                 </div>
 
+
             </div>
 
-            <div className=' col-span-4'></div>
-            <div className=' col-span-3 m-6'>
-                {showAlert && (
-                    <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                        {alertMessage}
-                    </Alert>
-                )}
-            </div>
+            {/* <div className=' col-span-4'></div> */}
+
         </div>
     )
 }
