@@ -77,66 +77,59 @@ import axios from 'axios';
 
 function UserCertificate() {
 
-  const [stuid, setStuid] = useState('');
-  const [fname, setFname] = useState('');
-  const [phone, setPhone] = useState('');
-  const [program, setProgram] = useState('');
-  const [level, setLevel] = useState('');
-  const [purpose, setPurpose] = useState('');
-  const [ogname, setOgname] = useState('');
-  const [ogcontact, setContact] = useState('');
-  const [ogemail, setOgemail] = useState('');
-  const [ogpostal, setPostal] = useState('');
-  const [proof, setProof] = useState('');
-  const [post, setPost] = useState('')
+  // const [stuid, setStuid] = useState('');
+  // const [fname, setFname] = useState('');
+  // const [phone, setPhone] = useState('');
+  // const [program, setProgram] = useState('');
+  // const [level, setLevel] = useState('');
+  // const [purpose, setPurpose] = useState('');
+  // const [ogname, setOgname] = useState('');
+  // const [ogcontact, setContact] = useState('');
+  // const [ogemail, setOgemail] = useState('');
+  // const [ogpostal, setPostal] = useState('');
+  // const [proof, setProof] = useState('');
+  // const [post, setPost] = useState('')
 
-  const customText = stuid + '-CERT-'
-  const rqst_id = customText + uuidv4().substring(0, 6);
+  // const customText = stuid + '-CERT-'
+  // const rqst_id = customText + uuidv4().substring(0, 6);
 
-  const submit = (e)=>{
-    axios.post("http://localhost:5002/api/newdefer", {
-      rqst_id: rqst_id,
-      stuid: stuid,
-      phone: phone,
-      level: level,
-      defsem: defsem,
-      retsem: retsem,
-      defyear: defyear,
-      retyear: retyear,
-      applied: applied,
-      reason: reason,
-      csem: csem
-  })
+  // const submit = (e)=>{
+  //   axios.post("http://localhost:5002/api/newdefer", {
+  //     rqst_id: rqst_id,
+  //     stuid: stuid,
+  //     phone: phone,
+  //     level: level,
+  // })
 
-      .then((response) => {
-          const data = response.data;
-          if (data) {
-              setIdnumber('');
-              setPhone('');
-              setMail('');
-              setClevel('');
-              setDefSem('');
-              setCsem('');
-              setDefYear('');
-              setRetYear('');
-              setApplied('');
-              setReason('');
-              setShowAlert('');
-              setAlertSeverity('');
-              setAlertMessage('');
-              window.alert("YOUR REQUEST ID IS " + rqst_id);
-          }
+  //     .then((response) => {
+  //         const data = response.data;
+  //         if (data) {
+  //             setIdnumber('');
+  //             setPhone('');
+  //             setMail('');
+  //             setClevel('');
+  //             setDefSem('');
+  //             setCsem('');
+  //             setDefYear('');
+  //             setRetYear('');
+  //             setApplied('');
+  //             setReason('');
+  //             setShowAlert('');
+  //             setAlertSeverity('');
+  //             setAlertMessage('');
+  //             window.alert("YOUR REQUEST ID IS " + rqst_id);
+  //         }
 
-      })
-      .catch((error) => {
-          console.error(error);
-          setAlertSeverity('error');
-          setAlertMessage('Failed to upload form.');
-          setShowAlert(true);
-      });
+  //     })
+  //     .catch((error) => {
+  //         console.error(error);
+  //         setAlertSeverity('error');
+  //         setAlertMessage('Failed to upload form.');
+  //         setShowAlert(true);
+  //     });
 
 
-  }
+  // }
 
   return (
     
@@ -150,7 +143,9 @@ function UserCertificate() {
                 </div>
 
                 <div>
-                    <form onSubmit={submit} className='bg-white rounded-xl shadow-md mx-4 md:mx-8 lg:mx-24 p-4 md:p-12'>
+                    <form
+                    //  onSubmit={submit}
+                     className='bg-white rounded-xl shadow-md mx-4 md:mx-8 lg:mx-24 p-4 md:p-12'>
                         <p className=' font-bold text-sky-800 p-8'>PERSONAL IDENTIFICATION</p>
 
                         <div className='grid text-lg'>
@@ -158,8 +153,9 @@ function UserCertificate() {
                           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 px-4'>
                               <div className='pb-4'>
                                   <label>ID Number:</label>
-                                  <TextField name='idnumber' value={idnumber} 
-                                  onChange={(e) => setStuid(e.target.value)}
+                                  <TextField name='idnumber' 
+                                  // value={idnumber} 
+                                  // onChange={(e) => setStuid(e.target.value)}
                                   className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' 
                                   placeholder='ADSXXXXXXXXXY'/>
                               </div>
@@ -167,15 +163,16 @@ function UserCertificate() {
                               <div className='pb-4'>
                                   <label>Name</label>
                                   <TextField name='fname'
-                                  onChange={(e)=>setFname(e.target.value)} 
-                                  value={fname} 
+                                  // onChange={(e)=>setFname(e.target.value)} 
+                                  // value={fname} 
                                   className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder='JOHN DOE'/>
                               </div>
 
                               <div className='pb-4'>
                                 <label>Phone Number</label>
-                                <TextField name='phone' value={phone} 
-                                onChange={(e)=>setPhone(e.target.value)}
+                                <TextField name='phone'
+                                //  value={phone} 
+                                // onChange={(e)=>setPhone(e.target.value)}
                                 className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' 
                                 placeholder='+123 456 789 10'/>
                               </div>
@@ -196,7 +193,9 @@ function UserCertificate() {
                               </div>
 
                               <div className='grid-rows-2'>
-                                <select value={program} onChange={(e)=>setProgram(e.target.value)} className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'>
+                                <select 
+                                // value={program} onChange={(e)=>setProgram(e.target.value)} 
+                                className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'>
                                   <option> --SELECT--</option>
                                   <option name='business'> Business</option>
                                   <option name='cve'> Civil Engineering</option>
@@ -215,7 +214,9 @@ function UserCertificate() {
                                 </div>
 
                                 <div className='grid-rows-2'>
-                                    <select value={level} onChange={(e)=>setLevel(e.target.value)} className=' w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2 '>
+                                    <select
+                                    //  value={level} onChange={(e)=>setLevel(e.target.value)}
+                                     className=' w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2 '>
                                         <option> --SELECT--</option>
                                         <option name='l100'> 100 </option>
                                         <option name='l200'> 200 </option>
@@ -231,8 +232,9 @@ function UserCertificate() {
                                 </div>
 
                                 <div className='grid-rows-2'>
-                                    <select value={purpose} 
-                                    onChange={(e)=>setPurpose(e.target.value)}
+                                    <select 
+                                    // value={purpose} 
+                                    // onChange={(e)=>setPurpose(e.target.value)}
                                     className=' w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'>
                                         <option> --SELECT--</option>
                                         <option name='kcc'>Job application </option>
@@ -255,30 +257,33 @@ function UserCertificate() {
                               <div className='pb-4 grid-cols-1 '>
                                 <label>Organization's Name:</label>
                                 <TextField name='ogname'
-                                onChange={(e)=>setOgname(e.target.value)} 
-                                value={ogname} className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' 
+                                // onChange={(e)=>setOgname(e.target.value)} 
+                                // value={ogname} 
+                                className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' 
                                 placeholder='Organization Name' />
                               </div>
 
                               <div className='pb-4 grid-cols-2 '>
                                   <label>Organization's Telephone</label>
                                   <TextField name='ogcontact' 
-                                  onChange={(e)=>setContact(e.target.value)}
-                                  value={ogcontact} className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder=' +233 123 456 7890'/>
+                                  // onChange={(e)=>setContact(e.target.value)}
+                                  // value={ogcontact} 
+                                  className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder=' +233 123 456 7890'/>
                               </div>
 
                               <div className='pb-4 grid-cols-3 '>
                                 <label>Organization's Email</label>
                                 <TextField name='ogemail' 
-                                onChange={(e)=>setOgemail(e.target.value)}
-                                value={ogemail} 
+                                // onChange={(e)=>setOgemail(e.target.value)}
+                                // value={ogemail} 
                                 className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder='organizaation@email.com'/>
                               </div>
 
                               <div className='pb-4 grid-cols-3'>
                                 <label>Organization's Post Address</label>
-                                <TextField name='ogpostal' value={ogpostal} 
-                                onChange={(e) => setPostal(e.target.value)}
+                                <TextField name='ogpostal' 
+                                // value={ogpostal} 
+                                // onChange={(e) => setPostal(e.target.value)}
                                 className=' w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' 
                                 placeholder='Post address'/>
                               </div>                                                        
@@ -295,8 +300,8 @@ function UserCertificate() {
                             <div className='pb-4 grid-cols-1 '>
                               <label>Proof of payment:</label>
                               <TextField name='receipt_path' type='file' 
-                              onChange={(e)=>setProof(e.target.value)}
-                              value={proof}
+                              // onChange={(e)=>setProof(e.target.value)}
+                              // value={proof}
                               className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' 
                               placeholder='Organization Name' />
                             </div>
@@ -317,16 +322,16 @@ function UserCertificate() {
                             <div className='pb-4 grid-cols-3 hidden'>
                               <label>Postal Address</label>
                               <TextField name='post' 
-                              value={post}
-                              onChange={(e) => setPost(e.target.value)}
+                              // value={post}
+                              // onChange={(e) => setPost(e.target.value)}
                               className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder='Postal address'/>
                             </div> 
 
                             <div className='pb-4 grid-cols-3 hidden'>
                               <label>Provide E-mail address</label>
                               <TextField name='ogemail' 
-                              value={ogemail}
-                              onChange={(e)=> setOgemail}
+                              // value={ogemail}
+                              // onChange={(e)=> setOgemail}
                               className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2' placeholder='E-mail address to be delivered to'/>
                             </div> 
 
