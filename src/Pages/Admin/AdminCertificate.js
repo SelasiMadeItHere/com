@@ -6,6 +6,8 @@ import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination
 import IDCardView from '../../components/IDCardView';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+// import Alert from '@mui/material';
+
 
 
 
@@ -13,6 +15,9 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 function AdminCertificate() {
 
     const [data, setData] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertSeverity, setAlertSeverity] = useState('success');
+    const [alertMessage, setAlertMessage] = useState('');
 
     const loadData = async () => {
         const response = await axios.get("http://localhost:5002/api/getCard");
@@ -34,16 +39,23 @@ function AdminCertificate() {
         setPage(0);
     };
 
-    // const handleDeleteCard = (ID) => {
-    //     if (window.confirm("Are you sure you want to Delete this record?")) {
-    //         axios.delete(`http://localhost:5002/api/deleteCard/${ID}`);
-    //         alert('RECORD DELETED SUCCESSFULY')
-    //         setTimeout(()=>loadData(),500)
-    //     }
-    //     else{
-    //         console.log(console.error)
-    //     }}
-
+    const finished = (rqst_id) => {
+        axios
+            .post('http://localhost:5002/api/deferment/finapprove', { rqst_id })
+            .then((response) => {
+                console.log(response.data);
+                setAlertSeverity('success');
+                setAlertMessage('Status updated successfully.');
+                setShowAlert(true);
+                loadData();
+            })
+            .catch((error) => {
+                console.error(error);
+                setAlertSeverity('error');
+                setAlertMessage('Failed to update status.');
+                setShowAlert(true);
+            });
+    };
 
     return (
         <div className=' grid grid-cols-9 md:h-screen lg:h-full   '>
@@ -72,22 +84,20 @@ function AdminCertificate() {
                                 return (
                                     <tr key={card.ID} className=' border p-12'>
                                         <th scope="row">  {index + 1}</th>
-                                        <td className=' text-left p-3 border-2'>{card.ID}</td>
+                                        <td className=' text-left p-3 border-2'>{card.stuid}</td>
                                         <td className=' text-left p-3 border-2'>{card.campus}</td>
                                         <td className=' text-left p-3 border-2'>{card.service}</td>
                                         <td className=' text-left p-3 border-2'>{card.rqst_id}</td>
-                                        
+
                                         <td className=' text-center p-3 border-y'>
                                             <Stack direction='row' className=''>
-                                            <IDCardView card={card} />
-                                                    {/* <IconButton 
-                                                    onClick={() => finished(card.rqst_id)}
-                                                    >
-                                                        <ThumbUpIcon variant='contained' color='success' />
-                                                    </IconButton> */}
-                                                    <IconButton variant='contained' color='error'>
-                                                        <ThumbDownIcon />
-                                                    </IconButton>
+                                                <IDCardView card={card} />
+                                                <IconButton onClick={() => finished(card.rqst_id)}>
+                                                    <ThumbUpIcon variant='contained' color='success' />
+                                                </IconButton>
+                                                <IconButton variant='contained' color='error'>
+                                                    <ThumbDownIcon />
+                                                </IconButton>
                                             </Stack>
                                         </td>
                                     </tr>
@@ -103,7 +113,7 @@ function AdminCertificate() {
                         count={data.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
-                        onPageChange={handleChangePage} 
+                        onPageChange={handleChangePage}
                         onRowsPerPageChange={handleChangeRowsPerPage} />
                 </Card>
             </div>

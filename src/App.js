@@ -30,6 +30,7 @@ import Tracker from "./Pages/User/Tracker";
 import BasicModal from "./components/DefermentModal";
 import Idunit from "./Pages/Admin/IDUnit";
 import RegNav from "./components/RegNav";
+import UserIntroductory from "./Pages/User/UserIntroductory";
 
 //System Admin pages
 import Login from "./Pages/Admin//Login";
@@ -80,6 +81,7 @@ function App() {
         <Route path="/usercertificate" element={<UserCertificate />} />
         <Route path="/usertranscript" element={<UserTranscript />} />
         <Route path="/userindex" element={<Userindex />} />
+        <Route path="/introductory" element={<UserIntroductory />}/>
         <Route path="/tracker" element={<Tracker />}/>
 
         {/* ADMIN PAGES */}
