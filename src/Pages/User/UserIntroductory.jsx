@@ -94,11 +94,9 @@ function UserIntroductory() {
                                     className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'
                                     placeholder='youremail@email.com' />
                             </div>
-
-
                         </div>
 
-                        {/* <p className=' font-bold text-sky-800 p-8'> PURPOSE OF INTRODUCTORY LETTER</p> */}
+                        <p className=' font-bold text-sky-800 p-8'> PURPOSE OF INTRODUCTORY LETTER</p>
                         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 px-4'>
 
                             <div className='pb-4'>
@@ -113,39 +111,7 @@ function UserIntroductory() {
                                     <MenuItem value='Visa'>For VISA Application</MenuItem>
                                 </Select>
                             </div>
-
-                            <div className='pb-4'>
-                                <label>Purpose of Bank</label>
-                                <TextField name='phone'
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'
-                                    placeholder='+123 456 789 10' />
-                            </div>
                         </div>
-
-
-
-
-                        <div className='pb-4'>
-                            <label>Email</label>
-                            <TextField name='phone'
-                                value={email}
-                                onChange={(e) => setMail(e.target.value)}
-                                className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'
-                                placeholder='youremail@email.com' />
-                        </div>
-
-                        <div className='pb-4'>
-                            <label>Email</label>
-                            <TextField name='phone'
-                                value={email}
-                                onChange={(e) => setMail(e.target.value)}
-                                className='w-full border-2 border-gray-700 rounded-md focus:outline-blue-800 py-1 px-2'
-                                placeholder='youremail@email.com' />
-                        </div>
-
-
                     </div>
 
 
@@ -154,13 +120,13 @@ function UserIntroductory() {
 
 
                     {/* Reminder: Request for deferment form form DFA*/}
-                    <p className=' font-bold text-sky-800 p-8'>ACADEMIC INFORMATION</p>
+                    <p className=' font-bold text-sky-800 p-8'>BANK INFORMATION</p>
 
                     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 px-4'>
 
                         <div className=' grid-rows-2 pb-6'>
                             <div className='grid-rows-1'>
-                                <label >Program of Study</label>
+                                <label >Residential Address</label>
                             </div>
 
                             <div className='grid-rows-2'>

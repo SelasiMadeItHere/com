@@ -32,7 +32,7 @@ function Newrequest() {
           <Link to="/usertranscript">
             <Dashcards image={require("../../assets/imgs/3d-employee.png")} name="Transcript Application" button={"Apply"} />
           </Link>
-          <Link to="/usertranscript">
+          <Link to="/introductory">
             <Dashcards image={require("../../assets/imgs/apply-paper.jpg")} name="Introductory Letter Application" button={"Apply"} />
           </Link>
         </div>
