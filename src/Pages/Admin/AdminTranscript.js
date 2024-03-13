@@ -39,7 +39,7 @@ function AdminTranscript() {
 
     const fintoregtrans = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
+            .post('https://dizzy-foal-trousers.cyclic.app/api/transcript/finapprove', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -47,6 +47,7 @@ function AdminTranscript() {
                 setShowAlert(true);
                 loadData();
             })
+            
             .catch((error) => {
                 console.error(error);
                 setAlertSeverity('error');
