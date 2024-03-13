@@ -52,7 +52,7 @@ function Cardrenewal() {
 
     const rejected = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
+            .post('https://dizzy-foal-trousers.cyclic.app/api/cards/rejectedcards', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');

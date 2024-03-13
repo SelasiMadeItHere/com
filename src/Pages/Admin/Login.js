@@ -152,7 +152,7 @@ function Login() {
     const login = (e) => {
         e.preventDefault();
       
-        axios.post('https://dizzy-foal-trousers.cyclic.applogin', { username, password })
+        axios.post('https://dizzy-foal-trousers.cyclic.app/login', { username, password })
           .then((response) => {
             if (response.status === 200) {
               const { role, state } = response.data;
