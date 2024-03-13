@@ -89,8 +89,6 @@ function App() {
         {/* <Route path="/login2" element={<Login2/>}/>  */}
         <Route path="/register" element={<Register />} />
         {/* <Route path="/reports" element={<Reports/>}/> */}
-
-
       </Routes>
     </BrowserRouter>
   );
