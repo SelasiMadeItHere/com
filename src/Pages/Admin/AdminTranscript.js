@@ -39,7 +39,7 @@ function AdminTranscript() {
 
     const fintoregtrans = (rqst_id) => {
         axios
-            .post('https://dizzy-foal-trousers.cyclic.app/api/transcript/finapprove', { rqst_id })
+            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -56,6 +56,24 @@ function AdminTranscript() {
             });
     };
 
+    const finrejtoregtrans = (rqst_id) => {
+        axios
+            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
+            .then((response) => {
+                console.log(response.data);
+                setAlertSeverity('success');
+                setAlertMessage('Status updated successfully.');
+                setShowAlert(true);
+                loadData();
+            })
+            
+            .catch((error) => {
+                console.error(error);
+                setAlertSeverity('error');
+                setAlertMessage('Failed to update status.');
+                setShowAlert(true);
+            });
+    };
 
 
     return (
@@ -102,7 +120,7 @@ function AdminTranscript() {
                                                     <IconButton onClick={() => fintoregtrans(trans.rqst_id)}>
                                                         <ThumbUpIcon variant='contained' color='primary' />
                                                     </IconButton>
-                                                    <IconButton>
+                                                    <IconButton onClick={()=>finrejtoregtrans(trans.rqst_id)}>
                                                         <ThumbDown color='error' />
                                                     </IconButton>
                                                 </Stack>

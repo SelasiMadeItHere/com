@@ -78,21 +78,21 @@ function Idunit() {
                 <div>
                     <Navbar />
                     <IDLpane className='col-span-2' />
-                    
+
                 </div>
 
-               
+
                 <div className='mt-24 grid col-span-8 col-start-3 w-[95%]'>
-                     <div className=' m-6'>
-                    {showAlert && (
-                        <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
-                            {alertMessage}
-                        </Alert>
-                    )}
-                </div>
+                    <div className=' m-6'>
+                        {showAlert && (
+                            <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
+                                {alertMessage}
+                            </Alert>
+                        )}
+                    </div>
                     <Card className='my-12 drop-shadow-2xl'>
                         <h1 className=' text-2xl font-semibold text-center bg-sky-800 text-white p-6 '> Card Requests</h1>
-                        <Table className='mt-5 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
+                        <Table className='mt-2 overflow-y-auto' sx={{ maxHeight: '10vh' }}>
                             <TableHead className=' text-center'>
                                 <TableRow >
                                     <TableCell style={{ fontWeight: "bolder" }} className=' border'>  </TableCell>
