@@ -20,7 +20,7 @@
 //     const [alertMessage, setAlertMessage] = useState('');
 
 //     const loadData = async () => {
-//         const response = await axios.get("http://localhost:5002/api/getfinanceapprovedtranscripts");
+//         const response = await axios.get("http://${config.backendUrl}/api/getfinanceapprovedtranscripts");
 //         setData(response.data);
 //     };
 //     useEffect(() => {
@@ -41,7 +41,7 @@
 
 //     const fintoregtrans = (rqst_id) => {
 //         axios
-//             .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
+//             .post('http://${config.backendUrl}/api/transcript/finapprove', { rqst_id })
 //             .then((response) => {
 //                 console.log(response.data);
 //                 setAlertSeverity('success');
@@ -168,10 +168,11 @@ import axios from 'axios';
 import Navbar from '../../components/Navbar';
 import TranscriptModal from '../../components/TranscriptModal';
 // import Lpane from '../../components/Lpane';
-import { Button, Breadcrumbs, Link, Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagination, TableCell, IconButton, Stack} from '@mui/material';
+import { Button, Breadcrumbs, Link, Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagination, TableCell, IconButton, Stack } from '@mui/material';
 import Alert from '@mui/material/Alert'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { ThumbDown } from '@mui/icons-material';
+import config from '../../Middleware/apiConfig';
 // import NotificationsIcon from '@mui/icons-material/Notifications';
 // import MessageIcon from '@mui/icons-material/Message';
 
@@ -185,9 +186,9 @@ function AdminTranscript() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/getfinanceapprovedtranscripts");
+        const response = await axios.get(`${config.backendUrl}/api/getfinanceapprovedtranscripts`);
         setData(response.data);
-    };  
+    };
     useEffect(() => {
         loadData();
     }, []);
@@ -206,7 +207,7 @@ function AdminTranscript() {
 
     const fintoregtrans = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/transcripts/regapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/transcripts/regapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -230,29 +231,29 @@ function AdminTranscript() {
                 <Navbar />
                 {/* <Lpane className='col-span-2' /> */}
             </div>
-            
+
             <div className=' col-span-7 pt-24 mx-14'>
                 <div className=' grid grid-cols-4 gap-3 pt-3 text-black col-span-full'>
                     <Breadcrumbs arial-label='breadcrumb' separator=">">
                         <Link href='/registrar' underline='hover'>Home</Link>
                         <Link href='#' underline='hover'>Transcripts</Link>
                     </Breadcrumbs>
-                    
-                    
-                    <div className=' inline-flex col-start-4 gap-3 col-end-8'>
-                    <Button color='primary' variant='contained'>
-                        Approved
-                    </Button>
-                    <Button color='error' variant='contained'>
-                        Rejected
-                    </Button>
 
-                </div>
+
+                    <div className=' inline-flex col-start-4 gap-3 col-end-8'>
+                        <Button color='primary' variant='contained'>
+                            Approved
+                        </Button>
+                        <Button color='error' variant='contained'>
+                            Rejected
+                        </Button>
+
+                    </div>
                 </div>
 
                 {/* <div className=' grid col-span-3'></div> */}
 
-                
+
             </div>
 
             <div className=' grid col-span-8 col-start-2 w-[90%]'>

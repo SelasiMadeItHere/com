@@ -15,7 +15,7 @@
 
 //     axios.defaults.withCredentials = true;
 //     useEffect(() => {
-//         axios.get('http://localhost:5002')
+//         axios.get('http://${config.backendUrl}')
 //         .then(res=>{
 //             if (res.data.valid){
 //                 setUsername(res.data.username);

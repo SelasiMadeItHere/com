@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar'
 import { TextField, Select, MenuItem } from '@mui/material'
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -21,7 +22,7 @@ function UserIntroductory() {
     const rqst_id = customText + uuidv4().substring(0, 6);
 
     const submit = (e) => {
-        axios.post("http://localhost:5002/api/newdefer", {
+        axios.post(`${config.backendUrl}/api/newdefer`, {
             rqst_id: rqst_id,
             stuid: stuid,
             phone: phone,

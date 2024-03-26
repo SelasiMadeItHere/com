@@ -7,6 +7,7 @@ import IDCardView from '../../components/IDCardView';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 // import Alert from '@mui/material';
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -20,7 +21,7 @@ function AdminCertificate() {
     const [alertMessage, setAlertMessage] = useState('');
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/getCard");
+        const response = await axios.get(`${config.backendUrl}/api/getCard`);
         setData(response.data);
     };
     useEffect(() => {
@@ -41,7 +42,7 @@ function AdminCertificate() {
 
     const finished = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/deferment/finapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/deferment/finapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');

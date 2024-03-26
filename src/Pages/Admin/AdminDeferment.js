@@ -9,6 +9,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import FinanceDeferModal from '../../components/FinanceDeferModal';
 import Alert from '@mui/material/Alert'
 // import BadgeIcon from '@mui/icons-material/Badge';
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -20,7 +21,7 @@ function AdminDeferment() {
     const [alertMessage, setAlertMessage] = useState('');
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/getdeferment");
+        const response = await axios.get(`${config.backendUrl}/api/getdeferment`);
         setData(response.data);
     };
     useEffect(() => {
@@ -30,7 +31,7 @@ function AdminDeferment() {
 
     const fintoreg = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/deferment/finapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/deferment/finapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -60,7 +61,7 @@ function AdminDeferment() {
     };
 
     const handleDeleteCard = (rqst_id) => {
-        axios.post(`http://localhost:5002/api/deferments/rejects`, { rqst_id })
+        axios.post(`${config.backendUrl}/api/deferments/rejects`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');

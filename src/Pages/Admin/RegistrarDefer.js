@@ -8,7 +8,7 @@ import Navbar from '../../components/Navbar'
 import { Breadcrumbs, Link, IconButton, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, TablePagination } from '@mui/material'
 import FinanceDeferModal from '../../components/FinanceDeferModal';
 import Alert from '@mui/material/Alert'
-
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -25,13 +25,13 @@ function RegistrarDefer() {
     const [alertMessage, setAlertMessage] = useState('');
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/reggetdeferment");
+        const response = await axios.get(`${config.backendUrl}/api/reggetdeferment`);
         setData(response.data);
     };
 
     const regapproved = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/deferment/regapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/deferment/regapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -72,7 +72,7 @@ function RegistrarDefer() {
 
             <div className=' grid grid-cols-5 pt-24 mx-14'>
                 <div className=' inline-flex gap-3 pt-3 text-black col-span-2'>
-                 {showAlert && (
+                    {showAlert && (
                         <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>
                             {alertMessage}
                         </Alert>
@@ -80,7 +80,7 @@ function RegistrarDefer() {
                 </div>
 
                 <div className=' grid col-span-2'>
-                    
+
                 </div>
 
                 <div className=' inline-flex gap-3'>

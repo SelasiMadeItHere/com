@@ -7,6 +7,7 @@ import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Alert from '@mui/material/Alert'
+import config from '../../Middleware/apiConfig';
 
 function Idunit() {
 
@@ -17,7 +18,7 @@ function Idunit() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/finishedcards");
+        const response = await axios.get(`${config.backendUrl}/api/finishedcards`);
         setData(response.data);
     };
     useEffect(() => {
@@ -38,7 +39,7 @@ function Idunit() {
 
     const rejected = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/cards/rejectedcards', { rqst_id })
+            .post(`${config.backendUrl}/api/cards/rejectedcards`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -56,7 +57,7 @@ function Idunit() {
 
     const approved = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/cards/approvedcards', { rqst_id })
+            .post(`${config.backendUrl}/api/cards/approvedcards`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');

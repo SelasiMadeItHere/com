@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Stepper, Step, StepLabel, 
+import {
+  Stepper, Step, StepLabel,
   // TextField, Button 
 } from '@mui/material';
+import config from '../../Middleware/apiConfig';
+
+
+
 
 function Tracker() {
-  const [id, 
+  const [id,
     // setId
   ] = useState('');
-  const [rqst_id, 
+  const [rqst_id,
     // setTrackingId
   ] = useState('');
   const [status, setStatus] = useState('');
@@ -24,7 +29,7 @@ function Tracker() {
 
   const handleStatusCheck = () => {
     axios
-      .post('http://localhost:5002/api/entries', { id, rqst_id })
+      .post(`${config.backendUrl}/api/entries`, { id, rqst_id })
       .then((response) => {
         if (response.data.success) {
           setStatus(response.data.status);

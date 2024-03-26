@@ -8,8 +8,9 @@ import ActivityCard from '../../components/ActivityCard';
 import { ChartBarIcon, ChartBarSquareIcon, ChartPieIcon } from '@heroicons/react/20/solid'
 import Charts from '../../components/BarCharts';
 import PieChart from '../../components/PieChart'
-import LineChart  from '../../components/LineChart';
-import RadialChart  from '../../components/RadialChart';
+import LineChart from '../../components/LineChart';
+import RadialChart from '../../components/RadialChart';
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -25,19 +26,19 @@ function Registrar() {
     const [totalPending, setTotalPending] = useState(0);
 
     const loadTrans = async () => {
-        const response = await axios.get("http://localhost:5002/api/gettranscript");
+        const response = await axios.get(`${config.backendUrl}/api/gettranscript`);
         setTrans(response.data);
     };
     const loadDefer = async () => {
-        const response = await axios.get("http://localhost:5002/api/getdeferment");
+        const response = await axios.get(`${config.backendUrl}/api/getdeferment`);
         setDefer(response.data);
     };
     const loadIntro = async () => {
-        const response = await axios.get("http://localhost:5002/api/getIntro");
+        const response = await axios.get(`${config.backendUrl}/api/getIntro`);
         setIntro(response.data);
     };
     const loadCard = async () => {
-        const response = await axios.get("http://localhost:5002/api/getCard");
+        const response = await axios.get(`${config.backendUrl}/api/getCard`);
         setCards(response.data);
     }
 
@@ -62,24 +63,24 @@ function Registrar() {
     const [totalVerified, setTotalVerified] = useState(0);
 
     const loadVIntro = async () => {
-        const response = await axios.get("http://localhost:5002/api/Intro/getfinapproved");
+        const response = await axios.get(`${config.backendUrl}/api/Intro/getfinapproved`);
         setVIntro(response.data);
     };
 
     const loadVTrans = async () => {
-        const response = await axios.get("http://localhost:5002/api/getfinanceapprovedtranscripts");
+        const response = await axios.get(`${config.backendUrl}/api/getfinanceapprovedtranscripts`);
         setVTrans(response.data);
     };
     const loadVDefer = async () => {
-        const response = await axios.get("http://localhost:5002/api/reggetdeferment");
+        const response = await axios.get(`${config.backendUrl}/api/reggetdeferment`);
         setVDefer(response.data);
     };
     const loadVCards = async () => {
-        const response = await axios.get("http://localhost:5002/api/finishedcards");
+        const response = await axios.get(`${config.backendUrl}/api/finishedcards`);
         setVCards(response.data);
     };
     // const loadData = async () => {
-    //     const response = await axios.get("http://localhost:5002/api/getIntro");
+    //     const response = await axios.get("http://${config.backendUrl}/api/getIntro");
     //     setData(response.data);
     // };
 
@@ -103,20 +104,20 @@ function Registrar() {
     const [totalProcessed, setTotalProcessed] = useState(0);
 
     const loadPIntro = async () => {
-        const response = await axios.get("http://localhost:5002/api/Intro/RegProcessed");
+        const response = await axios.get(`${config.backendUrl}/api/Intro/RegProcessed`);
         setPIntro(response.data);
     };
 
     const loadPTrans = async () => {
-        const response = await axios.get("http://localhost:5002/api/RegProcessedTrans");
+        const response = await axios.get(`${config.backendUrl}/api/RegProcessedTrans`);
         setPTrans(response.data);
     };
     const loadPDefer = async () => {
-        const response = await axios.get("http://localhost:5002/api/RegProcessedDefer");
+        const response = await axios.get(`${config.backendUrl}/api/RegProcessedDefer`);
         setPDefer(response.data);
     };
     const loadPCards = async () => {
-        const response = await axios.get("http://localhost:5002/api/finishedcards");
+        const response = await axios.get(`${config.backendUrl}/api/finishedcards`);
         setPCards(response.data);
     };
 
@@ -169,10 +170,10 @@ function Registrar() {
                 </div>
                 {/* <div className=' flex grid-cols-2 lg:grid-cols-3 gap-3 py-3 px-6'> */}
                 <div className=' flex overflow-auto gap-3 rounded-4xl p-6'>
-                    <Charts/>
-                    <PieChart/>
-                    <LineChart/>
-                    <RadialChart/>
+                    <Charts />
+                    <PieChart />
+                    <LineChart />
+                    <RadialChart />
                 </div>
             </div>
 

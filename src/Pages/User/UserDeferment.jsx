@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Button } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { v4 as uuidv4 } from 'uuid';
+import config from '../../Middleware/apiConfig';
 
 
 function UserDeferment() {
@@ -29,7 +30,7 @@ function UserDeferment() {
     const rqst_id = customText + uuidv4().substring(0, 6);
 
     const DefSubmit = () => {
-        axios.post("http://localhost:5002/api/newdefer", {
+        axios.post(`${config.backendUrl}/api/newdefer`, {
             rqst_id: rqst_id,
             stuid: stuid,
             phone: phone,
@@ -204,7 +205,7 @@ function UserDeferment() {
                                         <option> --SELECT--</option>
                                         <option name='Sem1' value={1}> Semester 1</option>
                                         <option name='Sem2' value={2}> Semester 2 </option>
-                                    </select> 
+                                    </select>
                                 </div>
                             </div>
 

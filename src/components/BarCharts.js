@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@mui/material';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import config from '../Middleware/apiConfig';
 
 const Chart = () => {
   const [chartData, setChartData] = useState([]);
 
   const fetchDataFromDatabase = async () => {
     try {
-      const response = await fetch('http://localhost:5002/reportscalc');
+      const response = await fetch(`${config.backendUrl}/reportscalc`);
       const responseData = await response.json();
 
       // Map the data to Recharts format
       const mappedData = [
-        { label: 'Pending', value: responseData.data.pending, fill:"red" },
-        { label: 'Verified', value: responseData.data.verified, fill:"#FFC714" },
-        { label: 'Approved', value: responseData.data.approved, fill:"#3B82F6" }
+        { label: 'Pending', value: responseData.data.pending, fill: "red" },
+        { label: 'Verified', value: responseData.data.verified, fill: "#FFC714" },
+        { label: 'Approved', value: responseData.data.approved, fill: "#3B82F6" }
       ];
 
       setChartData(mappedData);

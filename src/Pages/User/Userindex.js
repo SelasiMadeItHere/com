@@ -15,7 +15,7 @@
 
 //   const handleStatusCheck = () => {
 //     axios
-//       .post('http://localhost:5002/api/entries', { id, rqst_id })
+//       .post('http://${config.backendUrl}/api/entries', { id, rqst_id })
 //       .then((response) => {
 //         if (response.data.success) {
 //           setStatus(response.data.status);
@@ -134,6 +134,7 @@ import React, { useState } from 'react';
 import { Button, Stepper, Step, StepLabel, Modal, Box, Input } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import config from '../../Middleware/apiConfig';
 
 function Userindex() {
   const [id, setId] = useState('');
@@ -144,7 +145,7 @@ function Userindex() {
 
   const handleStatusCheck = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5002/api/entries', { id, rqst_id })
+    axios.post(`${config.backendUrl}/api/entries`, { id, rqst_id })
 
       .then((response) => {
 
@@ -203,7 +204,7 @@ function Userindex() {
             <br />
             <h1 className='font-bold'>TRACK REQUEST STATUS</h1>
             <br />
-            
+
             <form onSubmit={handleStatusCheck}>
               <Input
                 placeholder='Enter Your ID Number'
@@ -239,7 +240,7 @@ function Userindex() {
                 {error && <p>{error}</p>}
                 {status && (
                   <>
-                    <Stepper activeStep={(status === 'Ready'|| status === 'worked_on') ? 5 :(status === 'Approved' ) ? 3 : status === 'verified' ? 2 : status=== 'rejected'? -1: 1} alternativeLabel className=' my-20'>
+                    <Stepper activeStep={(status === 'Ready' || status === 'worked_on') ? 5 : (status === 'Approved') ? 3 : status === 'verified' ? 2 : status === 'rejected' ? -1 : 1} alternativeLabel className=' my-20'>
                       <Step>
                         <StepLabel>Pending</StepLabel>
                         <p>Your request is yet to be attended to by an officer</p>
@@ -265,7 +266,7 @@ function Userindex() {
                   </>
                 )}
 
-                <Button onClick={handleCloseModal} sx={{left: '50%'}} variant='contained'>Close</Button>
+                <Button onClick={handleCloseModal} sx={{ left: '50%' }} variant='contained'>Close</Button>
               </Box>
             </Modal>
           </div>

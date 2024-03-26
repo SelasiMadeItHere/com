@@ -20,7 +20,7 @@
 
 //     const loadData = async () => {
 //         try {
-//             const response = await axios.get("http://localhost:5002/api/Intro/getfinapproved");
+//             const response = await axios.get("http://${config.backendUrl}/api/Intro/getfinapproved");
 //             setData(response.data);
 //         } catch (error) {
 //             console.error("Error fetching data:", error);
@@ -45,7 +45,7 @@
 
 //     const regapproved = (rqst_id) => {
 //         axios
-//             .post('http://localhost:5002/api/Intro/regapprove', { rqst_id })
+//             .post('http://${config.backendUrl}ndUrl}/api/Intro/regapprove', { rqst_id })
 //             .then((response) => {
 //                 console.log(response.data);
 //                 setAlertSeverity('success');
@@ -175,6 +175,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 import IntroductoryModal from '../../components/IntroductoryModal'
 // import IDCardView from '../../components/IDCardView'
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -190,7 +191,7 @@ function IntroductoryLetter() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/Intro/getfinapproved");
+        const response = await axios.get(`${config.backendUrl}/api/Intro/getfinapproved`);
         setData(response.data);
     };
     useEffect(() => {
@@ -199,7 +200,7 @@ function IntroductoryLetter() {
 
     const regapproved = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/Intro/regapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/Intro/regapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -217,7 +218,7 @@ function IntroductoryLetter() {
 
     const regrejects = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/Intro/regrejects', { rqst_id })
+            .post(`${config.backendUrl}/api/Intro/regrejects`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');

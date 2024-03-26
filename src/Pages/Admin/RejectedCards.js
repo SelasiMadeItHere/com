@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack } from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import config from '../../Middleware/apiConfig';
 
 
 function RejectedCards() {
@@ -14,7 +15,7 @@ function RejectedCards() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/fetchrejectedcards");
+        const response = await axios.get(`${config.backendUrl}/api/fetchrejectedcards`);
         setData(response.data);
     };
     useEffect(() => {
@@ -74,7 +75,7 @@ function RejectedCards() {
                                                         <ThumbUpIcon color='primary' />
                                                     </IconButton>
                                                     <IconButton>
-                                                        <ThumbDownIcon color='error'/>
+                                                        <ThumbDownIcon color='error' />
                                                     </IconButton>
                                                 </Stack>
                                             </td>

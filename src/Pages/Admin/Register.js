@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar'
 import { Button, Card, TextField, Select, MenuItem, InputLabel, FormControl, FormGroup } from '@mui/material'
 import { useState } from 'react'
 import axios from 'axios';
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -19,7 +20,7 @@ function Register() {
   const SignUp = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:5002/register', { username, password, role, officer_name, mail })
+    axios.post(`${config.backendUrl}/register`, { username, password, role, officer_name, mail })
       .then((response) => {
         if (response.status === 200) {
           alert('Reistration Successful')

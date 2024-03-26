@@ -11,6 +11,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Alert from '@mui/material/Alert'
 import BadgeIcon from '@mui/icons-material/Badge';
+import config from '../../Middleware/apiConfig';
 
 
 // import { toast } from 'react-toastify';
@@ -25,7 +26,7 @@ function Cardrenewal() {
     const [alertMessage, setAlertMessage] = useState('');
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/getCard");
+        const response = await axios.get(`${config.backendUrl}/api/getCard`);
         setData(response.data);
     };
     useEffect(() => {
@@ -34,7 +35,7 @@ function Cardrenewal() {
 
     const finished = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/cards/updatecards', { rqst_id })
+            .post(`${config.backendUrl}/api/cards/updatecards`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -83,7 +84,7 @@ function Cardrenewal() {
 
     // const handleDeleteCard = (ID) => {
     //     if (window.confirm("Are you sure you want to Delete this record?")) {
-    //         axios.delete(`http://localhost:5002/api/deleteCard/${ID}`);
+    //         axios.delete(`http://${config.backendUrl}/api/deleteCard/${ID}`);
     //         alert('RECORD DELETED SUCCESSFULY')
     //         setTimeout(()=>loadData(),500)
     //     }
@@ -150,7 +151,7 @@ function Cardrenewal() {
                                                         <ThumbUpIcon variant='contained' color='success' />
                                                     </IconButton>
 
-                                                    <IconButton variant='contained' color='error' onClick={()=>rejected(card.rqst_id)}>
+                                                    <IconButton variant='contained' color='error' onClick={() => rejected(card.rqst_id)}>
                                                         <ThumbDownIcon />
                                                     </IconButton>
                                                 </Stack>

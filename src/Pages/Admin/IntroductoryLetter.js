@@ -7,6 +7,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 import IntroductoryModal from '../../components/IntroductoryModal'
 // import IDCardView from '../../components/IDCardView'
+import config from '../../Middleware/apiConfig';
 
 
 
@@ -22,7 +23,7 @@ function IntroductoryLetter() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/getIntro");
+        const response = await axios.get(`${config.backendUrl}/api/getIntro`);
         setData(response.data);
     };
     useEffect(() => {
@@ -31,7 +32,7 @@ function IntroductoryLetter() {
 
     const finapproved = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/Intro/finapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/Intro/finapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -128,7 +129,7 @@ function IntroductoryLetter() {
                     </Card>
 
                 </div>
-                
+
                 <div className=' col-start-4 col-span-2'>
                     {showAlert && (
                         <Alert variant="filled" severity={alertSeverity} onClose={() => setShowAlert(false)}>

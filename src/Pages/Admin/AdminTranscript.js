@@ -7,6 +7,7 @@ import { Card, TableContainer, Table, TableHead, TableRow, TableBody, TablePagin
 import Alert from '@mui/material/Alert'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { ThumbDown } from '@mui/icons-material';
+import config from '../../Middleware/apiConfig';
 
 
 function AdminTranscript() {
@@ -18,7 +19,7 @@ function AdminTranscript() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/gettranscript");
+        const response = await axios.get(`${config.backendUrl}/api/gettranscript`);
         setData(response.data);
     };
     useEffect(() => {
@@ -39,7 +40,7 @@ function AdminTranscript() {
 
     const fintoregtrans = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/transcript/finapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -47,7 +48,7 @@ function AdminTranscript() {
                 setShowAlert(true);
                 loadData();
             })
-            
+
             .catch((error) => {
                 console.error(error);
                 setAlertSeverity('error');
@@ -58,7 +59,7 @@ function AdminTranscript() {
 
     const finrejtoregtrans = (rqst_id) => {
         axios
-            .post('http://localhost:5002/api/transcript/finapprove', { rqst_id })
+            .post(`${config.backendUrl}/api/transcript/finapprove`, { rqst_id })
             .then((response) => {
                 console.log(response.data);
                 setAlertSeverity('success');
@@ -66,7 +67,7 @@ function AdminTranscript() {
                 setShowAlert(true);
                 loadData();
             })
-            
+
             .catch((error) => {
                 console.error(error);
                 setAlertSeverity('error');
@@ -120,7 +121,7 @@ function AdminTranscript() {
                                                     <IconButton onClick={() => fintoregtrans(trans.rqst_id)}>
                                                         <ThumbUpIcon variant='contained' color='primary' />
                                                     </IconButton>
-                                                    <IconButton onClick={()=>finrejtoregtrans(trans.rqst_id)}>
+                                                    <IconButton onClick={() => finrejtoregtrans(trans.rqst_id)}>
                                                         <ThumbDown color='error' />
                                                     </IconButton>
                                                 </Stack>

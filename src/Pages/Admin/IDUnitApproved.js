@@ -5,6 +5,9 @@ import IDCardView from '../../components/IDCardView';
 import axios from 'axios';
 import { Card, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton, Stack } from '@mui/material';
 import Alert from '@mui/material/Alert'
+import config from '../../Middleware/apiConfig';
+
+
 
 function IdunitApproved() {
 
@@ -15,7 +18,7 @@ function IdunitApproved() {
 
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5002/api/fetchapprovedcards ");
+        const response = await axios.get(`${config.backendUrl}/api/fetchapprovedcards`);
         setData(response.data);
     };
     useEffect(() => {
@@ -74,7 +77,7 @@ function IdunitApproved() {
                                             <td className=' text-center p-3 border-y'>
                                                 <Stack direction='row'>
                                                     <IDCardView card={card} />
-                                                    
+
                                                 </Stack>
                                             </td>
                                         </tr>

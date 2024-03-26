@@ -8,7 +8,7 @@ import SendIcon from '@mui/icons-material/Send';
 import CloseIcon from '@mui/icons-material/Close';
 import { v4 as uuidv4 } from 'uuid';
 // import { Alert } from '@mui/material';
-
+import config from '../Middleware/apiConfig';
 
 
 // HERE IS WHERE THE CHILD MODAL FUNCTION STARTS
@@ -37,7 +37,7 @@ function ChildModal() {
       const formData = new FormData();
       formData.append('image', selectedFile);
 
-      const imageResponse = await axios.post('http://localhost:5002/api/upload', formData, {
+      const imageResponse = await axios.post(`${config.backendUrl}/api/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -46,8 +46,8 @@ function ChildModal() {
       if (imageResponse.status === 200) {
         const customText = 'Card-'
         const rqst_id = customText + uuidv4().substring(0, 6);
-        
-        axios.post("http://localhost:5002/api/insert", {
+
+        axios.post(`${config.backendUrl}/api/insert`, {
           rqst_id: rqst_id,
           stuid: stuid,
           Campus: Campus,
@@ -192,7 +192,7 @@ function ChildTwo() {
     const customText = 'Card-'
     const rqst_id = customText + uuidv4().substring(0, 6);
 
-    axios.post("http://localhost:5002/api/complain", {
+    axios.post(`${config.backendUrl}/api/complain`, {
       rqst_id: rqst_id,
       ID: ID,
       Complaints: Complaints,

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@mui/material';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import config from '../Middleware/apiConfig';
 
 const Chart = () => {
   const [chartData, setChartData] = useState([]);
 
   const fetchDataFromDatabase = async () => {
     try {
-      const response = await fetch('http://localhost:5002/reportscalcIntL');
+      const response = await fetch(`${config.backendUrl}/reportscalcIntL`);
       const responseData = await response.json();
 
       // Map the data to Recharts format
