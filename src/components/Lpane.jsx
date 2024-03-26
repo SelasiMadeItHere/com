@@ -32,7 +32,7 @@ function Lpane() {
                         <li className=' py-5 border-gray-500 border-b-2'>
                             <Link to="/admintranscript">
                                 <CardMembershipRounded fontSize='large' className=' pr-2' />
-                                TRANSCRIPT APPLICATION
+                                TRANSCRIPT APPLICATIONS
                             </Link>
                         </li>
 
